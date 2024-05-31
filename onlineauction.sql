@@ -1,3 +1,4 @@
+
 create table User(
     UserId int not null primary key,
     firstName varchar(20) not null,
@@ -11,7 +12,7 @@ create table User(
     Dateofbirth date not null
 );
 
-create table product(
+create table Product(
     productId int not null primary key,
     productName varchar(30) not null,
     productImage varchar(30) not null,
@@ -20,38 +21,30 @@ create table product(
 );
 
 create table Admin(
-    UserId int not null primary key,
-    FOREIGN  key UserId references User(UserId)
+    UserId references User
 );
 
 create table Seller(
-    UserId int not null primary key,
-    productId int not null,
+    UserId references User,
+    productId references Product,
     startingtime date not null,
     closingtime date not null,
     risingrate float not null,
     rating int not null,
-    roomId int not null,
-    FOREIGN  key UserId references User(UserId),
-    FOREIGN  key productId references product(productId)
+    roomId int not null
 );
 
 create table Bidder(
-    UserId int not null primary key,
-    productId int not null,
-    roomId int not null,
+    UserId references User,
+    productId references Product,
+    roomId references Seller,
     increaingprice float not null,
-    rating int not null,
-    FOREIGN  key UserId references User(UserId),
-    FOREIGN  key productId references product(productId)
-    FOREIGN  key roomId references Seller(roomId)
+    rating int not null
 );
 
 create table winner(
-    UserId int not null primary key,
-    productId int not null,
-    servicecost float not null,
-    FOREIGN  key UserId references User(UserId),
-    FOREIGN  key productId references product(productId)
+    UserId references User,
+    productId references Product,
+    servicecost float not null
     
 );
