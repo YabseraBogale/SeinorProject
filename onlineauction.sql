@@ -1,5 +1,5 @@
 
-create table User(
+create table AcutionUser(
     UserId int not null primary key,
     firstName varchar(20) not null,
     MiddleName varchar(20) not null,
@@ -20,12 +20,12 @@ create table Product(
     startingPrice float not null
 );
 
-create table Admin(
-    UserId references User
+create table AcutionAdmin(
+    UserId references AcutionUser
 );
 
 create table Seller(
-    UserId references User,
+    UserId references AcutionUser,
     productId references Product,
     startingtime date not null,
     closingtime date not null,
@@ -35,7 +35,7 @@ create table Seller(
 );
 
 create table Bidder(
-    UserId references User,
+    UserId references AcutionUser,
     productId references Product,
     roomId references Seller,
     increaingprice float not null,
@@ -43,7 +43,7 @@ create table Bidder(
 );
 
 create table winner(
-    UserId references User,
+    UserId references AcutionUser,
     productId references Product,
     servicecost float not null
     
