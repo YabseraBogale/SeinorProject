@@ -31,5 +31,20 @@ create table Seller(
     closingtime date not null,
     risingrate float not null,
     rating int not null,
-    
+    roomId int not null,
+    forgin key UserId references User(UserId),
+    forgin key productId references product(productId)
 );
+
+create table Bidder(
+    UserId int not null primary key,
+    productId int not null,
+    roomId int not null,
+    increaingprice float not null,
+    rating int not null,
+    forgin key UserId references User(UserId),
+    forgin key productId references product(productId)
+    forgin key roomId references Seller(roomId)
+);
+
+create
