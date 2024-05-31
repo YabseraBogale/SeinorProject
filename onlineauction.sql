@@ -21,12 +21,12 @@ create table Product(
 );
 
 create table AcutionAdmin(
-    UserId references AcutionUser
+    UserId int references AcutionUser
 );
 
 create table Seller(
-    UserId references AcutionUser,
-    productId references Product,
+    UserId int references AcutionUser,
+    productId int references Product,
     startingtime date not null,
     closingtime date not null,
     risingrate float not null,
@@ -35,16 +35,17 @@ create table Seller(
 );
 
 create table Bidder(
-    UserId references AcutionUser,
-    productId references Product,
-    roomId references Seller,
+    UserId int references AcutionUser,
+    productId int references Product,
     increaingprice float not null,
+    lastbid float not null,
     rating int not null
 );
 
+
 create table winner(
-    UserId references AcutionUser,
-    productId references Product,
-    servicecost float not null
-    
+    UserId int references AcutionUser,
+    productId int references Product,
+    servicecost float not null  
 );
+
