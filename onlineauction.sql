@@ -47,4 +47,11 @@ create table Bidder(
     forgin key roomId references Seller(roomId)
 );
 
-create
+create table winner(
+    UserId int not null primary key,
+    productId int not null,
+    servicecost float not null,
+    forgin key UserId references User(UserId),
+    forgin key productId references product(productId)
+    
+)
