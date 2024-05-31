@@ -21,7 +21,7 @@ create table product(
 
 create table Admin(
     UserId int not null primary key,
-    forgin key UserId references User(UserId)
+    FOREIGN  key UserId references User(UserId)
 );
 
 create table Seller(
@@ -32,8 +32,8 @@ create table Seller(
     risingrate float not null,
     rating int not null,
     roomId int not null,
-    forgin key UserId references User(UserId),
-    forgin key productId references product(productId)
+    FOREIGN  key UserId references User(UserId),
+    FOREIGN  key productId references product(productId)
 );
 
 create table Bidder(
@@ -42,16 +42,16 @@ create table Bidder(
     roomId int not null,
     increaingprice float not null,
     rating int not null,
-    forgin key UserId references User(UserId),
-    forgin key productId references product(productId)
-    forgin key roomId references Seller(roomId)
+    FOREIGN  key UserId references User(UserId),
+    FOREIGN  key productId references product(productId)
+    FOREIGN  key roomId references Seller(roomId)
 );
 
 create table winner(
     UserId int not null primary key,
     productId int not null,
     servicecost float not null,
-    forgin key UserId references User(UserId),
-    forgin key productId references product(productId)
+    FOREIGN  key UserId references User(UserId),
+    FOREIGN  key productId references product(productId)
     
-)
+);
