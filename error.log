@@ -1,0 +1,56 @@
+2024-12-24 17:37:11,525 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "GET /items/758424 HTTP/1.1" 200 -
+2024-12-24 17:37:11,823 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "[36mGET /static/item.css HTTP/1.1[0m" 304 -
+2024-12-24 17:37:11,871 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "[36mGET /static/upload/19.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:11,876 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "[36mGET /static/image/3.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:11,882 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "[36mGET /static/image/6.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:11,891 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "[36mGET /static/image/2.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:11,910 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "[36mGET /static/image/4.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:11,978 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:11] "GET /item/time/758424 HTTP/1.1" 200 -
+2024-12-24 17:37:50,661 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:50] "GET /items/316197 HTTP/1.1" 200 -
+2024-12-24 17:37:51,014 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "[36mGET /static/item.css HTTP/1.1[0m" 304 -
+2024-12-24 17:37:51,040 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "[33mGET /static/upload/Yabsera HTTP/1.1[0m" 404 -
+2024-12-24 17:37:51,050 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "[36mGET /static/image/6.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:51,068 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "[36mGET /static/image/3.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:51,082 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "[36mGET /static/image/4.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:51,089 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "[36mGET /static/image/2.jpg HTTP/1.1[0m" 304 -
+2024-12-24 17:37:51,182 - INFO - 127.0.0.1 - - [24/Dec/2024 17:37:51] "GET /item/time/316197 HTTP/1.1" 200 -
+2024-12-24 17:38:27,954 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-12-24 17:38:27,954 - INFO - [33mPress CTRL+C to quit[0m
+Exception on /items/316197 [GET]
+Traceback (most recent call last):
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/app.py", line 248, in items
+    result=item.GetItemWithIID(ID)
+                               ^^
+NameError: name 'ID' is not defined
+2024-12-24 17:38:33,328 - ERROR - Exception on /items/316197 [GET]
+Traceback (most recent call last):
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/env/lib/python3.12/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/yabsera/Documents/seinor 5/app.py", line 248, in items
+    result=item.GetItemWithIID(ID)
+                               ^^
+NameError: name 'ID' is not defined
+2024-12-24 17:38:33,342 - INFO - 127.0.0.1 - - [24/Dec/2024 17:38:33] "[35m[1mGET /items/316197 HTTP/1.1[0m" 500 -

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='item.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+<body>
+    <header class="ADDIS-navbar">
+        <div class="ADDIS-logo">
+          <span class="ADDIS-property">ADDIS</span>
+          <span class="ADDIS-auctions">CHERETA</span>
+        </div>
+        <!-- Toggle Button -->
+        <div class="ADDIS-hamburger" id="hamburger">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <!-- Menu Links -->
+        <nav class="ADDIS-menu" id="menu">
+          <a href="#" class="ADDIS-menu-link">Home</a>
+          <span class="ADDIS-divider">|</span>
+          <a href="#" class="ADDIS-menu-link">Search</a>
+          <span class="ADDIS-divider">|</span>
+          <a href="#" class="ADDIS-menu-link">Ad Page</a>
+          <span class="ADDIS-divider">|</span>
+          <a href="#" class="ADDIS-menu-link">Inner Pages</a>
+          <span class="ADDIS-divider">|</span>
+          <a href="#" class="ADDIS-menu-link">Contact</a>
+          <span class="ADDIS-divider">|</span>
+          <a href="#" class="ADDIS-menu-link">Blog</a>
+        </nav>
+        <!-- Add Auction Button -->
+        <div class="ADDIS-actions">
+          <button class="ADDIS-add-auction-btn">Add Auction</button>
+        </div>
+    </header>
+
+    <div class="product-details">
+        <!-- Content Container -->
+        <div class="content-container">
+            <div class="img-side">
+                <div class="left-side">
+                    <img src="{{url_for('static',filename=photos)}}" alt="Product Image">
+                </div>
+
+                <div class="description-section">
+                    <h3>Description</h3>
+                    <p>
+                        {{desciptions}}
+                    </p>
+                    <div class="features">
+                        <span>✓ Almost New</span>
+                        <span>✓ Latest Model</span>
+                    </div>
+                </div>
+        </div>
+
+            <!-- Right Side: Countdown, Refunds, and Buttons -->
+            <div class="title">
+                <h1 class="product-title">{{itemnames}}</h1>
+                <p class="product-bids">
+                <span>0 bids</span> | <span>7 watchers</span> | <span>Home</span>
+                </p>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-section" id="countdown">
+                    <div class="countdown-box">
+                        <span id="days">0</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="hours">0</span>
+                        <span class="label">Hrs</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="minutes">0</span>
+                        <span class="label">Mins</span>
+                    </div>
+                    <div class="countdown-box">
+                        <span id="seconds">0</span>
+                        <span class="label">Secs</span>
+                    </div>
+                </div>
+                <form id ="formbid" action="http://127.0.0.1:5000/bid/{{IIDS}}" method="POST">
+                    <div class="action-buttons">
+                        <button class="btn bid-now">Bid Now <span>$</span></button>
+                        <input  type="number" name="bid" id="" min="0">
+                        <input class="btn bid-now" type="submit" value="Bid">
+                    </div>
+                </form>
+
+                <div class="refunds-section">
+                    <h3>Information</h3>
+                    <p id="iid"><strong>IID:</strong> {{IIDS}}</p>
+                    <p id="status"><strong>status:</strong> {{state}}</p>
+                    <p><strong>Category:</strong> {{categories}}</p>
+                    <div id="price">
+                        <h3>Starting Price</h3>
+                        <p><strong>Price:</strong> {{startingprice}} birr</p>
+                        <h3>Current Highest Bid</h3>
+                        <p><strong>Price:</strong> {{MaxPrice}} birr</p>
+                    </div>
+                    
+            </div>
+            </div>
+                
+        </div>
+    </div>
+
+    <div class="all">
+        <div class="mb-5 text-700">
+            Recommended For You
+        </div>
+        <div class="list-of-auctions-card-wrapper">
+              <!-- Auction Card 1 -->
+              <div class="list-of-auctions-card">
+                  <div class="list-of-auctions-image">
+                      <img src="{{url_for('static',filename='image/6.jpg')}}" alt="Auction Item">
+                      <div class="list-of-auctions-featured">
+                          <i class="fas fa-star">Featured</i>
+                      </div>
+                      <div class="list-of-auctions-tag list-of-auctions-gold">
+                          <i class="fas fa-medal">Gold</i>
+                      </div>
+                  </div>
+                  <div class="list-of-auctions-info">
+                      <h2>Example Auction 1</h2>
+                      <div class="list-of-auctions-details">
+                          <div><i class="fas fa-clock"></i> 170d 20:34:06</div>
+                          <span class="list-of-auctions-category">
+                              <i class="fas fa-tags"></i>
+                              <a href="https://example.com/referral" target="_blank" style="text-decoration: none; color: inherit;">
+                                  Other
+                              </a>
+                          </span>
+                      </div>
+                      <div class="list-of-auctions-footer">
+                          <div class="list-of-auctions-interactive-buttons">
+                              <button class="list-of-auctions-icon-button list-of-auctions-message" title="Send Message">
+                                  <i class="fas fa-envelope"></i>
+                              </button>
+                              <button class="list-of-auctions-icon-button list-of-auctions-favorite" title="Add to Favorites">
+                                  <i class="fas fa-heart"></i>
+                              </button>
+                              <button class="list-of-auctions-icon-button list-of-auctions-bids" title="2 Bids">
+                                  <i class="fas fa-users"></i>
+                              </button>
+                          </div>
+                          <div class="list-of-auctions-price">
+                              <i class="fas fa-dollar-sign"></i>252
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="list-of-auctions-card">
+                <div class="list-of-auctions-image">
+                    <img src="{{url_for('static',filename='image/3.jpg')}}" alt="Auction Item">
+                    <div class="list-of-auctions-featured">
+                        <i class="fas fa-star">Featured</i>
+                    </div>
+                    <div class="list-of-auctions-tag list-of-auctions-gold">
+                        <i class="fas fa-medal">Gold</i>
+                    </div>
+                </div>
+                <div class="list-of-auctions-info">
+                    <h2>Example Auction 1</h2>
+                    <div class="list-of-auctions-details">
+                        <div><i class="fas fa-clock"></i> 170d 20:34:06</div>
+                        <span class="list-of-auctions-category">
+                            <i class="fas fa-tags"></i>
+                            <a href="https://example.com/referral" target="_blank" style="text-decoration: none; color: inherit;">
+                                Other
+                            </a>
+                        </span>
+                    </div>
+                    <div class="list-of-auctions-footer">
+                        <div class="list-of-auctions-interactive-buttons">
+                            <button class="list-of-auctions-icon-button list-of-auctions-message" title="Send Message">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                            <button class="list-of-auctions-icon-button list-of-auctions-favorite" title="Add to Favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="list-of-auctions-icon-button list-of-auctions-bids" title="2 Bids">
+                                <i class="fas fa-users"></i>
+                            </button>
+                        </div>
+                        <div class="list-of-auctions-price">
+                            <i class="fas fa-dollar-sign"></i>252
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="list-of-auctions-card">
+                <div class="list-of-auctions-image">
+                    <img src="{{url_for('static',filename='image/2.jpg')}}" alt="Auction Item">
+                    <div class="list-of-auctions-featured">
+                        <i class="fas fa-star">Featured</i>
+                    </div>
+                    <div class="list-of-auctions-tag list-of-auctions-gold">
+                        <i class="fas fa-medal">Gold</i>
+                    </div>
+                </div>
+                <div class="list-of-auctions-info">
+                    <h2>Example Auction 1</h2>
+                    <div class="list-of-auctions-details">
+                        <div><i class="fas fa-clock"></i> 170d 20:34:06</div>
+                        <span class="list-of-auctions-category">
+                            <i class="fas fa-tags"></i>
+                            <a href="https://example.com/referral" target="_blank" style="text-decoration: none; color: inherit;">
+                                Other
+                            </a>
+                        </span>
+                    </div>
+                    <div class="list-of-auctions-footer">
+                        <div class="list-of-auctions-interactive-buttons">
+                            <button class="list-of-auctions-icon-button list-of-auctions-message" title="Send Message">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                            <button class="list-of-auctions-icon-button list-of-auctions-favorite" title="Add to Favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="list-of-auctions-icon-button list-of-auctions-bids" title="2 Bids">
+                                <i class="fas fa-users"></i>
+                            </button>
+                        </div>
+                        <div class="list-of-auctions-price">
+                            <i class="fas fa-dollar-sign"></i>252
+                        </div>
+                    </div>
+                </div>
+              </div>
+              <div class="list-of-auctions-card">
+                <div class="list-of-auctions-image">
+                    <img src="{{url_for('static',filename='image/4.jpg')}}" alt="Auction Item">
+                    <div class="list-of-auctions-featured">
+                        <i class="fas fa-star">Featured</i>
+                    </div>
+                    <div class="list-of-auctions-tag list-of-auctions-gold">
+                        <i class="fas fa-medal">Gold</i>
+                    </div>
+                </div>
+                <div class="list-of-auctions-info">
+                    <h2>Example Auction 1</h2>
+                    <div class="list-of-auctions-details">
+                        <div><i class="fas fa-clock"></i> 170d 20:34:06</div>
+                        <span class="list-of-auctions-category">
+                            <i class="fas fa-tags"></i>
+                            <a href="https://example.com/referral" target="_blank" style="text-decoration: none; color: inherit;">
+                                Other
+                            </a>
+                        </span>
+                    </div>
+                    <div class="list-of-auctions-footer">
+                        <div class="list-of-auctions-interactive-buttons">
+                            <button class="list-of-auctions-icon-button list-of-auctions-message" title="Send Message">
+                                <i class="fas fa-envelope"></i>
+                            </button>
+                            <button class="list-of-auctions-icon-button list-of-auctions-favorite" title="Add to Favorites">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                            <button class="list-of-auctions-icon-button list-of-auctions-bids" title="2 Bids">
+                                <i class="fas fa-users"></i>
+                            </button>
+                        </div>
+                        <div class="list-of-auctions-price">
+                            <i class="fas fa-dollar-sign"></i>252
+                        </div>
+                    </div>
+                </div>
+              </div>
+              
+        </div>
+         
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+          <!-- Logo and Description -->
+          <div class="footer-left">
+            <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
+            <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
+          </div>
+      
+          <!-- Useful Links -->
+          <div class="footer-links">
+            <h5>Useful Links</h5>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+      
+          <!-- Quick Search -->
+          <div class="footer-search">
+            <h5>Quick Search</h5>
+            <ul>
+              <li><a href="#">Search</a></li>
+              <li><a href="#">Popular</a></li>
+              <li><a href="#">Newly Added</a></li>
+              <li><a href="#">Most Relevant</a></li>
+            </ul>
+          </div>
+      
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <h5>Join our newsletter</h5>
+            <p>We write rarely, but only the best content.</p>
+            <form>
+              <input type="email" placeholder="Email Address Here.." />
+              <button type="submit">Join</button>
+            </form>
+            <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+          </div>
+        </div>
+      
+        <!-- Bottom Section -->
+        <div class="footer-bottom">
+          <p>© 2024 All rights reserved.</p>
+        </div>
+    </footer>
+    <SCript>
+     const hamburger = document.getElementById('hamburger');
+      const menu = document.getElementById('menu');
+
+      hamburger.addEventListener('click', () => {
+        menu.classList.toggle('active');
+      });
+
+      function startCountdown(endTime) {
+            const daysEl = document.getElementById("days");
+            const hoursEl = document.getElementById("hours");
+            const minutesEl = document.getElementById("minutes");
+            const secondsEl = document.getElementById("seconds");
+    
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+    
+                if (distance <= 0) {
+                    clearInterval(interval);
+                    daysEl.textContent = "0";
+                    hoursEl.textContent = "00";
+                    minutesEl.textContent = "00";
+                    secondsEl.textContent = "00";
+                    const formbid=document.getElementById("formbid")
+                    formbid.remove()
+                    const price=document.getElementById("price")
+                    price.remove()
+                    const status=document.getElementById("status")
+                    status.innerText="status: Sold"
+                    return;
+                } 
+    
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+                daysEl.textContent = days;
+                hoursEl.textContent = hours.toString().padStart(2, "0");
+                minutesEl.textContent = minutes.toString().padStart(2, "0");
+                secondsEl.textContent = seconds.toString().padStart(2, "0");
+            }
+    
+            const interval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+        }
+        const IID=document.getElementById("iid").innerText.split(" ")[1]
+        fetch(`http://127.0.0.1:5000/item/time/${IID}`)
+            .then(response=> response.json())
+            .then(data=>{
+                const endDate = new Date(data[5])
+                startCountdown(endDate);
+            })
+            .catch(error=>error)
+               
+    </SCript>
+</body>
+</html>

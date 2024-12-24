@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Addis Chereta Dashboard</title>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  /* Centering the container */
+  .CHERETA-container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .CHERETA-container {
+    display: flex;
+    width: 90%;
+    max-width: 1266.8px; /* Set width to 1266.8px */
+    height: 1154.5px; /* Set height to 1154.5px */
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  /* Sidebar Styles */
+  .CHERETA-sidebar {
+    width: 353px; /* Set sidebar width to 353px */
+    height: 779.6px; /* Set sidebar height to 779.6px */
+    background: #ffffff;
+    color: #000000;
+    padding: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .CHERETA-sidebar ul {
+    padding: 0;
+  }
+  
+  .CHERETA-sidebar li {
+    width: 351.8px; /* Set width of li to 351.8px */
+    height: 106.4px; /* Set height of li to 106.4px */
+    padding: 15px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack text and paragraph */
+    align-items: center;
+    justify-content: center; /* Center text and paragraph */
+  }
+  
+  .CHERETA-sidebar li.active,
+  .CHERETA-sidebar li:hover {
+    background: #0056b3;
+  }
+  
+  .CHERETA-sidebar li p {
+    font-size: 12px;
+    margin-top: 10px;
+    opacity: 0.8;
+    line-height: 1.4;
+    text-align: start;
+  }
+  
+  /* Divider Styles */
+  .CHERETA-divider {
+    width: 2px;
+    background: #ddd;
+  }
+  
+  /* Content Styles */
+  .CHERETA-content {
+    flex: 1;
+    padding: 30px;
+    width: 914.8px; /* Set content width to 914.8px */
+    height: 1155.5px; /* Set content height to 1155.5px */
+  }
+  
+  .CHERETA-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .CHERETA-content p {
+    margin-bottom: 20px;
+  }
+  
+  .CHERETA-section {
+    display: none;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+  }
+  
+  .CHERETA-section.active {
+    display: block;
+  }
+
+    /* Header */
+    .ADDIS-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #007bff;
+      color: #fff;
+      padding: 15px 30px;
+    }
+
+    .ADDIS-logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .ADDIS-logo .ADDIS-property {
+      color: #fff;
+    }
+
+    .ADDIS-logo .ADDIS-auctions {
+      color: #ffcc00;
+    }
+
+    .ADDIS-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .ADDIS-menu-link {
+      color: #fff;
+      margin: 0 10px;
+      font-weight: bold;
+    }
+
+    .ADDIS-divider {
+      color: #ddd;
+    }
+
+    .ADDIS-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .ADDIS-add-auction-btn {
+      background: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    /* Footer */
+    .footer {
+          background-color: #000;
+          color: #fff;
+          padding: 40px 0;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+        
+        .textlogo {
+          font-size: 28px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+        
+        .text-primary {
+          color: #ffc107;
+        }
+        
+        .description {
+          color: #ccc;
+          line-height: 1.8;
+        }
+        
+        .footer-left, .footer-links, .footer-search, .footer-newsletter {
+          width: 23%;
+          margin-bottom: 20px;
+        }
+        
+        .footer-links h5, .footer-search h5, .footer-newsletter h5 {
+          font-size: 18px;
+          margin-bottom: 10px;
+          color: #fff;
+        }
+        
+        .footer-links ul, .footer-search ul {
+          list-style: none;
+          padding: 0;
+        }
+        
+        .footer-links ul li, .footer-search ul li {
+          margin-bottom: 8px;
+        }
+        
+        .footer-links a, .footer-search a {
+          color: #ccc;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        
+        .footer-links a:hover, .footer-search a:hover {
+          color: #ffc107;
+        }
+        
+        .footer-newsletter input {
+          padding: 10px;
+          width: 80%;
+          margin-right: 10px;
+          background-color: #222;
+          border: none;
+          color: #fff;
+          border-radius: 5px;
+        }
+        
+        .footer-newsletter button {
+          padding: 10px 20px;
+          background-color: #ffc107;
+          border: none;
+          color: #000;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+        
+        .footer-newsletter button:hover {
+          background-color: #e6b800;
+        }
+        
+        .footer-newsletter small {
+          display: block;
+          margin-top: 10px;
+          font-size: 12px;
+          color: #ccc;
+        }
+        
+        .footer-newsletter small a {
+          color: #ffc107;
+        }
+        
+        .footer-newsletter small a:hover {
+          color: #fff;
+        }
+        
+        /* Footer Bottom Section */
+        .footer-bottom {
+          background-color: #222;
+          color: #ccc;
+          padding: 20px;
+          text-align: center;
+        }
+        
+        .footer-bottom .social-icons a {
+          margin: 0 10px;
+          color: #fff;
+          font-size: 18px;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        
+        .footer-bottom .social-icons a:hover {
+          color: #ffc107;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .container {
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .footer-left, .footer-links, .footer-search, .footer-newsletter {
+            width: 100%;
+            text-align: center;
+          }
+        
+          .footer-newsletter input {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+        
+          .footer-newsletter button {
+            width: 100%;
+          }
+        
+          .footer-bottom {
+            text-align: center;
+          }
+          .CHERETA-container {
+            flex-direction: column;
+          }
+
+          .CHERETA-sidebar {
+            width: 100%;
+            text-align: center;
+          }
+
+          .CHERETA-divider {
+            display: none;
+          }
+
+        }
+
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="ADDIS-navbar">
+    <div class="ADDIS-logo">
+      <span class="ADDIS-property">ADDIS</span>
+      <span class="ADDIS-auctions">CHERETA</span>
+    </div>
+    <nav class="ADDIS-menu">
+      <a href="#" class="ADDIS-menu-link">Home</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Search</a>
+     
+      
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Contact</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Blog</a>
+    </nav>
+    <div class="ADDIS-actions">
+      <button class="ADDIS-add-auction-btn"><a href="{{url_for('addauction')}}" style="text-decoration: none;">Add Auction</a></button>
+    </div>
+  </header>
+  <style>/* Fullscreen container */
+    .ADDIS-center-container {
+        display: flex;
+        justify-content:none;
+        align-items: center;
+        background-color: #f0f0f0; /* Optional background color */
+        margin: 10px 90px 10px;
+        box-sizing: border-box;
+    }
+    
+    /* Admin Header Section */
+    .ADDIS-admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f4f4f4; /* Light background */
+        padding: 20px;
+        border-bottom: 2px solid #ddd; /* Subtle border */
+        font-family: Arial, sans-serif;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 642.24px; /* Fixed width */
+    }
+    
+    /* User Info Section */
+    .ADDIS-user-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .ADDIS-username {
+        font-size: 20px;
+        font-weight: bold;
+        color: #333;
+        margin: 0;
+    }
+    
+    .ADDIS-user-details {
+        font-size: 14px;
+        color: #555;
+        margin: 0;
+    }
+    
+    /* Header Buttons Section */
+    .ADDIS-header-buttons {
+        display: flex;
+        gap: 10px;
+    }
+    
+    .ADDIS-add-auction-btn,
+    .ADDIS-logout-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    
+    /* Add Auction Button */
+    .ADDIS-add-auction-btn {
+        background-color: #007bff;
+        color: #fff;
+    }
+    
+    .ADDIS-add-auction-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Logout Button */
+    .ADDIS-logout-btn {
+        background-color: #dc3545;
+        color: #fff;
+    }
+    
+    .ADDIS-logout-btn:hover {
+        background-color: #a71d2a;
+    }
+    
+  
+  </style>
+  <div class="ADDIS-center-container">
+  <div class="ADDIS-admin-header">
+      <div class="ADDIS-user-info">
+          <h2 class="ADDIS-username">admindemo</h2>
+          <p class="ADDIS-user-details">Agency • admindemo@premiumpress.com</p>
+      </div>
+      <div class="ADDIS-header-buttons">
+          <button class="ADDIS-add-auction-btn">Add Auction</button>
+          <button class="ADDIS-logout-btn"><a href="{{url_for('logout')}}" style="text-decoration: none;">Logout</a></button>
+      </div>
+  </div>
+  </div>
+
+
+  <!-- Main Content -->
+  <div class="CHERETA-container-wrapper">
+    <div class="CHERETA-container">
+      <div class="CHERETA-sidebar">
+        <ul>
+          <li data-section="dashboard" class="active">
+            Dashboard
+            <p>Here you'll find your account overview, recent account notices and alerts.</p>
+          </li>
+          <li data-section="bids">
+            My Bids
+            <p>Here you'll find your active bids and bidding history.</p>
+          </li>
+          <li data-section="messages">
+            Messages
+            <p>Here you can view your private messages and communication with other users.</p>
+          </li>
+          
+          <li data-section="balance">
+            Balance & Invoices
+            <p>View your current balance and invoices for transactions made.</p>
+          </li>
+          
+          <li data-section="settings">
+            Settings
+            <p>Update your account settings, contact information, and password.</p>
+            
+          </li>
+        </ul>
+      </div>
+      <div class="CHERETA-divider"></div>
+      <div class="CHERETA-content">
+        <div id="dashboard" class="CHERETA-section active">
+          <style>/* Global Styles */
+            body {
+              font-family: 'Arial', sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+              color: #333;
+            }
+            
+            h1, h2 {
+              color: #333;
+            }
+            
+            /* Header Styles */
+            .Dashboard-header {
+              background-color: #333;
+              color: #fff;
+              padding: 20px;
+              text-align: center;
+            }
+            
+            .Dashboard-header h1 {
+              font-size: 2.5rem;
+              margin-bottom: 10px;
+            }
+            
+            .Dashboard-header p {
+              font-size: 1.1rem;
+              color: #bbb;
+            }
+            
+            /* User Info Section */
+            .Dashboard-user-info {
+              background-color: #fff;
+              padding: 20px;
+              margin: 20px auto;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .Dashboard-user-info .Dashboard-info-item {
+              font-size: 1rem;
+              margin-bottom: 10px;
+            }
+            
+            .Dashboard-user-info .Dashboard-info-item strong {
+              color: #333;
+            }
+            
+            /* Welcome Section */
+            .Dashboard-welcome-section {
+              background-color: #fff;
+              padding: 20px;
+              margin: 20px auto;
+              
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+              text-align: center;
+            }
+            
+            .Dashboard-welcome-section p {
+              font-size: 1.1rem;
+              color: #666;
+              margin-bottom: 20px;
+            }
+            
+            .Dashboard-welcome-section button {
+              background-color: #ffc107;
+              color: #000;
+              padding: 12px 30px;
+              font-size: 1rem;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              transition: background-color 0.3s ease;
+            }
+            
+            .Dashboard-welcome-section button:hover {
+              background-color: #e6b800;
+            }
+            
+            /* Recent Notices Section */
+            .Dashboard-recent-notices {
+              background-color: #fff;
+              padding: 20px;
+              margin: 20px auto;
+              border-radius: 8px;
+              box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+            
+            .Dashboard-recent-notices h2 {
+              font-size: 1.8rem;
+              margin-bottom: 20px;
+              color: #333;
+            }
+            
+            .Dashboard-notice {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 15px;
+              background-color: #f9f9f9;
+              margin-bottom: 10px;
+              border-radius: 8px;
+            }
+            
+            .Dashboard-notice-info p {
+              font-size: 1rem;
+              color: #555;
+              margin: 5px 0;
+            }
+            
+            .Dashboard-notice-actions button {
+              background-color: #ffc107;
+              color: #000;
+              padding: 8px 16px;
+              font-size: 0.9rem;
+              border: none;
+              border-radius: 5px;
+              cursor: pointer;
+              margin-left: 10px;
+              transition: background-color 0.3s ease;
+            }
+            
+            .Dashboard-notice-actions button:hover {
+              background-color: #e6b800;
+            }
+            
+            .Dashboard-notice-actions .Dashboard-delete-btn {
+              background-color: #f44336;
+            }
+            
+            .Dashboard-notice-actions .Dashboard-delete-btn:hover {
+              background-color: #d32f2f;
+            }
+            #notices-container {
+                max-height: 300px; /* Adjust the height as needed */
+                overflow-y: auto;
+                border: 1px solid #ccc;
+                padding: 10px;
+            }
+
+            .Dashboard-scroll-btn:hover {
+                background-color: #0056b3;
+            }
+
+            
+            /* Responsive Design */
+            @media (max-width: 768px) {
+              .Dashboard-user-info, .Dashboard-welcome-section, .Dashboard-recent-notices {
+                width: 95%;
+              }
+            
+              .Dashboard-header h1 {
+                font-size: 2rem;
+              }
+            
+              .Dashboard-header p {
+                font-size: 1rem;
+              }
+            
+              .Dashboard-welcome-section button {
+                width: 100%;
+              }
+            
+              .Dashboard-notice {
+                flex-direction: column;
+                align-items: flex-start;
+              }
+            
+              .Dashboard-notice-actions {
+                display: flex;
+                justify-content: flex-start;
+                margin-top: 10px;
+              }
+            }
+          </style>
+          <header class="Dashboard-header">
+            <h1>Welcome Back</h1>
+            <p>Here's an overview of your account.</p>
+          </header>
+          
+          <div class="Dashboard-user-info">
+            <div class="Dashboard-info-item">My Username: <strong>admindemo</strong></div>
+            <div class="Dashboard-info-item">My Location: <strong>Greece</strong></div>
+            <div class="Dashboard-info-item">My Email: <strong>admin@premiu...</strong></div>
+          </div>
+          
+          <section class="Dashboard-welcome-section">
+            <p>
+              Welcome back! We are constantly updating and improving our service. If
+              you have any questions or feedback, get in touch—we would love to
+              hear them.
+            </p>
+            <button id="Dashboard-contact-us-btn">Contact Us</button>
+          </section>
+          
+          <section class="Dashboard-recent-notices" id="Dashboard-notices-section">
+            <h2>Recent Notices</h2>
+            <div id="notices-container" class="Dashboard-notices-scroll">
+                <div class="Dashboard-notice">
+                    <div class="Dashboard-notice-info">
+                        <p><strong>New Bid</strong></p>
+                        <p>You have bid on Example Auction 9</p>
+                        <p>1D ago</p>
+                    </div>
+                    <div class="Dashboard-notice-actions">
+                        <button class="Dashboard-view-btn">View</button>
+                        <button class="Dashboard-delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div class="Dashboard-notice">
+                  <div class="Dashboard-notice-info">
+                      <p><strong>New Bid</strong></p>
+                      <p>You have bid on Example Auction 9</p>
+                      <p>1D ago</p>
+                  </div>
+                  <div class="Dashboard-notice-actions">
+                      <button class="Dashboard-view-btn">View</button>
+                      <button class="Dashboard-delete-btn">Delete</button>
+                  </div>
+              </div>
+              <div class="Dashboard-notice">
+                <div class="Dashboard-notice-info">
+                    <p><strong>New Bid</strong></p>
+                    <p>You have bid on Example Auction 9</p>
+                    <p>1D ago</p>
+                </div>
+                <div class="Dashboard-notice-actions">
+                    <button class="Dashboard-view-btn">View</button>
+                    <button class="Dashboard-delete-btn">Delete</button>
+                </div>
+            </div>
+                <!-- Repeat other notices here -->
+            </div>
+            <!-- <script>document.getElementById("scroll-down-btn").addEventListener("click", function () {
+              const noticesContainer = document.getElementById("notices-container");
+              noticesContainer.scrollBy({
+                  top: 100, // Adjust the scroll amount
+                  behavior: "smooth"
+              });
+          });
+          </script>          
+             -->
+        </section>
+        
+        </div>
+        <div id="bids" class="CHERETA-section">
+          <h1>My Bids</h1>
+          <p>Any bids you have made or received can be found here.</p>
+        </div>
+        <div id="messages" class="CHERETA-section">
+          <h1>Messages</h1>
+          <p>Here you can chat with other users using our private message system.</p>
+        </div>
+        <div id="friends" class="CHERETA-section">
+          <h1>My Friends</h1>
+          <p>Build a friends list and manage your website connections here.</p>
+        </div>
+        <div id="balance" class="CHERETA-section">
+          <h1>Balance & Invoices</h1>
+          <p>View your account balance, invoices, and recent withdrawals here.</p>
+        </div>
+        <div id="advertising" class="CHERETA-section">
+          <h1>Advertising</h1>
+          <p>Manage your website banners and advertising here.</p>
+        </div>
+        <div id="settings" class="CHERETA-section">
+          <h1>Settings</h1>
+          <p>Update your contact details, email, password, and other settings here.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- Logo and Description -->
+      <div class="footer-left">
+        <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
+        <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
+      </div>
+  
+      <!-- Useful Links -->
+
+      <!-- Quick Search -->
+      <div class="footer-search">
+        <h5>Quick Search</h5>
+        <ul>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Popular</a></li>
+          <li><a href="#">Newly Added</a></li>
+          <li><a href="#">Most Relevant</a></li>
+        </ul>
+      </div>
+  
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+        <h5>Join our newsletter</h5>
+        <p>We write rarely, but only the best content.</p>
+        <form>
+          <input type="email" placeholder="Email Address Here.." />
+          <button type="submit">Join</button>
+        </form>
+        <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+      </div>
+    </div>
+  
+    <!-- Bottom Section -->
+    <div class="footer-bottom">
+      <p>© 2024 All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sidebarItems = document.querySelectorAll(".CHERETA-sidebar li");
+      const sections = document.querySelectorAll(".CHERETA-section");
+  
+      sidebarItems.forEach(item => {
+        item.addEventListener("click", () => {
+          // Remove "active" class from all sidebar items
+          sidebarItems.forEach(i => i.classList.remove("active"));
+          // Add "active" class to the clicked sidebar item
+          item.classList.add("active");
+  
+          // Hide all sections
+          sections.forEach(section => section.classList.remove("active"));
+
+          // Show the corresponding section
+          const sectionId = item.getAttribute("data-section");
+          const targetSection = document.getElementById(sectionId);
+  
+          if (targetSection) {
+            targetSection.classList.add("active");
+          } else {
+            console.error(`Section with ID "${sectionId}" not found.`);
+          }
+        });
+      });
+    });
+  </script>
+  
+</body>
+</html>

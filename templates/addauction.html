@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Auction</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='addauction.css')}}">
+</head>
+<body>
+    <div class="full-screen-wrapper">
+        <div class="left-side">
+            <img src="{{url_for('static',filename='image/1.png')}}" alt="Left Side Image" id="leftSideImage">
+            <!-- Overlay container for additional details on hover -->
+            <div class="overlay">
+                <div class="overlay-text">
+                    WELCOME TO ADDIS CHERETA!<br>Add Auction NOW TO GET STARTED
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="container">
+                <h1><span>Add Auction</span> WITH US</h1>
+                <form id="registrationForm" action="{{url_for('addauction')}}" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                        <div class="image-preview">
+                            <img id="imageCircle" src="" alt="Preview Image">
+                        </div>
+                        <label for="photoInput">Upload Photo</label>
+                        <input type="file" name="Photo" id="photoInput" accept="image/*" required onchange="previewImage(event)">
+                        
+                    </div>
+                    <div class="form-group">
+                      <label for="Item">Item Name</label>
+                      <input type="text" name="itemName" id="itemName" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="Description">Description</label>
+                      <textarea name="description" id="description" cols="60" rows="10"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="startingPrice">Starting Price</label>
+                        <input type="number" name="startingprice" id="" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="EndDate">End Date</label>
+                        <input type="date" name="endDate"  required>
+                    </div>
+                    <div class="form-group">
+                        <label for="Category">Category</label>
+                        <select name="category" id="category" required>
+                            <option value="">Select your Category</option>
+                            <option value="Application">Application</option>
+                            <option value="Art">Art</option>
+                            <option value="Books">Books</option>
+                            <option value="Clothing">Clothing</option>
+                            <option value="Car">Car</option>
+                            <option value="Computer">Computer</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Game">Game</option>
+                            <option value="Home">Home</option>
+                            <option value="Adama">Paints</option>
+                            <option value="Pets">Pets</option>
+                        </select>
+                    </div>
+                    <!-- Positioning the Register button at the bottom -->
+                    <div class="form-footer">
+                        <button type="submit">Add Auction</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const image = document.getElementById('imageCircle');
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.style.display = 'block';
+            // Ensure the button is visible after image selection
+            document.querySelector('label[for="firstname"]').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Screen Registration Form</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='regsister.css')}}">
+</head>
+<body>
+    <div class="full-screen-wrapper">
+        <div class="left-side">
+            <img src="{{url_for('static',filename='image/1.png')}}" alt="Left Side Image" id="leftSideImage">
+            <!-- Overlay container for additional details on hover -->
+            <div class="overlay">
+                <div class="overlay-text">
+                    WELCOME TO ADDIS CHERETA!<br>REGISTER NOW TO GET STARTED
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="container">
+                <h1><span>REGISTER</span> WITH US</h1>
+                <form id="registrationForm" action="{{url_for('regsister')}}" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                        <div class="image-preview">
+                            <img id="imageCircle" src="" alt="Preview Image">
+                        </div>
+                        <label for="photoInput">Upload Photo</label>
+                        <input type="file" name="Photo" id="photoInput" accept="image/*" required onchange="previewImage(event)">
+                        
+                    </div>
+                    <div class="form-group">
+                      <label for="firstname">Firstname</label>
+                      <input type="text" name="Firstname" id="firstname" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="middlename">Middlename</label>
+                      <input type="text" name="Middlename" id="middlename" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" name="Lastname" id="lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        {% if message=="Problem With Email" %}
+                        <p style="color: red;">Problem With Email</p>
+                        <input type="email" name="Email" id="email" required>
+                        {% elif message=="Email Exists" %}
+                            <p style="color: red;">Email Exists</p>
+                            <input type="email" name="Email" id="email" required>
+                        {% else %}
+                        <input type="email" name="Email" id="email" required>
+                        {% endif %}
+                    </div>
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select name="Location" id="location" required>
+                            <option value="">Select your location</option>
+                            <option value="Addis Abeba">Addis Abeba</option>
+                            <option value="Jimma">Jimma</option>
+                            <option value="Bahir Dar">Bahir Dar</option>
+                            <option value="Hawassa">Hawassa</option>
+                            <option value="Dire Dawa">Dire Dawa</option>
+                            <option value="Mekelle">Mekelle</option>
+                            <option value="Gondar">Gondar</option>
+                            <option value="Harar">Harar</option>
+                            <option value="Adama">Adama</option>
+                            <option value="Debre Markos">Debre Markos</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="Password" id="password" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="re_password">Re-password</label>
+                        <input type="password" name="re_password" id="re_password" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="phonenumber">Phonenumber</label>
+                        <input type="tel" name="Phonenumber" id="phonenumber" required pattern="[0-9]{10}">
+                    </div>
+                    
+                    <!-- Positioning the Register button at the bottom -->
+                    <div class="form-footer">
+                        <button type="submit">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            const image = document.getElementById('imageCircle');
+            image.src = URL.createObjectURL(event.target.files[0]);
+            image.style.display = 'block';
+            // Ensure the button is visible after image selection
+            document.querySelector('label[for="firstname"]').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

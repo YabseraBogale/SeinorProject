@@ -1,0 +1,762 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Overall Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff; /* White background */
+  border-bottom: 1px solid #ddd; /* Optional light border for clarity */
+}
+
+/* Logo Styling */
+.brand-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.brand-text {
+  color: #000; /* Black color for "Property" */
+}
+
+.brand-highlight {
+  color: #f1c40f; /* Yellow color for "Auctions" */
+}
+
+/* Navbar Menu */
+.menu-navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Navigation Links */
+.navigation-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+.navigation-links li {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.navigation-links a {
+  text-decoration: none;
+  color: #000; /* Black text */
+  transition: color 0.3s ease;
+}
+
+.navigation-links a:hover {
+  color: #f1c40f; /* Yellow on hover */
+}
+
+/* Add Auction Button */
+.btn-primary-action {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text */
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px; /* Fully rounded edges */
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary-action:hover {
+  background-color: #333; /* Slightly lighter black on hover */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn-primary-action {
+    margin-top: 15px;
+  }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: image-set("OIP.jpg");
+  padding: 4rem 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-light {
+  padding: 0.8rem 1.5rem;
+  background-color: #fff;
+  color: #333;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #f1c40f;
+  color: #333;
+}
+
+/* Featured Auctions Section */
+.featured-auctions {
+  background-color: #fff;
+  padding: 2rem 0;
+  text-align: center;
+  border-top: 1px solid #eaeaea;
+}
+
+.featured-auctions h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.featured-auctions p {
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+/* Grid Layout */
+.auctions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  align-items: stretch;
+}
+.auctions-grid {
+  margin-top: 20px;
+  margin-bottom: 20px; /* Adjust the value as needed */
+}
+
+/* Auction Card */
+.auction-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.auction-image {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.auction-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auction-image .tag {
+  position: absolute;
+  top: 10px;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.tag.gold {
+  background-color: #ffbf00;
+  left: 10px;
+}
+
+.tag.featured {
+  background-color: #fca311;
+  right: 10px;
+}
+
+.auction-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.auction-info h2 {
+  font-size: 1.2rem;
+  margin: 0 0 10px;
+}
+
+.auction-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+  text-align: right;
+}
+
+/* View More Button */
+.btn-view-more {
+  margin-top: 2rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view-more:hover {
+  background-color: #f1c40f;
+  color: #333;
+}
+/* General Section Styling */
+.section-60 {
+  padding: 60px 0; /* Padding at top and bottom */
+  background-color: #f9f9f9; /* Light background color */
+}
+
+.section-60 h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.section-60 p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Image Styling */
+.section-60 .img-fluid {
+  max-width: 100%;
+  border-radius: 8px; /* Rounded corners for the image */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Button Styling */
+.section-60 .btn-lg {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.section-60 .btn-primary {
+  background-color: #007bff; /* Default blue color */
+  border: none;
+}
+
+.section-60 .btn-primary:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.05); /* Slightly enlarge the button */
+}
+
+.section-60 .btn-primary.mt-2 {
+  margin-top: 0.8rem;
+  margin-right: 1rem;
+}
+
+/* Responsive Layout */
+.section-60 .row {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Evenly space content */
+}
+
+.section-60 .col-md-6 {
+  flex: 0 0 50%;
+  max-width: 50%;
+}
+
+.section-60 .col-md-6:first-child {
+  padding-right: 2rem; /* Add space between the image and text on larger screens */
+}
+
+.section-60 .col-md-6:last-child {
+  padding-left: 2rem;
+}
+
+/* Adjustments for Smaller Screens */
+@media (max-width: 768px) {
+  .section-60 .row {
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  .section-60 .col-md-6 {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding: 0;
+  }
+
+  .section-60 .col-md-6:first-child,
+  .section-60 .col-md-6:last-child {
+    padding: 0;
+  }
+
+  .section-60 .btn-primary.mt-2 {
+    margin-right: 0;
+    width: 100%; /* Make buttons full-width on small screens */
+  }
+}
+/* Section Styling */
+.bg-primary.section-40 {
+  padding: 40px 0; /* Top and bottom padding */
+  background-color: #007bff; /* Primary blue background */
+  color: #fff; /* White text */
+}
+
+.bg-primary.section-40 h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  color: #fff; /* Ensure the text is white */
+  text-align: center;
+  text-transform: uppercase; /* Optional: Make the text all caps */
+}
+
+/* Button Styling */
+.btn-rounded-25 {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 25px; /* Rounded button style */
+  color: #007bff; /* Blue text color */
+  background-color: #fff; /* White background */
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-rounded-25:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  color: #fff; /* White text on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.btn-icon i {
+  margin-left: 0.5rem; /* Space between text and icon */
+  transition: transform 0.3s ease;
+}
+
+.btn-icon:hover i {
+  transform: translateX(5px); /* Slide icon to the right on hover */
+}
+
+/* Row and Alignment */
+.align-items-center {
+  display: flex;
+  align-items: center; /* Vertically center content */
+  justify-content: space-between; /* Distribute columns evenly */
+}
+
+.text-md-left {
+  text-align: left;
+}
+
+.text-md-right {
+  text-align: right;
+}
+
+/* Mobile Styling */
+.hide-mobile {
+  display: none; /* Hides the section on mobile */
+}
+
+@media (min-width: 768px) {
+  .hide-mobile {
+    display: block; /* Display section on larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .text-md-left,
+  .text-md-right {
+    text-align: center; /* Center-align text on smaller screens */
+  }
+
+  .align-items-center {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .col-10.mx-auto {
+    margin-bottom: 1rem;
+  }
+
+  .btn-rounded-25 {
+    width: 100%; /* Make button full-width on small screens */
+  }
+}
+/* Footer General Styling */
+/* Footer General Styling */
+.footer-txt-light {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text color */
+  padding: 40px 0; /* Top and bottom padding */
+  line-height: 1.8;
+  font-size: 1rem;
+  border-top: 4px solid #f1c40f; /* Yellow border at the top */
+}
+
+/* Footer Container */
+.footer-txt-light .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Footer Columns */
+.footer-txt-light .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-txt-light .row > div {
+  margin-bottom: 20px;
+}
+
+/* Logo and Description */
+.footer-txt-light .logo-lg .textlogo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.footer-txt-light .logo-lg .textlogo .text-primary {
+  color: #f1c40f; /* Yellow accent */
+}
+
+.footer-txt-light .logo-lg .lh-30 {
+  color: #aaa;
+  font-size: 0.95rem;
+}
+
+/* Useful Links and Quick Search */
+.footer-txt-light ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-txt-light ul li {
+  margin-bottom: 8px;
+}
+
+.footer-txt-light ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.footer-txt-light ul li a:hover {
+  color: #f1c40f; /* Hover effect */
+}
+
+/* Newsletter Section */
+.footer-txt-light .footer-newsletter {
+  margin-top: 10px;
+}
+
+.footer-txt-light .footer-newsletter .input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.footer-txt-light .footer-newsletter input {
+  border: none;
+  padding: 10px;
+  flex-grow: 1;
+  font-size: 1rem;
+  color: #333;
+}
+
+.footer-txt-light .footer-newsletter button {
+  background-color: #f1c40f; /* Yellow background */
+  border: none;
+  color: #000; /* Black text */
+  font-weight: bold;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.footer-txt-light .footer-newsletter button:hover {
+  background-color: #d4a00d;
+}
+
+/* Footer Bottom Section */
+.footer-txt-light .small {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+.footer-txt-light .small a {
+  color: #f1c40f;
+  text-decoration: none;
+}
+
+.footer-txt-light .small a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+/* Social Icons */
+.footer-txt-light .social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  gap: 15px;
+}
+
+.footer-txt-light .social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-txt-light .social-icons a:hover {
+  color: #f1c40f;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .footer-txt-light .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-txt-light .logo-lg,
+  .footer-txt-light ul,
+  .footer-txt-light .footer-newsletter {
+    text-align: center;
+  }
+
+  .footer-txt-light ul li {
+    margin-bottom: 5px;
+  }
+
+  .footer-txt-light .footer-newsletter .input-group {
+    flex-direction: column;
+  }
+
+  .footer-txt-light .footer-newsletter input {
+    margin-bottom: 10px;
+  }
+
+  .footer-txt-light .social-icons {
+    justify-content: center;
+  }
+}
+/* Auctions Grid */
+.list-of-auctions-card {
+  width: 300px;
+  height: 450px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.list-of-auctions-image {
+  position: relative;
+}
+
+.list-of-auctions-image img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.list-of-auctions-tag {
+  position: absolute;
+  padding: 4px 8px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.list-of-auctions-tag.list-of-auctions-featured {
+  top: 8px;
+  right: 8px;
+  background-color: #ff9800;
+}
+
+.list-of-auctions-tag.list-of-auctions-gold {
+  bottom: -10px;
+  left: 10px;
+  background-color: #ffc300;
+  color: #000;
+  padding: 4px 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.list-of-auctions-hover-buttons {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 10px;
+  z-index: 2;
+}
+
+.list-of-auctions-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.list-of-auctions-image:hover .list-of-auctions-hover-buttons {
+  display: flex;
+}
+
+.list-of-auctions-info {
+  padding: 16px;
+}
+
+.list-of-auctions-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.list-of-auctions-details span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.list-of-auctions-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.list-of-auctions-interactive-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.list-of-auctions-icon-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #f1f1f1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+}
+
+.list-of-auctions-icon-button:hover {
+  background: #ddd;
+}
+
+.list-of-auctions-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}

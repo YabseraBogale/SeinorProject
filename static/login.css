@@ -1,0 +1,202 @@
+/* Resetting default margins and paddings */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #a0c1f3;
+}
+
+/* Container styling for full-screen support */
+.container {
+    display: flex;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Prevents overflow if content goes beyond the container */
+}
+
+.left-side {
+    flex: 1;
+    position: relative; /* Ensure overlay positions correctly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Image responsiveness */
+.left-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.left-side .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Show the overlay on hover */
+.left-side:hover .overlay {
+    opacity: 1;
+    pointer-events: auto; /* Enable interaction on hover */
+}
+
+/* Overlay text styles */
+.overlay-text {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.right-side {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #ffffff;
+    box-shadow: -10px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjusted Login Container Width */
+.login-container {
+    width: 80%;  /* Reduced from 90% */
+    max-width: 400px;  /* Reduced max-width for better proportion */
+    text-align: center;
+}
+
+/* Font Size Tweaks for Better Readability */
+h1 {
+    font-size: 30px; /* Slightly larger */
+    margin-bottom: 20px; /* More spacing */
+    color: #333;
+    font-weight: bold;
+}
+
+h1 span {
+    color: #ffa500;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #444;
+}
+
+.info {
+    background-color: #e8f5e9;
+    padding: 12px;
+    margin-bottom: 25px;
+    color: #2e7d32;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Padding Adjustments for Inputs and Buttons */
+.input-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-container input {
+    width: 100%;
+    padding: 16px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.input-container input:focus {
+    border-color: #ffa500;
+    outline: none;
+}
+
+button {
+    width: 109%;
+    padding: 16px; /* Increased button padding */
+    background-color: #ffa500;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px; /* Slightly larger font size */
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #ff8c00;
+}
+
+/* Options section below input */
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px; /* Increased for better readability */
+    margin-bottom: 30px;
+    color: #666;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-buttons button {
+    flex: 1;
+    padding: 12px; /* More padding for larger screens */
+    margin-left: 220px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 15px; /* Adjusted font size */
+    transition: opacity 0.3s;
+}
+
+.social-buttons button:hover {
+    opacity: 0.9;
+}
+
+/* Social button colors */
+
+
+/* Media Queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-side {
+        display: none; /* Hide left side on smaller screens */
+    }
+
+    .right-side {
+        box-shadow: none; /* Remove shadow for a cleaner look on mobile */
+    }
+
+    .login-container {
+        width: 100%;
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,7 @@
+env/
+__pycache__
+Database/__pycache__
+flask_session
+config.py
+static/upload
+static/image

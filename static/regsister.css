@@ -1,0 +1,191 @@
+/* Full-Screen Wrapper Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.full-screen-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+/* Desktop View - Left-Side Styling */
+.left-side {
+    flex: 0 0 50%;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer; /* Change cursor to indicate interactivity */
+    display: flex; /* Ensure it's flex for alignment */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image styling for full coverage */
+#leftSideImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease, filter 0.5s ease; /* Smooth transition */
+}
+
+/* Hover effect: zoom in the image slightly */
+.left-side:hover #leftSideImage {
+    transform: scale(1.05); /* Slight zoom effect */
+    filter: brightness(70%); /* Darken the image slightly */
+}
+
+/* Overlay container */
+.left-side .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Disable interaction */
+}
+
+/* Show the overlay on hover */
+.left-side:hover .overlay {
+    opacity: 1;
+    pointer-events: auto; /* Enable interaction on hover */
+}
+
+/* Overlay text styles */
+.overlay-text {
+    font-size: 24px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+/* Right-Side (Form) Styling */
+.right-side {
+    flex: 0 0 50%;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Allow scrolling if necessary */
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Space out form items */
+    height: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #ffa500;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #ffa500;
+    outline: none;
+}
+
+.image-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+#imageCircle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: none;
+    border: 3px solid #ffa500;
+}
+
+/* Make sure the register button is at the bottom */
+.form-footer {
+    margin-top: auto;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ffa500;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff8c00;
+}
+
+/* Mobile View Adjustments */
+@media only screen and (max-width: 768px) {
+    .left-side {
+        display: none; /* Hide the left-side image on mobile devices */
+    }
+
+    .right-side {
+        width: 100%; /* Make form container full width */
+        box-shadow: none; /* Remove box shadow for simplicity */
+        padding: 20px; /* Adjust padding for mobile view */
+    }
+
+    .full-screen-wrapper {
+        flex-direction: column; /* Stack items vertically */
+    }
+
+    h1 {
+        font-size: 28px; /* Adjust font size for mobile */
+    }
+}

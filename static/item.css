@@ -1,0 +1,687 @@
+
+        /* General Reset */
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f8f9fa;
+          color: #333;
+        }
+
+        /* Header */
+        .ADDIS-navbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          background: #ffffff;
+          color: #000000;
+          padding: 15px 30px;
+          margin: 15px;
+          border-radius: 10px;
+          position: relative;
+        }
+
+        .ADDIS-logo {
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .ADDIS-logo .ADDIS-property {
+          color: #000000;
+        }
+
+        .ADDIS-logo .ADDIS-auctions {
+          color: #ffcc00;
+        }
+
+        .ADDIS-menu {
+          display: flex;
+          align-items: center;
+        }
+
+        .ADDIS-menu-link {
+          color: #000000;
+          margin: 0 10px;
+          font-weight: bold;
+          text-decoration: none;
+        }
+
+        .ADDIS-divider {
+          color: #000000;
+        }
+
+        .ADDIS-actions {
+          display: flex;
+          align-items: center;
+        }
+        .ADDIS-add-auction-btn {
+          background: #ffcc00;
+          color: #000;
+          border: none;
+          padding: 10px 15px;
+          border-radius: 5px;
+          cursor: pointer;
+          margin-right: 10px;
+        }
+
+        /* Hamburger Menu */
+        .ADDIS-hamburger {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+        }
+
+        .ADDIS-hamburger div {
+          width: 25px;
+          height: 3px;
+          background-color: #333;
+          margin: 3px 0;
+          border-radius: 2px;
+        }
+
+        /* Responsive Mobile View */
+        @media screen and (max-width: 768px) {
+          .ADDIS-navbar {
+            flex-direction: row;
+          }
+
+          .ADDIS-menu {
+            display: none;
+            flex-direction: column;
+            background-color: #ffffff;
+            width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          }
+
+          .ADDIS-menu.active {
+            display: flex;
+          }
+
+          .ADDIS-menu-link {
+            padding: 10px;
+            text-align: center;
+            margin: 0;
+            border-top: 1px solid #ddd;
+          }
+
+          .ADDIS-divider {
+            display: none;
+          }
+
+          .ADDIS-hamburger {
+            display: flex;
+          }
+
+          .ADDIS-actions {
+            display: none; /* Hide actions on mobile view */
+          }
+        }
+    
+        
+        /* General Styling */
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    color: #333;
+    }
+    
+    /* Product Details Container */
+    .product-details {
+    
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+    
+    /* Content Container */
+    .content-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    }
+    
+    /* Image and Description Section */
+    .img-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    
+    .left-side {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    }
+    
+    .left-side img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    }
+    
+    .description-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    }
+    
+    .description-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    }
+    
+    .description-section p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #555;
+    }
+    
+    .features {
+    margin-top: 10px;
+    }
+    
+    .features span {
+    display: inline-block;
+    margin-right: 10px;
+    color: #28a745;
+    font-weight: bold;
+    }
+    
+    /* Title Section */
+    .title {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    }
+    
+    .product-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+    }
+    
+    .product-bids {
+    font-size: 1em;
+    color: #777;
+    }
+    
+    .product-bids span {
+    margin: 0 10px;
+    }
+    
+    /* Countdown Section */
+    .countdown-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 20px 0;
+    }
+    
+    .countdown-box {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ffb300;
+    border-radius: 10px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    }
+    
+    .countdown-box .label {
+    font-size: 0.8em;
+    color: #777;
+    font-weight: normal;
+    }
+    
+    /* Action Buttons */
+    .action-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    }
+    
+    .btn {
+    background-color: #ffb300;
+    border: none;
+    padding: 15px;
+    font-size: 1em;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    }
+    
+    .btn span {
+    font-weight: normal;
+    color: #333;
+    margin-left: 10px;
+    }
+    
+    .btn:hover {
+    background-color: #ff9800;
+    }
+    
+    .btn.add-favorites {
+    background-color: #ffb300;
+    color: #333;
+    border: 1px solid #ddd;
+    }
+    
+    .btn.add-favorites:hover {
+    background-color: #ff9800;
+    }
+    
+    /* Refunds Section */
+    .refunds-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    }
+    
+    .refunds-section h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    }
+    
+    .refunds-section p {
+    font-size: 1em;
+    margin: 5px 0;
+    }
+    
+    .refunds-section strong {
+    color: #555;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+    .product-details {
+        width: 100%;
+        height: auto;
+    }
+    
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .img-side,
+    .title {
+        width: 100%;
+        height: auto;
+    }
+    
+    .countdown-section {
+        justify-content: space-evenly;
+    }
+    
+    .countdown-box {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .btn {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+    }
+    
+        
+      /* General Reset */
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: Arial, sans-serif;
+      }
+  
+      body {
+          background-color: #f5f5f5;
+          color: #333;
+      }
+  
+      .all {
+          margin: 20px auto;
+          padding: 20px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+  
+      /* Heading */
+      .mb-5.text-700 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          color: #333;
+          text-align: center;
+      }
+  
+      /* Auction Card Layout */
+      .list-of-auctions-card-wrapper {
+          display: flex; /* Use flexbox to arrange items in a row */
+          flex-wrap: wrap; /* Allow wrapping of items */
+          gap: 20px; /* Spacing between cards */
+          justify-content: center; /* Center the cards */
+      }
+  
+      .list-of-auctions-card {
+          background-color: #fff;
+          border: 1px solid #e0e0e0;
+          border-radius: 10px;
+          overflow: hidden;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          width: 280px; /* Set a fixed width for cards */
+          position: relative;
+          flex-shrink: 0; /* Prevent the card from shrinking */
+      }
+  
+      .list-of-auctions-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+  
+      /* Auction Image Section */
+      .list-of-auctions-image {
+          position: relative;
+          overflow: hidden;
+      }
+  
+      .list-of-auctions-image img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          display: block;
+      }
+  
+      /* Auction Tags */
+      .list-of-auctions-tag,
+      .list-of-auctions-featured {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          font-size: 0.75rem;
+          font-weight: bold;
+          padding: 5px 10px;
+          border-radius: 4px;
+          z-index: 2;
+          color: #fff;
+      }
+  
+      .list-of-auctions-featured {
+          background-color: #ffcb00;
+          right: 10px;
+          left: auto;
+      }
+  
+      .list-of-auctions-gold {
+          background-color: #ffd700;
+          top: 45px;
+      }
+  
+      .list-of-auctions-tag {
+          background-color: #4caf50;
+          top: 170px;
+      }
+  
+      /* Auction Info Section */
+      .list-of-auctions-info {
+          padding: 1rem;
+      }
+  
+      .list-of-auctions-info h2 {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+          color: #333;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+      }
+  
+      .list-of-auctions-details {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.875rem;
+          margin-bottom: 1rem;
+          color: #555;
+      }
+  
+      .list-of-auctions-details i {
+          margin-right: 5px;
+      }
+  
+      .list-of-auctions-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 0.5rem;
+      }
+  
+      .list-of-auctions-interactive-buttons {
+          display: flex;
+          gap: 10px;
+      }
+  
+      .list-of-auctions-icon-button {
+          background: none;
+          border: none;
+          color: #777;
+          font-size: 1rem;
+          cursor: pointer;
+          transition: color 0.3s ease;
+      }
+  
+      .list-of-auctions-icon-button:hover {
+          color: #ff5722;
+      }
+  
+      .list-of-auctions-price {
+          font-size: 1.125rem;
+          font-weight: bold;
+          color: #333;
+      }
+  
+      .list-of-auctions-price i {
+          color: #ff5722;
+          margin-right: 5px;
+      }
+  
+      /* Responsive Mobile View */
+      @media screen and (max-width: 768px) {
+          .list-of-auctions-card-wrapper {
+              flex-direction: column; /* Stack cards vertically */
+              align-items: center; /* Center align cards */
+          }
+  
+          .list-of-auctions-card {
+              width: 90%; /* Full width on smaller screens */
+          }
+      }
+      
+        .footer {
+          background-color: #000;
+          color: #fff;
+          padding: 40px 0;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+        }
+        
+        .textlogo {
+          font-size: 28px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+        
+        .text-primary {
+          color: #ffc107;
+        }
+        
+        .description {
+          color: #ccc;
+          line-height: 1.8;
+        }
+        
+        .footer-left, .footer-links, .footer-search, .footer-newsletter {
+          width: 23%;
+          margin-bottom: 20px;
+        }
+        
+        .footer-links h5, .footer-search h5, .footer-newsletter h5 {
+          font-size: 18px;
+          margin-bottom: 10px;
+          color: #fff;
+        }
+        
+        .footer-links ul, .footer-search ul {
+          list-style: none;
+          padding: 0;
+        }
+        
+        .footer-links ul li, .footer-search ul li {
+          margin-bottom: 8px;
+        }
+        
+        .footer-links a, .footer-search a {
+          color: #ccc;
+          text-decoration: none;
+          font-size: 14px;
+        }
+        
+        .footer-links a:hover, .footer-search a:hover {
+          color: #ffc107;
+        }
+        
+        .footer-newsletter input {
+          padding: 10px;
+          width: 80%;
+          margin-right: 10px;
+          background-color: #222;
+          border: none;
+          color: #fff;
+          border-radius: 5px;
+        }
+        
+        .footer-newsletter button {
+          padding: 10px 20px;
+          background-color: #ffc107;
+          border: none;
+          color: #000;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+        
+        .footer-newsletter button:hover {
+          background-color: #e6b800;
+        }
+        
+        .footer-newsletter small {
+          display: block;
+          margin-top: 10px;
+          font-size: 12px;
+          color: #ccc;
+        }
+        
+        .footer-newsletter small a {
+          color: #ffc107;
+        }
+        
+        .footer-newsletter small a:hover {
+          color: #fff;
+        }
+        
+        /* Footer Bottom Section */
+        .footer-bottom {
+          background-color: #222;
+          color: #ccc;
+          padding: 20px;
+          text-align: center;
+        }
+        
+        .footer-bottom .social-icons a {
+          margin: 0 10px;
+          color: #fff;
+          font-size: 18px;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+        
+        .footer-bottom .social-icons a:hover {
+          color: #ffc107;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+          .container {
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .footer-left, .footer-links, .footer-search, .footer-newsletter {
+            width: 100%;
+            text-align: center;
+          }
+        
+          .footer-newsletter input {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+        
+          .footer-newsletter button {
+            width: 100%;
+          }
+        
+          .footer-bottom {
+            text-align: center;
+          }
+          .CHERETA-container {
+            flex-direction: column;
+          }
+
+          .CHERETA-sidebar {
+            width: 100%;
+            text-align: center;
+          }
+
+          .CHERETA-divider {
+            display: none;
+          }
+
+        }
+    
