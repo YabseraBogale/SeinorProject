@@ -253,6 +253,8 @@ def items(IID):
     category=result[7]
     status=result[4]
     maxPrice=buyer.HighestBid(IID)
+    if maxPrice==0:
+        maxPrice=price
     return render_template("item.html",IIDS=IID,photos=photo,desciptions=desciption,itemnames=itemname,startingprice=price,categories=category,state=status,MaxPrice=maxPrice)
     
 @app.route("/addauction",methods=["GET","POST"])
