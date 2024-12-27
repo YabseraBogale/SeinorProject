@@ -27,7 +27,7 @@ import bcrypt
 
 # print(Item().GetAllItemLimit()!=False)
 
-# print(Item().Search(Price="Low",Category="Art",Name="")!=False)
+print(Item().Search(Price="",Name="",Category="Art"))
 
 # print(Buyer().InsertBuyerTable(1,'758424','2024-12-20',600))
 # print(Item().GetItemWithIID('758424'))
