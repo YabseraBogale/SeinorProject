@@ -56,3 +56,13 @@ class AddisCheretaUser():
         self.connection.commit()
         return "Password Changed"
         
+    def GetAllUserDataUidFirstNameEtc(self):
+        try:
+            statment="Select UID,Photo,FirstName,MiddleName,LastName,Email,Phonenumber,UserLocation from addischeretauser"
+            self.pointer.execute(statment)
+            result=self.pointer.fetchall()
+            if result is None:
+                return []
+            return result
+        except Exception as e:
+            return []

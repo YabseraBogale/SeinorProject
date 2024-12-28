@@ -1078,19 +1078,17 @@
 
                     <main class="all-auction-main">
                         <div class="all-auction-auction-header">
-                            <h2 class="all-auction-auction-count">20 Auctions</h2>
-                            <div class="all-auction-header-right">
-                                <button class="all-auction-button all-auction-primary-button">Add Auction</button>
-                            </div>
+                            <h2 class="all-auction-auction-count">{{auctiondataNumber}}</h2>
+                            
                         </div>
                     
                         <div class="all-auction-filter-search">
-                            <div class="all-auction-tabs">
+                            <!-- <div class="all-auction-tabs">
                                 <button class="all-auction-tab all-auction-tab-active" data-tab="all">All</button>
                                 <button class="all-auction-tab" data-tab="live">Live</button>
                             </div>
                             <input type="text" placeholder="Search..." class="all-auction-search-input">
-                            <button class="all-auction-filter-button">Filter</button>
+                            <button class="all-auction-filter-button">Filter</button> -->
                         </div>
                     
                         <table class="all-auction-auctions-table">
@@ -1144,7 +1142,8 @@
                                         <td>{{auction[2]}}</td>
                                         <td>{{auction[3]}}</td>
                                         <td>{{auction[4]}}</td>
-                                        <td>{{auction[5]}}</td>                 
+                                        <td>{{auction[5]}}</td>    
+                                        <td>selling</td>             
                                         <td>{{auction[7]}}</td>
                                     </tr>
                                 {% endfor %}
@@ -2392,79 +2391,66 @@
                     <main class="all-users-main">
                         <div class="all-users-user-header">
                             <h2 class="all-users-user-count">Users</h2>
-                            <div class="all-users-header-right">
+                            <!-- <div class="all-users-header-right">
                                 <button class="all-users-button all-users-primary-button">Add User</button>
-                            </div>
+                            </div> -->
                         </div>
 
                         <div class="all-users-filter-search">
-                            <div class="all-users-tabs">
+                            <!-- <div class="all-users-tabs">
                                 <button class="all-users-tab all-users-tab-active" data-tab="all">All</button>
                                 <button class="all-users-tab" data-tab="live">Active</button>
                             </div>
                             <input type="text" placeholder="Search..." class="all-users-search-input">
-                            <button class="all-users-filter-button">Filter</button>
+                            <button class="all-users-filter-button">Filter</button> -->
                         </div>
 
                         <table class="all-users-users-table">
                             <thead>
                                 <tr>
-                                    <!-- <th><input type="checkbox"></th>
-                                    <th>Name</th>
-                                    <th>Bids</th>
-                                    <th>Views</th>
-                                    <th>Price</th>
-                                    <th>Status</th>
-                                    <th>Action</th> -->
-                                    <th><input type="checkbox"></th>
-                                    <th>Name</th>
+                                    <th>User ID</th>
+                                    <th>Photo</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Middle Name</th>
                                     <th>Email</th>
                                     <th>Location</th>
                                     <th>Phonenumber</th>
-                                    <th>Bids</th>
-                                    <th>Action</th> -->
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <!-- Example Row 1 -->
+                                {% if addisuserdata==[] %}
                                 <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>
-                                        <div class="all-users-user-item">
-                                            <img src="./OIP.jpg" alt="John Doe" class="all-users-user-image">
-                                            <div>
-                                                <span class="all-users-user-title">John Doe</span>
-                                                <span class="all-users-live-badge">Active</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>0</td>
-                                    <td>3</td>
-                                    <td>$0</td>
-                                    <td><span class="all-users-status all-users-status-live">Active</span></td>
-                                    <td>
-                                        <button class="all-users-action-button">Actions</button>
-                                    </td>
+                                    <td>000</td>
+                                    <th>photo</th>
+                                    <td>John</td>
+                                    <td>Smith</td>
+                                    <td>Kane</td>
+                                    <td>John@email.com</td>
+                                    <td>Any where</td>
+                                    <td>+25191111111</td>
+                                    
                                 </tr>
-                                <!-- Example Row 2 -->
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>
-                                        <div class="all-users-user-item">
-                                            <img src="./OIP.jpg" alt="Jane Smith" class="all-users-user-image">
-                                            <div>
-                                                <span class="all-users-user-title">Jane Smith</span>
+                                {% else %}
+                                    {% for addisuser in addisuserdata %}
+                                    <tr>
+                                        <td>{{addisuser[0]}}</td>
+                                        <td> 
+                                            <div class="all-auction-auction-item">
+                                            <img src="{{url_for('static',filename='upload/'+addisuser[1])}}" alt="Monaliza" class="all-auction-auction-image">
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>13</td>
-                                    <td>784</td>
-                                    <td>$50</td>
-                                    <td><span class="all-users-status all-users-status-silver">Silver Package</span></td>
-                                    <td>
-                                        <button class="all-users-action-button">Actions</button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>{{addisuser[2]}}</td>
+                                        <td>{{addisuser[3]}}</td>
+                                        <td>{{addisuser[4]}}</td>
+                                        <td>{{addisuser[5]}}</td>
+                                        <td>{{addisuser[6]}}</td>
+                                        <td>{{addisuser[7]}}</td>
+                                    </tr>
+                                    {% endfor %}
+                                {% endif %}
+                                
                             </tbody>
                         </table>
 

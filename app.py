@@ -313,8 +313,9 @@ def adminlogin():
 def adminDashborad():
     if "admin" in session:
         auctiondatalist=item.ListOfAuction()
-        print(auctiondatalist)
-        return render_template("adminDashborad.html",auctiondata=auctiondatalist)
+        auctiondatalistNumber=len(auctiondatalist)
+        addisuser=addischeretauser.GetAllUserDataUidFirstNameEtc()
+        return render_template("adminDashborad.html",auctiondata=auctiondatalist,auctiondataNumber=auctiondatalistNumber,addisuserdata=addisuser)
     return render_template("adminlogin.html")
 
 @app.route("/adminDashborademail",methods=["GET","POST"])
