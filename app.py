@@ -312,7 +312,9 @@ def adminlogin():
 @app.route("/adminDashborad")
 def adminDashborad():
     if "admin" in session:
-        return render_template("adminDashborad.html")
+        auctiondatalist=item.ListOfAuction()
+        print(auctiondatalist)
+        return render_template("adminDashborad.html",auctiondata=auctiondatalist)
     return render_template("adminlogin.html")
 
 @app.route("/adminDashborademail",methods=["GET","POST"])

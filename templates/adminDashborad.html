@@ -1096,55 +1096,59 @@
                         <table class="all-auction-auctions-table">
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox"></th>
-                                    <th>Title</th>
-                                    <th>Bids</th>
-                                    <th>Views</th>
-                                    <th>Price</th>
+                                    <th>Item IID</th>
+                                    <th>Item Name</th>
+                                    <th>Buyer UID</th>
+                                    <th>Bid Price</th>
+                                    <th>Bid Date</th>
+                                    <th>Starting Price</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                    <th>Starting Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <!-- Example Row 1 -->
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>
-                                        <div class="all-auction-auction-item">
-                                            <img src="monaliza.jpg" alt="Monaliza" class="all-auction-auction-image">
-                                            <div>
-                                                <span class="all-auction-auction-title">Monaliza</span>
-                                                <span class="all-auction-live-badge">LIVE</span>
-                                            </div>
+                               {% if auctiondata==[] %}
+                               <tr>
+                                <td>
+                                    <div class="all-auction-auction-item">
+                                        <img src="monaliza.jpg" alt="Monaliza" class="all-auction-auction-image">
+                                        <div>
+                                            <span class="all-auction-auction-title">Monaliza</span>
+                                            <span class="all-auction-live-badge">LIVE</span>
                                         </div>
-                                    </td>
-                                    <td>0</td>
-                                    <td>3</td>
-                                    <td>$0</td>
-                                    <td><span class="all-auction-status all-auction-status-live">Active</span></td>
-                                    <td>
-                                        <button class="all-auction-action-button">Actions</button>
-                                    </td>
-                                </tr>
-                                <!-- Example Row 2 -->
-                                <tr>
-                                    <td><input type="checkbox"></td>
-                                    <td>
-                                        <div class="all-auction-auction-item">
-                                            <img src="example-auction-19.jpg" alt="Example Auction 19" class="all-auction-auction-image">
-                                            <div>
-                                                <span class="all-auction-auction-title">Example Auction 19</span>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>13</td>
-                                    <td>784</td>
-                                    <td>$50</td>
-                                    <td><span class="all-auction-status all-auction-status-silver">Silver Package</span></td>
-                                    <td>
-                                        <button class="all-auction-action-button">Actions</button>
-                                    </td>
-                                </tr>
+                                    </div>
+                                </td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>$0</td>
+                                <td><span class="all-auction-status all-auction-status-live">Active</span></td>
+                                <td>
+                                    <button class="all-auction-action-button">Actions</button>
+                                </td>
+                            </tr>
+                               {% else %}
+                                
+                                     {% for auction in auctiondata %}
+                                     <tr>
+                                        <td>{{auction[0]}}</td>
+                                        <td>{{auction[1]}}
+                                            <div class="all-auction-auction-item">
+                                                <img src="{{url_for('static',filename='upload/'+auction[6])}}" alt="Monaliza" class="all-auction-auction-image">
+                                                <div>
+                                                    <span class="all-auction-auction-title"></span>
+                                                    <span class="all-auction-live-badge">LIVE</span>
+                                                </div>
+                                                </div>
+                                        </td>
+                                        <td>{{auction[2]}}</td>
+                                        <td>{{auction[3]}}</td>
+                                        <td>{{auction[4]}}</td>
+                                        <td>{{auction[5]}}</td>                 
+                                        <td>{{auction[7]}}</td>
+                                    </tr>
+                                {% endfor %}
+                               {% endif %}
                             </tbody>
                         </table>
                     

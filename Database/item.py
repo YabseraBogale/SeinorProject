@@ -68,5 +68,13 @@ class Item():
                 
         except Exception as e:
             return []
-
-            
+    def ListOfAuction(self):
+        try:
+            statment="Select DISTINCT Item.IID,Item.Name,Buyer.UID,Buyer.Price,Buyer.BidDate,Item.startingPrice,Item.Photo,Item.dateStored from Item,Buyer"
+            self.pointer.execute(statment)
+            result=self.pointer.fetchall()
+            if result is None:
+                return []
+            return result
+        except Exception as e:
+            return []
