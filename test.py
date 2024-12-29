@@ -37,4 +37,4 @@ import bcrypt
 
 # print(Buyer().GetUserBidWithUserId("2"))
 
-print(Item().UserItemDashboardWithUID("1"))
+# print(Item().UserItemDashboardWithUID("1"))
