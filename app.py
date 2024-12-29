@@ -205,15 +205,11 @@ def resend():
     mail.send(msg)
     return redirect(url_for('verfication'))
 
-    
-@app.route("/logout")
-def logout():
-    session.pop('status',None)
-    session.pop('email',None)
-    session.pop('forgot',None)
-    session.pop('UID',None)
-    session.pop('logged',None)
-    return render_template('home.html')
+
+@app.route("/userdashboard/delete/<IID>/<UID>/<Price>")
+def deleteBid(IID,UID,Price):
+    ok=buyer.DeleteWithBuyerIdAndPrice(Price,UID,IID)
+    return redirect(url_for("userdashboard"))
 
 @app.route("/userdashboard")
 def userdashboard():
@@ -377,6 +373,16 @@ def IIDtime(IID):
 @app.route("/")
 def home():
     return render_template("home.html")
+
+
+@app.route("/logout")
+def logout():
+    session.pop('status',None)
+    session.pop('email',None)
+    session.pop('forgot',None)
+    session.pop('UID',None)
+    session.pop('logged',None)
+    return render_template('home.html')
 
 if __name__=="__main__":
     # # to be turned on deployemnt for logging

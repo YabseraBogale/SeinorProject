@@ -29,7 +29,7 @@ class Buyer():
     
     def GetUserBidWithUserId(self,UID):
         try:
-            statment="Select DISTINCT Buyer.BidDate,Buyer.Price,Item.Name,Item.Category from Buyer,Item where Item.IID=Buyer.IID and Buyer.UID=?"
+            statment="Select DISTINCT Buyer.BidDate,Buyer.Price,Item.Name,Item.Category,Buyer.IID,Buyer.UID from Buyer,Item where Item.IID=Buyer.IID and Buyer.UID=?"
             self.pointer.execute(statment,(UID))
             result=self.pointer.fetchall()
             if result is None:
@@ -49,3 +49,11 @@ class Buyer():
         except Exception as e:
             return []
         
+    def DeleteWithBuyerIdAndPrice(self,Price,UID,IID):
+        try:
+            statment="Delete from Buyer Where Price=? and UID=? and IID=?"
+            self.pointer.execute(statment,(Price,UID,IID))
+            self.connection.commit()
+            return True
+        except Exception as e:
+            return False
