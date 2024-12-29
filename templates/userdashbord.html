@@ -453,7 +453,7 @@
           <p class="ADDIS-user-details">Agency • admindemo@premiumpress.com</p>
       </div>
       <div class="ADDIS-header-buttons">
-          <button class="ADDIS-add-auction-btn">Add Auction</button>
+          <button class="ADDIS-add-auction-btn"> <a href="{{url_for('addauction')}}" style="text-decoration: none;">Add Auction</a></button>
           <button class="ADDIS-logout-btn"><a href="{{url_for('logout')}}" style="text-decoration: none;">Logout</a></button>
       </div>
   </div>
@@ -830,7 +830,30 @@
                 {% else %}
                       {% for item in userItem %}
                             <tr>
-                              <td>{{item[0]}} <form action="http://127.0.0.1:5000/updateName/{{item[5]}}" method="post"><input type="Name" name="itemname"> <input type="submit" value="update"></form></td>
+                              <td>{{item[0]}} 
+                                <style>
+                                  .all-auction-auction-item {
+                                    display: flex;
+                                    align-items: center;
+                                    gap: 10px;
+                                  } 
+                                  .all-auction-auction-item {
+                                    flex-direction: column;
+                                    align-items: flex-start;
+                                  }
+                                  .all-auction-auction-image {
+                                    width: 40px;
+                                    height: 40px;
+                                    object-fit: cover;
+                                    border-radius: 5px;
+                                    border: 1px solid #ddd;
+                                }
+
+                                </style>
+                                <div class="all-auction-auction-item">
+                                <img src="{{url_for('static',filename='upload/'+item[6])}}" alt="Monaliza" class="all-auction-auction-image">
+                                </div>
+                                <form action="http://127.0.0.1:5000/updateName/{{item[5]}}" method="post"><input type="Name" name="itemname"> <input type="submit" value="update"></form></td>
                               <td>{{item[1]}} </td>
                               <td>{{item[2]}} <form action="http://127.0.0.1:5000/updateStartingPrice/{{item[5]}}" method="post"><input type="number" name="startingprice" min="0"> <input type="submit" value="update"></form></td>
                               <td>{{item[3]}}</td>

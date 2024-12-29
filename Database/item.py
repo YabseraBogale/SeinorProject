@@ -72,7 +72,7 @@ class Item():
         
     def UserItemDashboardWithUID(self,UID):
         try:
-            statment="SELECT Item.Name,Item.Category,Item.startingPrice,Item.status,Item.dateStored,Item.IID from Item where Item.UID=?"
+            statment="SELECT Item.Name,Item.Category,Item.startingPrice,Item.status,Item.dateStored,Item.IID,Item.Photo from Item where Item.UID=?"
             self.pointer.execute(statment,(UID))
             result=self.pointer.fetchall()
             if result is None:
