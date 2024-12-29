@@ -109,3 +109,12 @@ class Item():
             return True
         except Exception as e:
             return False
+        
+    def UpdateDateStored(self,DateStored,IID,UID):
+        try:
+            statment="Update Item SET dateStored=? Where IID=? and UID=?"
+            self.pointer.execute(statment,(DateStored,IID,UID))
+            self.connection.commit()
+            return True
+        except Exception as e:
+            return False

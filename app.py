@@ -238,6 +238,15 @@ def updateStartingPrice(IID):
             return redirect(url_for("userdashboard")) 
     return redirect(url_for("userdashboard"))
 
+@app.route("/updatedatestored/<IID>",methods=["GET","POST"])
+def updatedatestored(IID):
+    if request.method=="POST":
+        datestored=request.form["datestored"]
+        ok=item.UpdateDateStored(datestored,IID,str(session["UID"]))
+        if ok==True:
+            return redirect(url_for("userdashboard")) 
+    return redirect(url_for("userdashboard"))
+
 
 
 @app.route("/search",methods=["GET","POST"])
