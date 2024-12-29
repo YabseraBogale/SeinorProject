@@ -220,6 +220,26 @@ def userdashboard():
     else:
         return redirect(url_for("/"))
     
+@app.route("/updateName/<IID>",methods=["GET","POST"])
+def UpdateName(IID):
+    if request.method=="POST":
+        itemname=request.form["itemname"]
+        ok=item.UpdateName(itemname,IID,str(session["UID"]))
+        if ok==True:
+            return redirect(url_for("userdashboard")) 
+    return redirect(url_for("userdashboard"))
+
+@app.route("/updateStartingPrice/<IID>",methods=["GET","POST"])
+def updateStartingPrice(IID):
+    if request.method=="POST":
+        startingprice=request.form["startingprice"]
+        ok=item.UpdateStartingPrice(startingprice,IID,str(session["UID"]))
+        if ok==True:
+            return redirect(url_for("userdashboard")) 
+    return redirect(url_for("userdashboard"))
+
+
+
 @app.route("/search",methods=["GET","POST"])
 def search():
     if "logged" in session and session["logged"]==True:

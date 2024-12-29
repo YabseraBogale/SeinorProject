@@ -72,7 +72,7 @@ class Item():
         
     def UserItemDashboardWithUID(self,UID):
         try:
-            statment="SELECT Item.Name,Item.Category,Item.startingPrice,Item.status,Item.dateStored from Item where Item.UID=?"
+            statment="SELECT Item.Name,Item.Category,Item.startingPrice,Item.status,Item.dateStored,Item.IID from Item where Item.UID=?"
             self.pointer.execute(statment,(UID))
             result=self.pointer.fetchall()
             if result is None:
@@ -91,3 +91,21 @@ class Item():
             return result
         except Exception as e:
             return []
+    
+    def UpdateName(self,Name,IID,UID):
+        try:
+            statment="Update Item SET Name=? Where IID=? and UID=?"
+            self.pointer.execute(statment,(Name,IID,UID))
+            self.connection.commit()
+            return True
+        except Exception as e:
+            return False
+    
+    def UpdateStartingPrice(self,StartingPrice,IID,UID):
+        try:
+            statment="Update Item SET startingPrice=? Where IID=? and UID=?"
+            self.pointer.execute(statment,(StartingPrice,IID,UID))
+            self.connection.commit()
+            return True
+        except Exception as e:
+            return False
