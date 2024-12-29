@@ -86,7 +86,7 @@
                 <form id ="formbid" action="http://127.0.0.1:5000/bid/{{IIDS}}" method="POST">
                     <div class="action-buttons">
                         <button class="btn bid-now">Bid Now <span>$</span></button>
-                        <input  type="number" name="bid" id="" min="0">
+                        <input  type="number" name="bid" id="" min="{{startingprice}}">
                         <input class="btn bid-now" type="submit" value="Bid">
                     </div>
                 </form>

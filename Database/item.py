@@ -26,6 +26,7 @@ class Item():
         result=self.pointer.fetchall()
         return result
         
+
     def GetItemWithIID(self,IID):
         statment="Select * from Item where IID=?;"
         self.pointer.execute(statment,(IID,))
@@ -68,6 +69,18 @@ class Item():
                 
         except Exception as e:
             return []
+        
+    def UserItemDashboardWithUID(self,UID):
+        try:
+            statment="SELECT Item.Name,Item.Category,Item.startingPrice,Item.status,Item.dateStored from Item where Item.UID=?"
+            self.pointer.execute(statment,(UID))
+            result=self.pointer.fetchall()
+            if result is None:
+                return []
+            return result
+        except Exception as e:
+            return []
+
     def ListOfAuction(self):
         try:
             statment="Select DISTINCT Item.IID,Item.Name,Buyer.UID,Buyer.Price,Buyer.BidDate,Item.startingPrice,Item.Photo,Item.dateStored from Item,Buyer"

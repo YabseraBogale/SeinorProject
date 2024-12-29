@@ -479,8 +479,8 @@
           </li>
           
           <li data-section="balance">
-            Balance & Invoices
-            <p>View your current balance and invoices for transactions made.</p>
+            My Item
+            <p>View your Item and the Items</p>
           </li>
           
           <li data-section="settings">
@@ -808,8 +808,38 @@
           <p>Build a friends list and manage your website connections here.</p>
         </div>
         <div id="balance" class="CHERETA-section">
-          <h1>Balance & Invoices</h1>
-          <p>View your account balance, invoices, and recent withdrawals here.</p>
+          <h1>My Item</h1>
+          <p>View your Item</p>
+          <table class="all-users-users-table">
+            <thead>
+              <th>Item Name</th>
+              <th>Item Category</th>
+              <th>Starting Price</th>
+              <th>Item Status</th>
+              <th>End Date</th>
+            </thead>
+            <tbody>
+                {% if userItem==[] %}
+                    <tr>
+                      <td>Goods</td>
+                      <td>Category</td>
+                      <td>0.0</td>
+                      <td>status</td>
+                      <td>12-12-2024</td>
+                    </tr>
+                {% else %}
+                      {% for item in userItem %}
+                            <tr>
+                              <td>{{item[0]}} <form action="" method="post"><input type="Name" name="itemname"> <input type="submit" value="update"></form></td>
+                              <td>{{item[1]}} </td>
+                              <td>{{item[2]}} <form action="" method="post"><input type="number" name="startingprice" min="0"> <input type="submit" value="update"></form></td>
+                              <td>{{item[3]}}</td>
+                              <td>{{item[4]}} <form action="" method="post"><input type="date" name="datestored"> <input type="submit" value="update"></form></td>
+                            </tr>
+                        {% endfor %}
+                {% endif %}
+            </tbody>
+          </table>
         </div>
         <div id="advertising" class="CHERETA-section">
           <h1>Advertising</h1>
