@@ -770,26 +770,26 @@
           </style>
           <table class="all-users-users-table">
             <thead>
-              <th>Item Id</th>
               <th>Item Name</th>
+              <th>Item Category</th>
               <th>Bid</th>
               <th>Bid Date</th>
             </thead>
             <tbody>
                 {% if userbid==[] %}
                     <tr>
-                      <td>0000</td>
                       <td>Goods</td>
+                      <td>Category</td>
                       <td>0.0</td>
                       <td>1-1-2024</td>
                     </tr>
                 {% else %}
                       {% for bid in userbid %}
                             <tr>
-                              <td>{{userbid[1]}}</td>
-                              <td>{{userbid[1]}}</td>
-                              <td>{{userbid[3]}}</td>
-                              <td>{{userbid[2]}}</td>
+                              <td>{{bid[2]}}</td>
+                              <td>{{bid[3]}}</td>
+                              <td>{{bid[1]}}</td>
+                              <td>{{bid[0]}}</td>
                             </tr>
                         {% endfor %}
                 {% endif %}
