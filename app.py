@@ -206,9 +206,9 @@ def resend():
     return redirect(url_for('verfication'))
 
 
-@app.route("/userdashboard/delete/<IID>/<UID>/<Price>")
-def deleteBid(IID,UID,Price):
-    ok=buyer.DeleteWithBuyerIdAndPrice(Price,UID,IID)
+@app.route("/userdashboard/delete/<IID>/<Price>")
+def deleteBid(IID,Price):
+    ok=buyer.DeleteWithBuyerIdAndPrice(Price,session["UID"],IID)
     return redirect(url_for("userdashboard"))
 
 @app.route("/userdashboard")

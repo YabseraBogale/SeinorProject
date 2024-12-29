@@ -29,7 +29,7 @@ class Buyer():
     
     def GetUserBidWithUserId(self,UID):
         try:
-            statment="Select DISTINCT Buyer.BidDate,Buyer.Price,Item.Name,Item.Category,Buyer.IID,Buyer.UID from Buyer,Item where Item.IID=Buyer.IID and Buyer.UID=?"
+            statment="Select DISTINCT Buyer.BidDate,Buyer.Price,Item.Name,Item.Category,Buyer.IID from Buyer,Item where Item.IID=Buyer.IID and Buyer.UID=?"
             self.pointer.execute(statment,(UID))
             result=self.pointer.fetchall()
             if result is None:
