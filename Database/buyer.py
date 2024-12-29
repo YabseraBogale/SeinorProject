@@ -27,6 +27,17 @@ class Buyer():
         except Exception as e:
            return 0
     
+    def GetUserBidWithUserId(self,UID):
+        try:
+            statment="Select * from Buyer Where UID=?"
+            self.pointer.execute(statment,(UID))
+            result=self.pointer.fetchall()
+            if result is None:
+                return []
+            return result
+        except Exception as e:
+            return []
+
     def HighestBidWinnerWithId(self,IID):
         try:
             statment="Select Max(Price),* from Buyer where IID=?"

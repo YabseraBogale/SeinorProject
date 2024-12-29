@@ -34,3 +34,5 @@ import bcrypt
 
 # print(Buyer().HighestBid(316197))
 # print(Item().ListOfAuction()[0])
+
+print(Buyer().GetUserBidWithUserId("2"))

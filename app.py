@@ -218,7 +218,8 @@ def logout():
 @app.route("/userdashboard")
 def userdashboard():
     if "logged" in session:
-        return render_template("userdashbord.html")
+        bid=buyer.GetUserBidWithUserId(str(session["UID"]))
+        return render_template("userdashbord.html",userbid=bid)
     else:
         return redirect(url_for("/"))
     

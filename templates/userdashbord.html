@@ -776,12 +776,23 @@
               <th>Bid Date</th>
             </thead>
             <tbody>
-                <tr>
-                  <td>Item Id</td>
-                  <td>Item Name</td>
-                  <td>Bid</td>
-                  <td>Bid Date</td>
-                </tr>
+                {% if userbid==[] %}
+                    <tr>
+                      <td>0000</td>
+                      <td>Goods</td>
+                      <td>0.0</td>
+                      <td>1-1-2024</td>
+                    </tr>
+                {% else %}
+                      {% for bid in userbid %}
+                            <tr>
+                              <td>{{userbid[1]}}</td>
+                              <td>{{userbid[1]}}</td>
+                              <td>{{userbid[3]}}</td>
+                              <td>{{userbid[2]}}</td>
+                            </tr>
+                        {% endfor %}
+                {% endif %}
             </tbody>
           </table>
         </div>
