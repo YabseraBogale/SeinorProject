@@ -1,6 +1,5 @@
 import sqlite3
 
-
 class Buyer():
 
     def __init__(self) -> None:
@@ -21,7 +20,7 @@ class Buyer():
           statment="Select Max(Price) from Buyer where IID=?"
           self.pointer.execute(statment,(IID,))
           result=self.pointer.fetchone()
-          if type(result)==type(None):
+          if result==None:
               return 0
           return list(result)[0]
         except Exception as e:
