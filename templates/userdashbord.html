@@ -817,6 +817,7 @@
               <th>Starting Price</th>
               <th>Item Status</th>
               <th>End Date</th>
+              <th>Highest Bid</th>
             </thead>
             <tbody>
                 {% if userItem==[] %}
@@ -826,6 +827,7 @@
                       <td>0.0</td>
                       <td>status</td>
                       <td>12-12-2024</td>
+                      <td>0.0</td>
                     </tr>
                 {% else %}
                       {% for item in userItem %}
@@ -858,6 +860,7 @@
                               <td>{{item[2]}} <form action="http://127.0.0.1:5000/updateStartingPrice/{{item[5]}}" method="post"><input type="number" name="startingprice" min="0"> <input type="submit" value="update"></form></td>
                               <td>{{item[3]}}</td>
                               <td>{{item[4]}} <form action="http://127.0.0.1:5000/updatedatestored/{{item[5]}}" method="post"><input type="date" name="datestored"> <input type="submit" value="update"></form></td>
+                              <td>{{item[7]}}</td>
                             </tr>
                         {% endfor %}
                 {% endif %}

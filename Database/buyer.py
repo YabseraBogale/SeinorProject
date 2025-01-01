@@ -21,7 +21,7 @@ class Buyer():
           statment="Select Max(Price) from Buyer where IID=?"
           self.pointer.execute(statment,(IID,))
           result=self.pointer.fetchone()
-          if result is None:
+          if type(result)==type(None):
               return 0
           return list(result)[0]
         except Exception as e:

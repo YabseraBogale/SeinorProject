@@ -37,4 +37,11 @@ import bcrypt
 
 # print(Buyer().GetUserBidWithUserId("2"))
 
-# print(Item().UserItemDashboardWithUID("1"))
+# lst=[]
+# for i in Item().UserItemDashboardWithUID("1"):
+#     if Buyer().HighestBid(i[5])==None:
+#         print(list(i)+[0])
+#     else:
+#         print(list(i)+[Buyer().HighestBid(i[5])])
+
+

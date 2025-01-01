@@ -215,7 +215,12 @@ def deleteBid(IID,Price):
 def userdashboard():
     if "logged" in session:
         bid=buyer.GetUserBidWithUserId(str(session["UID"]))
-        useritems=item.UserItemDashboardWithUID(str(session["UID"]))
+        useritems=[]
+        for i in item.UserItemDashboardWithUID(str(session["UID"])):
+            if buyer.HighestBid(i[5])==None:
+                useritems.append(list(i)+[0])
+            else:
+                useritems.append(list(i)+[buyer.HighestBid(i[5])])
         return render_template("userdashbord.html",userbid=bid,userItem=useritems)
     else:
         return redirect(url_for("/"))
