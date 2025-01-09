@@ -21,20 +21,24 @@ class Item():
             return False
         
     def GetAllItemLimit(self):
-        statment="Select * from Item Limit 15"
-        self.pointer.execute(statment)
-        result=self.pointer.fetchall()
-        return result
-        
+        try:
+            statment="Select * from Item Limit 15"
+            self.pointer.execute(statment)
+            result=self.pointer.fetchall()
+            return result
+        except Exception as e:
+            return []
 
     def GetItemWithIID(self,IID):
-        statment="Select * from Item where IID=?;"
-        self.pointer.execute(statment,(IID,))
-        result=self.pointer.fetchone()
-        if result is None:
+        try:
+            statment="Select * from Item where IID=?;"
+            self.pointer.execute(statment,(IID,))
+            result=self.pointer.fetchone()
+            if result is None:
+                return []
+            return list(result)
+        except Exception as e:
             return []
-        return list(result)
-
     def Search(self,Name=None,Price=None,Category=None):
         try:
             statment=""

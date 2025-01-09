@@ -209,8 +209,10 @@ def resend():
 
 @app.route("/userdashboard/delete/<IID>/<Price>")
 def deleteBid(IID,Price):
-    ok=buyer.DeleteWithBuyerIdAndPrice(Price,session["UID"],IID)
-    return redirect(url_for("userdashboard"))
+    if "logged" in session and session["logged"]==True:
+        ok=buyer.DeleteWithBuyerIdAndPrice(Price,session["UID"],IID)
+        return redirect(url_for("userdashboard"))
+    return redirect("http://127.0.0.1:5000/")
 
 @app.route("/userdashboard")
 def userdashboard():
