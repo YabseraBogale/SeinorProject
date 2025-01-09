@@ -293,7 +293,6 @@ def items(IID):
     itemownerInformation=addischeretauser.GetPhonenumberEmailWithUID(item.GetItemWithIID(IID)[1])
     phonenumber=itemownerInformation[1]
     email=itemownerInformation[0]
-    print(phonenumber,email)
     return render_template("item.html",IIDS=IID,photos=photo,desciptions=desciption,itemnames=itemname,startingprice=price,categories=category,state=status,MaxPrice=maxPrice,Email=email,Phonenumber=phonenumber)
     
 @app.route("/addauction",methods=["GET","POST"])
