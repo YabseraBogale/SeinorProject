@@ -352,7 +352,14 @@
                     const price=document.getElementById("price")
                     price.remove()
                     const status=document.getElementById("status")
-                    status.innerText="status: Sold"
+                    const phonenumber="{{Phonenumber}}"
+                    const email="{{Email}}"
+                    status.innerHTML=`
+                                    <p>status: Sold</p>
+                                    <h3>Please Contact Owner Of item</h3>
+                                    <p>Phonumber: ${phonenumber}</p>
+                                    <p>Email: ${email}</p>
+                        `   
                     return;
                 } 
     
