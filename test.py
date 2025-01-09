@@ -46,3 +46,4 @@ import bcrypt
 
 
 print(Buyer().HighestBidWinnerWithId('758424'))
+print(Item().GetItemWithIID('381383'))
