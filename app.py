@@ -23,15 +23,16 @@ from Database.item import Item
 from datetime import datetime,timedelta
 
 app=Flask(__name__)
+# What is secret key in app ?
 app.secret_key = 'your_secret_key'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
-app.config['MAIL_USERNAME'] = Config().email # Use your actual Gmail address
-app.config['MAIL_PASSWORD'] = Config().mailpassword      # Use your generated App Password
-app.config['MAIL_USE_TLS'] = True
-app.config['MAIL_USE_SSL'] = False
-app.config["SESSION_TYPE"] = "filesystem"
-app.config['UPLOAD_FOLDER']="./static/upload"
+app.config['MAIL_USERNAME'] = Config().email # Use Our actual Gmail address
+app.config['MAIL_PASSWORD'] = Config().mailpassword      # Use Our generated App Password from gmail Api
+app.config['MAIL_USE_TLS'] = True # What is TLS and Why is set to true
+app.config['MAIL_USE_SSL'] = False # What is SSL and Why is set to false
+app.config["SESSION_TYPE"] = "filesystem" # This refering to the flask_session folder where it contains the session files
+app.config['UPLOAD_FOLDER']="./static/upload" # location of the any of the images that are uploaded
 
 Session(app)
 mail=Mail(app)
