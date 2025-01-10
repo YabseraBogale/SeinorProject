@@ -270,7 +270,6 @@ def rate(IID):
                 return redirect(f"http://127.0.0.1:5000/items/{IID}")
             else:
                 return redirect(f"http://127.0.0.1:5000/items/{IID}")
-            return [ratedvalue,IID,selleritem]
     return redirect("http://127.0.0.0.1:5000")
 
 @app.route("/search",methods=["GET","POST"])
