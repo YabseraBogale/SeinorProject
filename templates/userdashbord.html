@@ -818,6 +818,8 @@
               <th>Item Status</th>
               <th>End Date</th>
               <th>Highest Bid</th>
+              <th>Email</th>
+              <th>Phonenumber</th>
             </thead>
             <tbody>
                 {% if userItem==[] %}
@@ -861,6 +863,8 @@
                               <td>{{item[3]}}</td>
                               <td>{{item[4]}} <form action="http://127.0.0.1:5000/updatedatestored/{{item[5]}}" method="post"><input type="date" name="datestored"> <input type="submit" value="update"></form></td>
                               <td>{{item[7]}}</td>
+                              <td>{{item[8]}}</td>
+                              <td>{{item[9]}}</td>
                             </tr>
                         {% endfor %}
                 {% endif %}
