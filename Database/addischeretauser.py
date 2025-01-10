@@ -88,6 +88,6 @@ class AddisCheretaUser():
             result=self.pointer.fetchone()
             if result is None:
                 return []
-            return result
+            return list(result)
         except Exception as e:
             return []

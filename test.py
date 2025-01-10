@@ -45,5 +45,6 @@ import bcrypt
 #         print(list(i)+[Buyer().HighestBid(i[5])])
 
 
-# print(type(Buyer().HighestBidWinnerWithId('758424')[1]))
+# print(Buyer().HighestBidWinnerWithId('758424'))
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Item().GetItemWithIID('381383')[1]))
+# print(AddisCheretaUser().GetPhonenumberEmailWithUID(Buyer().HighestBidWinnerWithId('758424')[1]))

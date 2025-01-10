@@ -223,7 +223,7 @@ def userdashboard():
             if buyer.HighestBid(i[5])==None:
                 useritems.append(list(i)+[0])
             else:
-                useritems.append(list(i)+[buyer.HighestBid(i[5])])
+                useritems.append(list(i)+[buyer.HighestBid(i[5])]+addischeretauser.GetPhonenumberEmailWithUID(buyer.HighestBidWinnerWithId(i[5])))
         return render_template("userdashbord.html",userbid=bid,userItem=useritems)
     else:
         return redirect(url_for("/"))
