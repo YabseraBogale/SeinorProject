@@ -20,11 +20,13 @@ class Database():
 
 
     def AddisCheretaUserTables(self):
-        statment=""" create table addisCheretaUser( UID int AUTO_INCREMENT NOT NULL PRIMARY KEY, FirstName varchar(30) not null, MiddleName varchar(30) not null, LastName varchar(30) not null, Email Text not null UNIQUE, Phonenumber varchar(30) not null, UserLocation varchar(30) not null, Photo Text, Password Text not null ); """
-        self.pointer.execute(statment)
-        self.connection.commit()
-        return "addisCheretaUser table made"
-
+        try:
+            statment=""" create table addisCheretaUser( UID int AUTO_INCREMENT NOT NULL PRIMARY KEY, FirstName varchar(30) not null, MiddleName varchar(30) not null, LastName varchar(30) not null, Email Text not null UNIQUE, Phonenumber varchar(30) not null, UserLocation varchar(30) not null, Photo Text, Password Text not null ); """
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "addisCheretaUser table made"
+        except Exception as e:
+            return e
     def VerficationTable(self):
         statment=""" create table Verfication( code  int not null ,Email Text not null references addisCheretaUser, dateStored date not null , status varchar(8) not null ); """
         self.pointer.execute(statment)
@@ -32,35 +34,59 @@ class Database():
         return "Verfication table made"
 
     def ItemTable(self):
-        statment=""" Create table Item( IID int AUTO_INCREMENT primary key, Name text not null, Description text not null,status varchar(15) not null, Photo Text not null, Category varchar(30) not null,startingPrice float not null); """
-        self.pointer.execute(statment)
-        self.connection.commit()
-        return "Item table made"
-
+        try:
+            statment=""" Create table Item( IID int AUTO_INCREMENT primary key, Name text not null, Description text not null,status varchar(15) not null, Photo Text not null, Category varchar(30) not null,startingPrice float not null); """
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "Item table made"
+        except Exception as e:
+            return e
+        
     def SellerTable(self):
-        statment=""" create table Seller( UID int REFERENCES addisCheretaUser, IID int REFERENCES Item, Description Text, Rating int not null); """
-        self.pointer.execute(statment)
-        self.connection.commit()
-        return "Seller table made"
-
+        try:
+            statment=""" create table Seller( UID int REFERENCES addisCheretaUser, IID int REFERENCES Item, Description Text, Rating int not null); """
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "Seller table made"
+        except Exception as e:
+            return e
+    
     def BuyerTable(self):
-        statment=""" create Table Buyer( UID int references addisCheretaUser, IID int references Item ); """
-        self.pointer.execute(statment)
-        self.connection.commit()
-        return "Buyer table made"
-    
+        try:
+            statment=""" create Table Buyer( UID int references addisCheretaUser, IID int references Item ); """
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "Buyer table made"
+        except Exception as e:
+            return e
+        
     def AcutionTable(self):
-        statment=""" create table Auction( AID int AUTO_INCREMENT primary key, IID int REFERENCES Item, UID int REFERENCES addisCheretaUser,Description Text not null, startTime date not null, EndTime date not null, Status varchar(15) not null, ReservePrice float not null );"""
-        self.pointer.execute(statment)
-        self.connection.commit()
-        return "Acution table made"
-    
+        try:
+            statment=""" create table Auction( AID int AUTO_INCREMENT primary key, IID int REFERENCES Item, UID int REFERENCES addisCheretaUser,Description Text not null, startTime date not null, EndTime date not null, Status varchar(15) not null, ReservePrice float not null );"""
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "Acution table made"
+        except Exception as e:
+            return e
+        
     def FinaleAcutionTable(self):
-        statment=""" create Table FinalAuctionMessage( UID int REFERENCES addisCheretaUser, startTime date not null, messageTalk Text not null, Photo varchar(30) not null );"""
-        self.pointer.execute(statment)
-        self.connection.commit()
-        return "FinaleAcutionTable table made"
-    
+        try:
+            statment=""" create Table FinalAuctionMessage( UID int REFERENCES addisCheretaUser, startTime date not null, messageTalk Text not null, Photo varchar(30) not null );"""
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "FinaleAcutionTable table made"
+        except Exception as e:
+            return e
+        
+    def RateTable(self):
+        try:
+            statment="""create table Rating( UID int REFERENCES addisCheretaUser,ratedUserID int not null,rateValue int not null);"""
+            self.pointer.execute(statment)
+            self.connection.commit()
+            return "Rating table made"
+        except Exception as e:
+            return e
+        
     def AllowedFile(self,filename):
         if filename is None:
             return False
