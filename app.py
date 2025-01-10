@@ -221,7 +221,6 @@ def userdashboard():
     if "logged" in session:
         bid=buyer.GetUserBidWithUserId(str(session["UID"]))
         useritems=[]
-        lst=[]
         for i in item.UserItemDashboardWithUID(str(session["UID"])):
             if buyer.HighestBid(i[5])==None:
                 useritems.append(list(i)+[0])
