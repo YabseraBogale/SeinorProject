@@ -372,7 +372,12 @@ def adminDashborad():
     if "admin" in session:
         auctiondatalist=item.ListOfAuction()
         auctiondatalistNumber=len(auctiondatalist)
-        addisuser=addischeretauser.GetAllUserDataUidFirstNameEtc()
+        addisuser=[]
+        for i in addischeretauser.GetAllUserDataUidFirstNameEtc():
+            if type(rating.BayesianRatingOfUser(i[0]))==float:
+                addisuser.append(list(i)+[rating.BayesianRatingOfUser(i[0])])
+            else:
+                addisuser.append(list(i)+[0])
         return render_template("adminDashborad.html",auctiondata=auctiondatalist,auctiondataNumber=auctiondatalistNumber,addisuserdata=addisuser)
     return render_template("adminlogin.html")
 

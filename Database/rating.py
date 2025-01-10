@@ -59,6 +59,10 @@ class Rating():
             numberOfReview=self.CountOfRatingOfUser(RatedUserID)
             sum=self.SumRatingOfUser(RatedUserID)
             min=self.MinRatingOfUser(RatedUserID)
-            return ((avaerage*min)+sum)/(min+numberOfReview)
+            return self.truncate_float(((avaerage*min)+sum)/(min+numberOfReview),2)
         except Exception as e:
             return e
+    
+    def truncate_float(self,float_number, decimal_places):
+        multiplier = 10 ** decimal_places
+        return int(float_number * multiplier) / multiplier

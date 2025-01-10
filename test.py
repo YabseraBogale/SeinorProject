@@ -48,7 +48,7 @@ import bcrypt
 
 # print(Buyer().HighestBidWinnerWithId('758424'))
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Item().GetItemWithIID('381383')[1]))
-# print(AddisCheretaUser().GetPhonenumberEmailWithUID(Buyer().HighestBidWinnerWithId('758424')[1]))
+print(AddisCheretaUser().GetPhonenumberEmailWithUID(Buyer().HighestBidWinnerWithId('758424')[1]))
 
 # print("Rating Count Of Rating Of User",Rating().CountOfRatingOfUser(2))
 # print("Rating Sum Rating Of User",Rating().SumRatingOfUser(2))

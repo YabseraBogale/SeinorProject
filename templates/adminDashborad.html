@@ -2416,6 +2416,7 @@
                                     <th>Email</th>
                                     <th>Phonenumber</th>
                                     <th>Location</th>
+                                    <td>Rating</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -2429,7 +2430,7 @@
                                     <td>John@email.com</td>
                                     <td>Any where</td>
                                     <td>+25191111111</td>
-                                    
+                                    <td>0.0</td>
                                 </tr>
                                 {% else %}
                                     {% for addisuser in addisuserdata %}
@@ -2446,6 +2447,7 @@
                                         <td>{{addisuser[5]}}</td>
                                         <td>{{addisuser[6]}}</td>
                                         <td>{{addisuser[7]}}</td>
+                                        <td>{{addisuser[8]}}</td>
                                     </tr>
                                     {% endfor %}
                                 {% endif %}
