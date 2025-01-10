@@ -50,4 +50,4 @@ import bcrypt
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Item().GetItemWithIID('381383')[1]))
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Buyer().HighestBidWinnerWithId('758424')[1]))
 
-print(Rating().MinRatingOfUser(2))
+# print(Rating().MinRatingOfUser(2))
