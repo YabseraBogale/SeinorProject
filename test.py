@@ -50,4 +50,8 @@ import bcrypt
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Item().GetItemWithIID('381383')[1]))
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Buyer().HighestBidWinnerWithId('758424')[1]))
 
-print(Rating().AverageRatingOfUser(2))
+print("Rating Count Of Rating Of User",Rating().CountOfRatingOfUser(2))
+print("Rating Sum Rating Of User",Rating().SumRatingOfUser(2))
+print("Rating Min Rating Of User",Rating().MinRatingOfUser(2))
+print("Rating Average Rating Of User",Rating().AverageRatingOfUser(2))
+print("Rating Bayesian Rating Of User",Rating().BayesianRatingOfUser(2))
