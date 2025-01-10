@@ -35,3 +35,9 @@ class Rating():
             return result[0]
         except Exception as e:
             return e
+    
+    def AverageRatingOfUser(self,RatedUserID):
+        try:
+            return self.SumRatingOfUser(RatedUserID)/5
+        except Exception as e:
+            return e
