@@ -61,8 +61,14 @@ create Table FinalAuctionMessage(
 	Photo varchar(30) not null
 );
 
+
+create table Rating(
+	UID int REFERENCES addisCheretaUser,
+	ratedUserID int not null,
+	rateValue int not null
+);
+
 create table Admin(
 	username varchar(12) not null primary key,
 	Password text not null
 );
-
