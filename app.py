@@ -20,6 +20,7 @@ from Database.seller import Seller
 from Database.buyer import Buyer
 from Database.finalauctionmessage import FinalAuctionMessage
 from Database.item import Item
+from Database.rating import Rating
 from datetime import datetime,timedelta
 
 app=Flask(__name__)
@@ -43,6 +44,7 @@ salt=bcrypt.gensalt()
 buyer=Buyer()
 admin=Admin()
 finalauctionmessage=FinalAuctionMessage()
+rating=Rating()
 seller=Seller()
 item=Item()
 addischeretauser=AddisCheretaUser()
@@ -257,6 +259,19 @@ def updatedatestored(IID):
     return redirect(url_for("userdashboard"))
 
 
+@app.route("/rate/<IID>",methods=["GET","POST"])
+def rate(IID):
+    if "logged" in session and session["logged"]==True:
+        if request.method=="POST":
+            ratedvalue=request.form["star"]
+            sellerUID=item.GetItemWithIID(IID)[1]
+            ok=rating.InsertingRating(session["UID"],sellerUID,ratedvalue)
+            if ok==True:
+                return redirect(f"http://127.0.0.1:5000/items/{IID}")
+            else:
+                return redirect(f"http://127.0.0.1:5000/items/{IID}")
+            return [ratedvalue,IID,selleritem]
+    return redirect("http://127.0.0.0.1:5000")
 
 @app.route("/search",methods=["GET","POST"])
 def search():

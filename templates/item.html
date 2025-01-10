@@ -103,24 +103,13 @@
                         <h3>Current Highest Bid</h3>
                         <p><strong>Price:</strong> {{MaxPrice}} birr</p>
                     </div>
-                    <div class="txt-center">
-                        <form>
-                            <div class="rating">
-                                <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
-                                <label for="star5">☆</label>
-                                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
-                                <label for="star4">☆</label>
-                                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-                                <label for="star3">☆</label>
-                                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-                                <label for="star2">☆</label>
-                                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-                                <label for="star1">☆</label>
-                                <div class="clear"></div>
-                            </div>
-                        </form>
+                    <div id="RateSellerheader">
+                        
                     </div>
-                    
+                    <div class="txt-center" id="sellerRATE">
+                        
+                    </div>
+
             </div>
             </div>
                 
@@ -342,10 +331,10 @@
         </div>
     </footer>
     <SCript>
-     const hamburger = document.getElementById('hamburger');
-      const menu = document.getElementById('menu');
-
-      hamburger.addEventListener('click', () => {
+        const hamburger = document.getElementById('hamburger');
+        const menu = document.getElementById('menu');
+        const sellerrate=document.getElementById("sellerRATE")
+        hamburger.addEventListener('click', () => {
         menu.classList.toggle('active');
       });
 
@@ -354,7 +343,7 @@
             const hoursEl = document.getElementById("hours");
             const minutesEl = document.getElementById("minutes");
             const secondsEl = document.getElementById("seconds");
-    
+        
             function updateCountdown() {
                 const now = new Date().getTime();
                 const distance = endTime - now;
@@ -372,6 +361,7 @@
                     const status=document.getElementById("status")
                     const buyerwinner="{{buyerwinner}}"
                     if(buyerwinner=="True"){
+                        sellerrate.style.display="block"
                         const phonenumber="{{Phonenumber}}"
                         const email="{{Email}}"
                         status.innerHTML=`
@@ -379,6 +369,27 @@
                                     <h3>Please Contact Owner Of item</h3>
                                     <p>Phonumber: ${phonenumber}</p>
                                     <p>Email: ${email}</p>
+                        `
+                        const RateSellerheader=document.getElementById("RateSellerheader")
+                        RateSellerheader.innerHTML="<h3>Rate Seller</h3>"
+                        sellerrate.innerHTML=`
+                            <form action="http://127.0.0.1:5000/rate/${document.getElementById("iid").innerText.split(" ")[1]}" method="POST">
+                                <div class="rating">
+                                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                                    <label for="star5">☆</label>
+                                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                                    <label for="star4">☆</label>
+                                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                                    <label for="star3">☆</label>
+                                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                                    <label for="star2">☆</label>
+                                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                                    <label for="star1">☆</label>
+                                    <div class="clear"></div>
+                                    <input type="submit" value="rate" style="background-color: orange; font-size: medium; border: 2px solid orange;border-radius: 5px;">
+                                </div>
+                                
+                            </form>
                         `
                     } else{
                         status.innerHTML=`<p>status: Sold</p>`
