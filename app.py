@@ -4,7 +4,7 @@ import random
 import bcrypt
 import string
 import logging
-from flask import Config, Flask,render_template,request, request_tearing_down,url_for,session,redirect,jsonify
+from flask import Config, Flask,render_template,request,url_for,session,redirect,jsonify
 from flask.config import ConfigAttribute
 from flask_mail import Mail,Message
 from flask_session import Session
