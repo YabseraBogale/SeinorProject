@@ -373,7 +373,7 @@
                         const RateSellerheader=document.getElementById("RateSellerheader")
                         RateSellerheader.innerHTML="<h3>Rate Seller</h3>"
                         sellerrate.innerHTML=`
-                            <form action="http://127.0.0.1:5000/rate/${document.getElementById("iid").innerText.split(" ")[1]}" method="POST">
+                            <form action="http://127.0.0.1:5000/rateIID/${document.getElementById("iid").innerText.split(" ")[1]}" method="POST">
                                 <div class="rating">
                                     <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
                                     <label for="star5">☆</label>

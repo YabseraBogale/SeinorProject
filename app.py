@@ -225,7 +225,7 @@ def userdashboard():
             if buyer.HighestBid(i[5])==None:
                 useritems.append(list(i)+[0])
             else:
-                useritems.append(list(i)+[buyer.HighestBid(i[5])]+addischeretauser.GetPhonenumberEmailWithUID(buyer.HighestBidWinnerWithId(i[5])[1]))
+                useritems.append(list(i)+[buyer.HighestBid(i[5])]+addischeretauser.GetPhonenumberEmailWithUID(buyer.HighestBidWinnerWithId(i[5])[1])+[buyer.HighestBidWinnerWithId(i[5])[1]])
         return render_template("userdashbord.html",userbid=bid,userItem=useritems)
     else:
         return redirect(url_for("/"))
@@ -258,8 +258,8 @@ def updatedatestored(IID):
     return redirect(url_for("userdashboard"))
 
 
-@app.route("/rate/<IID>",methods=["GET","POST"])
-def rate(IID):
+@app.route("/rateIID/<IID>",methods=["GET","POST"])
+def rateIID(IID):
     if "logged" in session and session["logged"]==True:
         if request.method=="POST":
             ratedvalue=request.form["star"]
@@ -269,6 +269,18 @@ def rate(IID):
                 return redirect(f"http://127.0.0.1:5000/items/{IID}")
             else:
                 return redirect(f"http://127.0.0.1:5000/items/{IID}")
+    return redirect("http://127.0.0.0.1:5000")
+
+@app.route("/rateUID/<UID>",methods=["GET","POST"])
+def rateUID(UID):
+    if "logged" in session and session["logged"]==True:
+        if request.method=="POST":
+            ratedvalue=request.form[f"star{UID}"]
+            ok=rating.InsertingRating(session["UID"],UID,ratedvalue)
+            if ok==True:
+                return redirect(f"http://127.0.0.1:5000/userdashboard/")
+            else:
+                return redirect(f"http://127.0.0.1:5000/userdashboard")
     return redirect("http://127.0.0.0.1:5000")
 
 @app.route("/search",methods=["GET","POST"])
