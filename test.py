@@ -3,6 +3,7 @@ from Database.database import Database
 from Database.addischeretauser import AddisCheretaUser
 from Database.verfication import Verfication
 from Database.item import Item
+from Database.rating import Rating
 from Database.buyer import Buyer
 import bcrypt
 
@@ -48,3 +49,5 @@ import bcrypt
 # print(Buyer().HighestBidWinnerWithId('758424'))
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Item().GetItemWithIID('381383')[1]))
 # print(AddisCheretaUser().GetPhonenumberEmailWithUID(Buyer().HighestBidWinnerWithId('758424')[1]))
+
+print(Rating().MinRatingOfUser(2))
