@@ -225,7 +225,6 @@ def userdashboard():
                 useritems.append(list(i)+[0])
             else:
                 useritems.append(list(i)+[buyer.HighestBid(i[5])]+addischeretauser.GetPhonenumberEmailWithUID(buyer.HighestBidWinnerWithId(i[5])[1]))
-        print(lst)
         return render_template("userdashbord.html",userbid=bid,userItem=useritems)
     else:
         return redirect(url_for("/"))
