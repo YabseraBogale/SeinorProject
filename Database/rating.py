@@ -41,3 +41,24 @@ class Rating():
             return self.SumRatingOfUser(RatedUserID)/5
         except Exception as e:
             return e
+        
+    def CountOfRatingOfUser(self,RatedUserID):
+        try:
+            statment="Select Count(rateValue) from Rating where ratedUserID=?"
+            self.pointer.execute(statment,(RatedUserID,))
+            result=self.pointer.fetchone()
+            if result is None:
+                return 0
+            return result[0]
+        except Exception as e:
+            return e
+    
+    def BayesianRatingOfUser(self,RatedUserID):
+        try:
+            avaerage=self.AverageRatingOfUser(RatedUserID)
+            numberOfReview=self.CountOfRatingOfUser(RatedUserID)
+            sum=self.SumRatingOfUser(RatedUserID)
+            min=self.MinRatingOfUser(RatedUserID)
+            return ((avaerage*min)+sum)/(min+numberOfReview)
+        except Exception as e:
+            return e
