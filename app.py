@@ -319,6 +319,9 @@ def items(IID):
     if "logged" not in session:
         return redirect("http://127.0.0.1:5000/")
     result=item.GetItemWithIID(IID)
+    sellerratevalue=rating.BayesianRatingOfUser(item.GetItemWithIID(IID)[1])
+    if type(sellerratevalue)!=float:
+        sellerratevalue=0
     itemname=result[2]
     desciption=result[3]
     photo="upload/"+result[6]
@@ -337,7 +340,7 @@ def items(IID):
         phonenumber=itemownerInformation[1]
         email=itemownerInformation[0]
         buyerWinner=True
-    return render_template("item.html",IIDS=IID,photos=photo,desciptions=desciption,itemnames=itemname,startingprice=price,categories=category,state=status,MaxPrice=maxPrice,Email=email,Phonenumber=phonenumber,buyerwinner=buyerWinner)
+    return render_template("item.html",IIDS=IID,photos=photo,desciptions=desciption,itemnames=itemname,startingprice=price,categories=category,state=status,MaxPrice=maxPrice,Email=email,Phonenumber=phonenumber,buyerwinner=buyerWinner,Rate=sellerratevalue)
     
 @app.route("/addauction",methods=["GET","POST"])
 def addauction():
