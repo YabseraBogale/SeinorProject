@@ -225,7 +225,7 @@ def userdashboard():
             if buyer.HighestBid(i[5])==None:
                 useritems.append(list(i)+[0])
             else:
-                useritems.append(list(i)+[buyer.HighestBid(i[5])]+addischeretauser.GetPhonenumberEmailWithUID(buyer.HighestBidWinnerWithId(i[5])[1])+[buyer.HighestBidWinnerWithId(i[5])[1]])
+                useritems.append(list(i)+[buyer.HighestBidWinnerWithId(i[5])[0],buyer.HighestBidWinnerWithId(i[5])[1]])
         return render_template("userdashbord.html",userbid=bid,userItem=useritems)
     else:
         return redirect(url_for("/"))
@@ -275,13 +275,22 @@ def rateIID(IID):
 def rateUID(UID):
     if "logged" in session and session["logged"]==True:
         if request.method=="POST":
-            ratedvalue=request.form[f"star{UID}"]
-            ok=rating.InsertingRating(session["UID"],UID,ratedvalue)
+            star=request.form["star"]
+            ok=rating.InsertingRating(session["UID"],UID,star)
             if ok==True:
-                return redirect(f"http://127.0.0.1:5000/userdashboard/")
-            else:
-                return redirect(f"http://127.0.0.1:5000/userdashboard")
+                return redirect(url_for("userdashboard"))
+            elif ok==False:
+                result=addischeretauser.GetPhonenumberEmailWithUID(UID)
+                return render_template("userprofile.html",Phonenumber=result[0],Email=result[1],UID=UID)
+        result=addischeretauser.GetPhonenumberEmailWithUID(UID)
+        photo=addischeretauser.GetPhotoWithUID(UID)
+        if result==[] and photo==False:
+            return render_template("userprofile.html",Phonenumber="+2510000000",Email="John@Doe.com",UID=UID,Photo="None")
+        photo=f"upload/{photo}"
+        return render_template("userprofile.html",Phonenumber=result[0],Email=result[1],UID=UID,Photo=photo)
     return redirect("http://127.0.0.0.1:5000")
+
+
 
 @app.route("/search",methods=["GET","POST"])
 def search():

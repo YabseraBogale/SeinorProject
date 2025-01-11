@@ -55,3 +55,4 @@ import bcrypt
 # print("Rating Min Rating Of User",Rating().MinRatingOfUser(2))
 # print("Rating Average Rating Of User",Rating().AverageRatingOfUser(2))
 # print("Rating Bayesian Rating Of User",Rating().BayesianRatingOfUser(2))
+# print(AddisCheretaUser().GetPhotoWithUID(1))

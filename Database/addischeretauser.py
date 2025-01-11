@@ -91,3 +91,14 @@ class AddisCheretaUser():
             return list(result)
         except Exception as e:
             return []
+    
+    def GetPhotoWithUID(self,UID):
+        try:
+            statment="Select Photo from addischeretauser where UID=?"
+            self.pointer.execute(statment,(UID,))
+            result=self.pointer.fetchone()
+            if result is None:
+                return False
+            return result[0]
+        except Exception as e:
+            return False

@@ -819,10 +819,7 @@
               <th>Starting Price</th>
               <th>Item Status</th>
               <th>End Date</th>
-              <th>Rate Buyer</th>
               <th>Highest Bid</th>
-              <th>Highest Email</th>
-              <th>Highest Phonenumber</th>
             </thead>
             <tbody>
                 {% if userItem==[] %}
@@ -865,31 +862,11 @@
                               <td>{{item[2]}} <form action="http://127.0.0.1:5000/updateStartingPrice/{{item[5]}}" method="post"><input type="number" name="startingprice" min="0"> <input type="submit" value="update"></form></td>
                               <td>{{item[3]}}</td>
                               <td>{{item[4]}} <form action="http://127.0.0.1:5000/updatedatestored/{{item[5]}}" method="post"><input type="date" name="datestored"> <input type="submit" value="update"></form></td>
-                              <td>
-                                <div class="txt-center" id="sellerRATE">
-                                  <form action="http://127.0.0.1:5000/rateUID/{{item[10]}}" method="POST">
-                                    <div class="rating">
-                                        <input id="star5" name="star{{item[10]}}" type="radio" value="5" class="radio-btn hide" />
-                                        <label for="star5">☆</label>
-                                        <input id="star4" name="star{{item[10]}}" type="radio" value="4" class="radio-btn hide" />
-                                        <label for="star4">☆</label>
-                                        <input id="star3" name="star{{item[10]}}" type="radio" value="3" class="radio-btn hide" />
-                                        <label for="star3">☆</label>
-                                        <input id="star2" name="star{{item[10]}}" type="radio" value="2" class="radio-btn hide" />
-                                        <label for="star2">☆</label>
-                                        <input id="star1" name="star{{item[10]}}" type="radio" value="1" class="radio-btn hide" />
-                                        <label for="star1">☆</label>
-                                        <div class="clear"></div>
-                                        <input type="submit" value="rate" style="background-color: orange; font-size: medium; border: 2px solid orange;border-radius: 5px;">
-                                        <input type="reset" value="reset">
-                                      </div>
-                                </form>
-                                </div>
-                               
-                              </td>
-                              <td>{{item[7]}}</td>
-                              <td>{{item[8]}}</td>
-                              <td>{{item[9]}}</td>
+                              {% if item[7]==0 %}
+                              <td>{{item[7]}} </td>
+                              {% else %}
+                                <td>{{item[7]}} <a href="http://127.0.0.1:5000/rateUID/{{item[8]}}" style="color:orange">click to see more</a></td>
+                              {% endif %}
                             </tr>
                         {% endfor %}
                 {% endif %}

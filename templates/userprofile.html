@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static',filename='rating.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>User Profile</title>
+</head>
+<body>
+<div class="main">
+    <div class="img">
+        <img src="" alt="">
+    </div>
+    <div class="info">
+        <h3>
+            Highest Bid Profile
+        </h3>
+        <ul>
+            <li>
+                Email: {{Email}}
+            </li>
+            <li>
+                Phonenumber: {{Phonenumber}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="txt-center" id="sellerRATE">
+    <h3>Rate Highest Bid Profile</h3>            
+    <form action="http://127.0.0.1:5000/rateUID/{{UID}}" method="POST">
+        <div class="rating">
+            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+            <label for="star5">☆</label>
+            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+            <label for="star4">☆</label>
+            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+            <label for="star3">☆</label>
+            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+            <label for="star2">☆</label>
+            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+            <label for="star1">☆</label>
+            <div class="clear"></div>
+            <input type="submit" value="rate" style="background-color: orange; font-size: medium; border: 2px solid orange;border-radius: 5px;">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
