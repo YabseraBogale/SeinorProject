@@ -10,7 +10,11 @@
 <body>
 <div class="main">
     <div class="img">
-        <img src="" alt="">
+        {% if Photo=="None" %}
+            <img src="" alt="None Provided">
+        {% else %}
+            <img src="{{url_for('static',filename=Photo)}}" alt="Wating For Network">
+        {% endif %}
     </div>
     <div class="info">
         <h3>
