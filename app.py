@@ -285,7 +285,7 @@ def rateUID(UID):
         result=addischeretauser.GetPhonenumberEmailWithUID(UID)
         photo=addischeretauser.GetPhotoWithUID(UID)
         ratedvalue=rating.BayesianRatingOfUser(UID)
-        if type(rateUID)!=float:
+        if type(ratedvalue)!=float:
             rateUID="Not Rated Yet"
         if result==[] or photo==False:
             return render_template("userprofile.html",Phonenumber="+2510000000",Email="John@Doe.com",UID=UID,Photo="None")
