@@ -284,10 +284,13 @@ def rateUID(UID):
                 return render_template("userprofile.html",Phonenumber=result[0],Email=result[1],UID=UID)
         result=addischeretauser.GetPhonenumberEmailWithUID(UID)
         photo=addischeretauser.GetPhotoWithUID(UID)
-        if result==[] and photo==False:
+        ratedvalue=rating.BayesianRatingOfUser(UID)
+        if type(rateUID)!=float:
+            rateUID="Not Rated Yet"
+        if result==[] or photo==False:
             return render_template("userprofile.html",Phonenumber="+2510000000",Email="John@Doe.com",UID=UID,Photo="None")
         photo=f"upload/{photo}"
-        return render_template("userprofile.html",Phonenumber=result[0],Email=result[1],UID=UID,Photo=photo)
+        return render_template("userprofile.html",Phonenumber=result[0],Email=result[1],UID=UID,Photo=photo,Rating=ratedvalue)
     return redirect("http://127.0.0.0.1:5000")
 
 
