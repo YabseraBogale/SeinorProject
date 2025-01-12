@@ -31,7 +31,10 @@ Benefits
 Technical Stack
 
     Frontend: Built with HTML, CSS, JavaScript.
-    Backend: Python.
-    Database: Stores data, often using relational SQLITE
-    Web Server: Hosts the application, commonly using Nginx or Apache.
+    Backend: Python Flask.
+    Database: Stores data, often using relational Database SQLITE
+    Web Server: Hosts the application, commonly using Nginx or Apache the hosting platform.
     API: Facilitates communication between the frontend and backend or external systems.
+
+
+
