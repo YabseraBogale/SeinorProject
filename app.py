@@ -228,7 +228,7 @@ def userdashboard():
                 useritems.append(list(i)+[buyer.HighestBidWinnerWithId(i[5])[0],buyer.HighestBidWinnerWithId(i[5])[1]])
         return render_template("userdashbord.html",userbid=bid,userItem=useritems)
     else:
-        return redirect(url_for(""))
+        return redirect("http://127.0.0.1:5000")
     
 @app.route("/updateName/<IID>",methods=["GET","POST"])
 def UpdateName(IID):
