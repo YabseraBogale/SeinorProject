@@ -36,5 +36,18 @@ Database: Stores data, often using relational Database SQLITE
 Web Server: Hosts the application, commonly using Nginx or Apache the hosting platform.
 API: Facilitates communication between the frontend and backend or external systems.
 
+To run the project
+
+    python3 -m venv env
+    # for windows
+    env\Scripts\Activate
+    # for linux
+    source env/bin/activate
+    # then run 
+    ./install.sh
+    # for debug
+    python app.py
+    # for production
+    flask run
 
 
