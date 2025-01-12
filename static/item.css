@@ -5,14 +5,15 @@
           padding: 0;
           box-sizing: border-box;
         }
-
+        
         body {
           font-family: Arial, sans-serif;
           background-color: #f8f9fa;
           color: #333;
+          margin: 0; /* Remove default margin for full-width content */
         }
-
-        /* Header */
+        
+        /* Navbar */
         .ADDIS-navbar {
           display: flex;
           justify-content: space-between;
@@ -20,44 +21,57 @@
           background: #ffffff;
           color: #000000;
           padding: 15px 30px;
-          margin: 15px;
-          border-radius: 10px;
-          position: relative;
+          border-radius: 0; /* Flush edges for pinned design */
+          position: fixed; /* Pin the navbar at the top */
+          top: 0; /* Position it at the very top */
+          width: 100%; /* Make it span the full width of the screen */
+          z-index: 1000; /* Keep it above all other elements */
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for separation */
         }
-
+        
+        /* Logo Section */
         .ADDIS-logo {
           font-size: 20px;
           font-weight: bold;
         }
-
+        
         .ADDIS-logo .ADDIS-property {
           color: #000000;
         }
-
+        
         .ADDIS-logo .ADDIS-auctions {
           color: #ffcc00;
         }
-
+        
+        /* Menu Links */
         .ADDIS-menu {
           display: flex;
           align-items: center;
         }
-
+        
         .ADDIS-menu-link {
           color: #000000;
           margin: 0 10px;
           font-weight: bold;
           text-decoration: none;
+          transition: color 0.3s ease;
         }
-
+        
+        .ADDIS-menu-link:hover {
+          color: #ffcc00; /* Highlight on hover */
+        }
+        
         .ADDIS-divider {
           color: #000000;
+          margin: 0 5px;
         }
-
+        
+        /* Actions Section */
         .ADDIS-actions {
           display: flex;
           align-items: center;
         }
+        
         .ADDIS-add-auction-btn {
           background: #ffcc00;
           color: #000;
@@ -65,16 +79,21 @@
           padding: 10px 15px;
           border-radius: 5px;
           cursor: pointer;
-          margin-right: 10px;
+          font-weight: bold;
+          transition: background 0.3s ease;
         }
-
-        /* Hamburger Menu */
+        
+        .ADDIS-add-auction-btn:hover {
+          background: #e6b800; /* Darker yellow on hover */
+        }
+        
+        /* Hamburger Menu for Mobile */
         .ADDIS-hamburger {
           display: none;
           flex-direction: column;
           cursor: pointer;
         }
-
+        
         .ADDIS-hamburger div {
           width: 25px;
           height: 3px;
@@ -82,46 +101,47 @@
           margin: 3px 0;
           border-radius: 2px;
         }
-
-        /* Responsive Mobile View */
+        
+        /* Responsive Design */
         @media screen and (max-width: 768px) {
           .ADDIS-navbar {
-            flex-direction: row;
+            flex-wrap: wrap;
+            padding: 10px 20px;
           }
-
+        
           .ADDIS-menu {
-            display: none;
+            display: none; /* Hide menu by default on small screens */
             flex-direction: column;
             background-color: #ffffff;
             width: 100%;
             position: absolute;
-            top: 100%;
+            top: 60px; /* Adjusted for fixed navbar */
             left: 0;
             border-radius: 0 0 10px 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           }
-
+        
           .ADDIS-menu.active {
-            display: flex;
+            display: flex; /* Show menu when active */
           }
-
+        
           .ADDIS-menu-link {
             padding: 10px;
             text-align: center;
             margin: 0;
             border-top: 1px solid #ddd;
           }
-
+        
           .ADDIS-divider {
-            display: none;
+            display: none; /* Remove dividers for mobile */
           }
-
+        
           .ADDIS-hamburger {
-            display: flex;
+            display: flex; /* Show hamburger menu on small screens */
           }
-
+        
           .ADDIS-actions {
-            display: none; /* Hide actions on mobile view */
+            display: none; /* Hide "Add Auction" button on small screens */
           }
         }
     
@@ -139,7 +159,7 @@
     /* Product Details Container */
     .product-details {
     
-    margin: 20px auto;
+    margin: 80px;
     padding: 20px;
     border-radius: 10px;
     display: flex;
@@ -261,6 +281,32 @@
     flex-direction: column;
     gap: 10px;
     }
+    input[type="number"] {
+      width: 300px; /* Adjust width */
+      padding: 10px 15px; /* Add padding for better usability */
+      font-size: 16px; /* Set a readable font size */
+      border: 2px solid #ddd; /* Border color */
+      border-radius: 5px; /* Rounded corners */
+      outline: none; /* Remove blue outline on focus */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+  }
+
+  /* Focus State */
+  input[type="number"]:focus {
+      border-color: #ffcc00; /* Highlight border on focus */
+      box-shadow: 0 0 5px rgba(255, 204, 0, 0.5); /* Add subtle shadow */
+  }
+
+  /* Input Hover State */
+  input[type="number"]:hover {
+      border-color: #999; /* Slightly darken border on hover */
+  }
+
+  /* Optional Placeholder Styling */
+  input[type="number"]::placeholder {
+      color: #bbb; /* Light gray placeholder */
+      font-style: italic;
+  }
     
     .btn {
     background-color: #ffb300;
@@ -527,161 +573,157 @@
           }
       }
       
-        .footer {
-          background-color: #000;
-          color: #fff;
-          padding: 40px 0;
-        }
-        
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-start;
-          flex-wrap: wrap;
-        }
-        
-        .textlogo {
-          font-size: 28px;
-          font-weight: bold;
-          letter-spacing: 1px;
-        }
-        
-        .text-primary {
-          color: #ffc107;
-        }
-        
-        .description {
-          color: #ccc;
-          line-height: 1.8;
-        }
-        
-        .footer-left, .footer-links, .footer-search, .footer-newsletter {
-          width: 23%;
-          margin-bottom: 20px;
-        }
-        
-        .footer-links h5, .footer-search h5, .footer-newsletter h5 {
-          font-size: 18px;
-          margin-bottom: 10px;
-          color: #fff;
-        }
-        
-        .footer-links ul, .footer-search ul {
-          list-style: none;
-          padding: 0;
-        }
-        
-        .footer-links ul li, .footer-search ul li {
-          margin-bottom: 8px;
-        }
-        
-        .footer-links a, .footer-search a {
-          color: #ccc;
-          text-decoration: none;
-          font-size: 14px;
-        }
-        
-        .footer-links a:hover, .footer-search a:hover {
-          color: #ffc107;
-        }
-        
-        .footer-newsletter input {
-          padding: 10px;
-          width: 80%;
-          margin-right: 10px;
-          background-color: #222;
-          border: none;
-          color: #fff;
-          border-radius: 5px;
-        }
-        
-        .footer-newsletter button {
-          padding: 10px 20px;
-          background-color: #ffc107;
-          border: none;
-          color: #000;
-          font-weight: bold;
-          cursor: pointer;
-          border-radius: 5px;
-        }
-        
-        .footer-newsletter button:hover {
-          background-color: #e6b800;
-        }
-        
-        .footer-newsletter small {
-          display: block;
-          margin-top: 10px;
-          font-size: 12px;
-          color: #ccc;
-        }
-        
-        .footer-newsletter small a {
-          color: #ffc107;
-        }
-        
-        .footer-newsletter small a:hover {
-          color: #fff;
-        }
-        
-        /* Footer Bottom Section */
-        .footer-bottom {
-          background-color: #222;
-          color: #ccc;
-          padding: 20px;
-          text-align: center;
-        }
-        
-        .footer-bottom .social-icons a {
-          margin: 0 10px;
-          color: #fff;
-          font-size: 18px;
-          text-decoration: none;
-          transition: color 0.3s;
-        }
-        
-        .footer-bottom .social-icons a:hover {
-          color: #ffc107;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-          .container {
+      .footer {
+        background-color: #000;
+        color: #fff;
+        padding: 40px 0;
+        border-top: 7px solid #f1c40f;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0px auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .textlogo {
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+
+    .text-primary {
+        color: #ffc107;
+    }
+
+    .description {
+        color: #ccc;
+        line-height: 1.8;
+    }
+
+    .footer-left, .footer-links, .footer-search, .footer-newsletter {
+        width: 23%;
+        margin-bottom: 20px;
+    }
+
+    .footer-links h5, .footer-search h5, .footer-newsletter h5 {
+        font-size: 18px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .footer-links ul, .footer-search ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links ul li, .footer-search ul li {
+        margin-bottom: 8px;
+    }
+
+    .footer-links a, .footer-search a {
+        color: #ccc;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .footer-links a:hover, .footer-search a:hover {
+        color: #ffc107;
+    }
+
+    .footer-newsletter input {
+        padding: 10px;
+        width: 80%;
+        margin-right: 10px;
+        background-color: #222;
+        border: none;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .footer-newsletter button {
+        padding: 10px 20px;
+        background-color: #ffc107;
+        border: none;
+        color: #000;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .footer-newsletter button:hover {
+        background-color: #e6b800;
+    }
+
+    .footer-newsletter small {
+        display: block;
+        margin-top: 10px;
+        font-size: 12px;
+        color: #ccc;
+    }
+
+    .footer-newsletter small a {
+        color: #ffc107;
+    }
+
+    .footer-newsletter small a:hover {
+        color: #fff;
+    }
+
+    /* Footer Bottom Section */
+    .footer-bottom {
+        background-color: #222;
+        color: #ccc;
+        padding: 20px;
+        text-align: center;
+    }
+
+    a:hover {
+        background-color: gold;
+        color: white;
+        padding: 5px;
+        border: 2px solid black;
+        border-radius: 5px;
+    }
+
+    .footer-bottom .social-icons a {
+        margin: 0 10px;
+        color: #fff;
+        font-size: 18px;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-bottom .social-icons a:hover {
+        color: #ffc107;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .footer-container {
             flex-direction: column;
             align-items: center;
-          }
-        
-          .footer-left, .footer-links, .footer-search, .footer-newsletter {
+        }
+
+        .footer-left, .footer-links, .footer-search, .footer-newsletter {
             width: 100%;
             text-align: center;
-          }
-        
-          .footer-newsletter input {
+        }
+
+        .footer-newsletter input {
             width: 100%;
             margin-bottom: 10px;
-          }
-        
-          .footer-newsletter button {
-            width: 100%;
-          }
-        
-          .footer-bottom {
-            text-align: center;
-          }
-          .CHERETA-container {
-            flex-direction: column;
-          }
-
-          .CHERETA-sidebar {
-            width: 100%;
-            text-align: center;
-          }
-
-          .CHERETA-divider {
-            display: none;
-          }
-
         }
+
+        .footer-newsletter button {
+            width: 100%;
+        }
+
+        .footer-bottom {
+            text-align: center;
+        }
+    }
     

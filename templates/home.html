@@ -8,23 +8,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   </head>
   <body>
-    <header class="navbar">
-      <div class="container">
-        <!-- Keeping your existing .container class here -->
-        <div class="brand-logo">
-          <span class="brand-text"
-            >Addis <span class="brand-highlight">Chereta</span></span
-          >
-        </div>
-        <nav class="menu-navigation">
-          <ul class="navigation-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Search</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Auction Catagory</a></li>
-          </ul>
-          <a href="#" class="btn btn-primary-action">Add Auction</a>
-        </nav>
+    <header class="ADDIS-navbar">
+      <div class="ADDIS-logo">
+        <span class="ADDIS-property">ADDIS</span>
+        <span class="ADDIS-auctions">CHERETA</span>
+      </div>
+      <!-- Toggle Button -->
+      <div class="ADDIS-hamburger" id="hamburger"></div>
+      <!-- Menu Links -->
+      <nav class="ADDIS-menu" id="menu">
+        <a href="#" class="ADDIS-menu-link">Home</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Search</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Ad Page</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Inner Pages</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Contact</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Blog</a>
+      </nav>
+      <!-- Add Auction Button -->
+      <div class="ADDIS-actions">
+        <button class="ADDIS-add-auction-btn">Add Auction</button>
       </div>
     </header>
     <section class="hero" style="background-image: url('{{url_for("static",filename="image/22.png")}}');">
@@ -914,66 +921,47 @@
         <a href="#" class="btn-view-more">View More</a>
       </div>
     </section>
-    <div class="footer-txt-light">
-      <div class="container">
-        <div class="row">
+    <footer class="footer">
+      <div class="footer-container">
           <!-- Logo and Description -->
-          <div class="col-md-4 text-center text-md-left logo-lg">
-            <div class="textlogo navbar-brand-light">
-              Addis<span class="text-primary"> Chereta</span>
-            </div>
-            <div class="lh-30">
-              We are available to help answer your questions. Contact us today
-              and we'll be happy to help.
-            </div>
+          <div class="footer-left">
+              <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
+              <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
           </div>
-
+  
           <!-- Useful Links -->
-          <div class="col-6 col-md-3">
-            <div class="fs-5 mb-2 text-600">Useful Links</div>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">How it works</a></li>
-            </ul>
+          <div class="footer-links">
+              <h5>Useful Links</h5>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">How it works</a></li>
+                  <li><a href="#">Blog</a></li>
+              </ul>
           </div>
-
+  
           <!-- Quick Search -->
-          <div class="col-6 col-md-3">
-            <div class="fs-5 mb-2 text-600">Quick Search</div>
-            <ul>
-              <li><a href="#">Search</a></li>
-              <li><a href="#">Popular</a></li>
-              <li><a href="#">Newly Added</a></li>
-            </ul>
+          <div class="footer-search">
+              <h5>Quick Search</h5>
+              <ul>
+                  <li><a href="#">Search</a></li>
+                  <li><a href="#">Popular</a></li>
+                  <li><a href="#">Newly Added</a></li>
+                  <li><a href="#">Most Relevant</a></li>
+              </ul>
           </div>
-
+  
           <!-- Newsletter -->
-          <div class="col-md-4">
-            <div class="fs-5 mb-2 text-600">Join our newsletter</div>
-            <p class="opacity-8">We write rarely, but only the best content.</p>
-            <form class="footer-newsletter">
-              <div class="input-group">
-                <input type="text" placeholder="Email Address Here.." />
-                <button type="submit">Join</button>
-              </div>
-            </form>
-            <div class="small">
-              We'll never share your details. See our
-              <a href="#">Privacy Policy</a>.
-            </div>
+          <div class="footer-newsletter">
+              <h5>Join our newsletter</h5>
+              <p>We write rarely, but only the best content.</p>
+              <form>
+                  <input type="email" placeholder="Email Address Here.." />
+                  <button type="submit">Join</button>
+              </form>
+              <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
           </div>
-        </div>
-
-        <!-- Bottom Section -->
-        <div class="small">© 2024 All rights reserved.</div>
-        <div class="social-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
-          <a href="#"><i class="fa fa-youtube"></i></a>
-        </div>
       </div>
-    </div>
+  </footer>
   </body>
 </html>

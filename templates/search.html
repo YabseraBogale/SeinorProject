@@ -20,7 +20,7 @@
 
     .container {
       width: 90%;
-      margin: 20px auto;
+      margin: 90px auto;
     }
 
     /* Image Grid */
@@ -78,165 +78,181 @@
   </style>
 </head>
 <body>
-    <style>
-        /* General Reset */
-        * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-        }
-
-        body {
-          font-family: Arial, sans-serif;
-          background-color: #f8f9fa;
-          color: #333;
-        }
-
-        /* Header */
-        .ADDIS-navbar {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          background: #ffffff;
-          color: #000000;
-          padding: 15px 30px;
-          margin: 15px;
-          border-radius: 10px;
-          position: relative;
-        }
-
-        .ADDIS-logo {
-          font-size: 20px;
-          font-weight: bold;
-        }
-
-        .ADDIS-logo .ADDIS-property {
-          color: #000000;
-        }
-
-        .ADDIS-logo .ADDIS-auctions {
-          color: #ffcc00;
-        }
-
-        .ADDIS-menu {
-          display: flex;
-          align-items: center;
-        }
-
-        .ADDIS-menu-link {
-          color: #000000;
-          margin: 0 10px;
-          font-weight: bold;
-          text-decoration: none;
-        }
-
-        .ADDIS-divider {
-          color: #000000;
-        }
-
-        .ADDIS-actions {
-          display: flex;
-          align-items: center;
-        }
-
-        .ADDIS-add-auction-btn {
-          background: #ffcc00;
-          color: #000;
-          border: none;
-          padding: 10px 15px;
-          border-radius: 5px;
-          cursor: pointer;
-          margin-right: 10px;
-        }
-
-        /* Hamburger Menu */
-        .ADDIS-hamburger {
-          display: none;
-          flex-direction: column;
-          cursor: pointer;
-        }
-
-        .ADDIS-hamburger div {
-          width: 25px;
-          height: 3px;
-          background-color: #333;
-          margin: 3px 0;
-          border-radius: 2px;
-        }
-
-        /* Responsive Mobile View */
-        @media screen and (max-width: 768px) {
-          .ADDIS-navbar {
-            flex-direction: row;
-          }
-
-          .ADDIS-menu {
-            display: none;
-            flex-direction: column;
-            background-color: #ffffff;
-            width: 100%;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            border-radius: 0 0 10px 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          }
-
-          .ADDIS-menu.active {
-            display: flex;
-          }
-
-          .ADDIS-menu-link {
-            padding: 10px;
-            text-align: center;
-            margin: 0;
-            border-top: 1px solid #ddd;
-          }
-
-          .ADDIS-divider {
-            display: none;
-          }
-
-          .ADDIS-hamburger {
-            display: flex;
-          }
-
-          .ADDIS-actions {
-            display: none; /* Hide actions on mobile view */
-          }
-        }
-    </style>
-    <!-- Header -->
-    <header class="ADDIS-navbar">
-        <div class="ADDIS-logo">
-          <span class="ADDIS-property">ADDIS</span>
-          <span class="ADDIS-auctions">CHERETA</span>
-        </div>
-        <!-- Toggle Button -->
-        <div class="ADDIS-hamburger" id="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <!-- Menu Links -->
-        <nav class="ADDIS-menu" id="menu">
-          <a href="#" class="ADDIS-menu-link">Home</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Search</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Ad Page</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Inner Pages</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Contact</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Blog</a>
-        </nav>
-        <!-- Add Auction Button -->
-        <div class="ADDIS-actions">
-          <button class="ADDIS-add-auction-btn">Add Auction</button>
-        </div>
-    </header>
+  <style>/* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0; /* Remove default margin for full-width content */
+    }
+    
+    /* Navbar */
+    .ADDIS-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      color: #000000;
+      padding: 15px 30px;
+      border-radius: 0; /* Flush edges for pinned design */
+      position: fixed; /* Pin the navbar at the top */
+      top: 0; /* Position it at the very top */
+      width: 100%; /* Make it span the full width of the screen */
+      z-index: 1000; /* Keep it above all other elements */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for separation */
+    }
+    
+    /* Logo Section */
+    .ADDIS-logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .ADDIS-logo .ADDIS-property {
+      color: #000000;
+    }
+    
+    .ADDIS-logo .ADDIS-auctions {
+      color: #ffcc00;
+    }
+    
+    /* Menu Links */
+    .ADDIS-menu {
+      display: flex;
+      align-items: center;
+    }
+    
+    .ADDIS-menu-link {
+      color: #000000;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .ADDIS-menu-link:hover {
+      color: #ffcc00; /* Highlight on hover */
+    }
+    
+    .ADDIS-divider {
+      color: #000000;
+      margin: 0 5px;
+    }
+    
+    /* Actions Section */
+    .ADDIS-actions {
+      display: flex;
+      align-items: center;
+    }
+    
+    .ADDIS-add-auction-btn {
+      background: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    
+    .ADDIS-add-auction-btn:hover {
+      background: #e6b800; /* Darker yellow on hover */
+    }
+    
+    /* Hamburger Menu for Mobile */
+    .ADDIS-hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .ADDIS-hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 3px 0;
+      border-radius: 2px;
+    }
+    
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .ADDIS-navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+      }
+    
+      .ADDIS-menu {
+        display: none; /* Hide menu by default on small screens */
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjusted for fixed navbar */
+        left: 0;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    
+      .ADDIS-menu.active {
+        display: flex; /* Show menu when active */
+      }
+    
+      .ADDIS-menu-link {
+        padding: 10px;
+        text-align: center;
+        margin: 0;
+        border-top: 1px solid #ddd;
+      }
+    
+      .ADDIS-divider {
+        display: none; /* Remove dividers for mobile */
+      }
+    
+      .ADDIS-hamburger {
+        display: flex; /* Show hamburger menu on small screens */
+      }
+    
+      .ADDIS-actions {
+        display: none; /* Hide "Add Auction" button on small screens */
+      }
+    }
+    
+  </style>  
+  <!-- Header -->
+  
+  <header class="ADDIS-navbar">
+      <div class="ADDIS-logo">
+        <span class="ADDIS-property">ADDIS</span>
+        <span class="ADDIS-auctions">CHERETA</span>
+      </div>
+      <!-- Toggle Button -->
+      <div class="ADDIS-hamburger" id="hamburger"></div>
+      <!-- Menu Links -->
+      <nav class="ADDIS-menu" id="menu">
+        <a href="#" class="ADDIS-menu-link">Home</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Search</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Ad Page</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Inner Pages</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Contact</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="#" class="ADDIS-menu-link">Blog</a>
+      </nav>
+      <!-- Add Auction Button -->
+      <div class="ADDIS-actions">
+        <button class="ADDIS-add-auction-btn">Add Auction</button>
+      </div>
+  </header>
 
     <!-- JavaScript for Toggle Menu -->
     <script>
@@ -537,218 +553,201 @@
     });
     </script>
     <footer class="footer">
-    <div class="container">
-      <!-- Logo and Description -->
-      <div class="footer-left">
-        <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
-        <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
-      </div>
+      <div class="footer-container">
+          <!-- Logo and Description -->
+          <div class="footer-left">
+              <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
+              <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
+          </div>
   
-      <!-- Useful Links -->
-      <div class="footer-links">
-        <h5>Useful Links</h5>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">How it works</a></li>
-          <li><a href="#">Blog</a></li>
-        </ul>
-      </div>
+          <!-- Useful Links -->
+          <div class="footer-links">
+              <h5>Useful Links</h5>
+              <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">How it works</a></li>
+                  <li><a href="#">Blog</a></li>
+              </ul>
+          </div>
   
-      <!-- Quick Search -->
-      <div class="footer-search">
-        <h5>Quick Search</h5>
-        <ul>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">Popular</a></li>
-          <li><a href="#">Newly Added</a></li>
-          <li><a href="#">Most Relevant</a></li>
-        </ul>
-      </div>
+          <!-- Quick Search -->
+          <div class="footer-search">
+              <h5>Quick Search</h5>
+              <ul>
+                  <li><a href="#">Search</a></li>
+                  <li><a href="#">Popular</a></li>
+                  <li><a href="#">Newly Added</a></li>
+                  <li><a href="#">Most Relevant</a></li>
+              </ul>
+          </div>
   
-      <!-- Newsletter -->
-      <div class="footer-newsletter">
-        <h5>Join our newsletter</h5>
-        <p>We write rarely, but only the best content.</p>
-        <form>
-          <input type="email" placeholder="Email Address Here.." />
-          <button type="submit">Join</button>
-        </form>
-        <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+              <h5>Join our newsletter</h5>
+              <p>We write rarely, but only the best content.</p>
+              <form>
+                  <input type="email" placeholder="Email Address Here.." />
+                  <button type="submit">Join</button>
+              </form>
+              <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+          </div>
       </div>
-    </div>
-  
-    <!-- Bottom Section -->
-    <div class="footer-bottom">
-      <p>© 2024 All rights reserved.</p>
-    </div>
-    </footer>
-    <style>
-    .footer {
-      background-color: #000;
-      color: #fff;
-      padding: 40px 0;
-    }
-    
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-    }
-    
-    .textlogo {
-      font-size: 28px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-    
-    .text-primary {
-      color: #ffc107;
-    }
-    
-    .description {
-      color: #ccc;
-      line-height: 1.8;
-    }
-    
-    .footer-left, .footer-links, .footer-search, .footer-newsletter {
-      width: 23%;
-      margin-bottom: 20px;
-    }
-    
-    .footer-links h5, .footer-search h5, .footer-newsletter h5 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-    
-    .footer-links ul, .footer-search ul {
-      list-style: none;
-      padding: 0;
-    }
-    
-    .footer-links ul li, .footer-search ul li {
-      margin-bottom: 8px;
-    }
-    
-    .footer-links a, .footer-search a {
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    
-    .footer-links a:hover, .footer-search a:hover {
-      color: #ffc107;
-    }
-    
-    .footer-newsletter input {
-      padding: 10px;
-      width: 80%;
-      margin-right: 10px;
-      background-color: #222;
-      border: none;
-      color: #fff;
-      border-radius: 5px;
-    }
-    
-    .footer-newsletter button {
-      padding: 10px 20px;
-      background-color: #ffc107;
-      border: none;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    
-    .footer-newsletter button:hover {
-      background-color: #e6b800;
-    }
-    
-    .footer-newsletter small {
-      display: block;
-      margin-top: 10px;
-      font-size: 12px;
-      color: #ccc;
-    }
-    
-    .footer-newsletter small a {
-      color: #ffc107;
-    }
-    
-    .footer-newsletter small a:hover {
-      color: #fff;
-    }
-    
-    /* Footer Bottom Section */
-    .footer-bottom {
-      background-color: #222;
-      color: #ccc;
-      padding: 20px;
-      text-align: center;
-    }
-    
-    a:hover{
-      background-color: Gold;
-      color: white;
-      padding: 5px;
-      border: 2px solid black;
-      border-radius: 5px;
-    }
-
-    .footer-bottom .social-icons a {
-      margin: 0 10px;
-      color: #fff;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    
-    .footer-bottom .social-icons a:hover {
-      color: #ffc107;
-    }
-    
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
+  </footer>
+  <style>
+      .footer {
+          background-color: #000;
+          color: #fff;
+          padding: 40px 0;
+          border-top: 7px solid #f1c40f;
       }
-    
+  
+      .footer-container {
+          max-width: 1200px;
+          margin: 0px auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-wrap: wrap;
+      }
+  
+      .textlogo {
+          font-size: 28px;
+          font-weight: bold;
+          letter-spacing: 1px;
+      }
+  
+      .text-primary {
+          color: #ffc107;
+      }
+  
+      .description {
+          color: #ccc;
+          line-height: 1.8;
+      }
+  
       .footer-left, .footer-links, .footer-search, .footer-newsletter {
-        width: 100%;
-        text-align: center;
+          width: 23%;
+          margin-bottom: 20px;
       }
-    
+  
+      .footer-links h5, .footer-search h5, .footer-newsletter h5 {
+          font-size: 18px;
+          margin-bottom: 10px;
+          color: #fff;
+      }
+  
+      .footer-links ul, .footer-search ul {
+          list-style: none;
+          padding: 0;
+      }
+  
+      .footer-links ul li, .footer-search ul li {
+          margin-bottom: 8px;
+      }
+  
+      .footer-links a, .footer-search a {
+          color: #ccc;
+          text-decoration: none;
+          font-size: 14px;
+      }
+  
+      .footer-links a:hover, .footer-search a:hover {
+          color: #ffc107;
+      }
+  
       .footer-newsletter input {
-        width: 100%;
-        margin-bottom: 10px;
+          padding: 10px;
+          width: 80%;
+          margin-right: 10px;
+          background-color: #222;
+          border: none;
+          color: #fff;
+          border-radius: 5px;
       }
-    
+  
       .footer-newsletter button {
-        width: 100%;
+          padding: 10px 20px;
+          background-color: #ffc107;
+          border: none;
+          color: #000;
+          font-weight: bold;
+          cursor: pointer;
+          border-radius: 5px;
       }
-    
+  
+      .footer-newsletter button:hover {
+          background-color: #e6b800;
+      }
+  
+      .footer-newsletter small {
+          display: block;
+          margin-top: 10px;
+          font-size: 12px;
+          color: #ccc;
+      }
+  
+      .footer-newsletter small a {
+          color: #ffc107;
+      }
+  
+      .footer-newsletter small a:hover {
+          color: #fff;
+      }
+  
+      /* Footer Bottom Section */
       .footer-bottom {
-        text-align: center;
+          background-color: #222;
+          color: #ccc;
+          padding: 20px;
+          text-align: center;
       }
-      .CHERETA-container {
-        flex-direction: column;
+  
+      a:hover {
+          background-color: gold;
+          color: white;
+          padding: 5px;
+          border: 2px solid black;
+          border-radius: 5px;
       }
-
-      .CHERETA-sidebar {
-        width: 100%;
-        text-align: center;
+  
+      .footer-bottom .social-icons a {
+          margin: 0 10px;
+          color: #fff;
+          font-size: 18px;
+          text-decoration: none;
+          transition: color 0.3s;
       }
-
-      .CHERETA-divider {
-        display: none;
+  
+      .footer-bottom .social-icons a:hover {
+          color: #ffc107;
       }
-
-    }
-    </style>
-</body>
+  
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .footer-container {
+              flex-direction: column;
+              align-items: center;
+          }
+  
+          .footer-left, .footer-links, .footer-search, .footer-newsletter {
+              width: 100%;
+              text-align: center;
+          }
+  
+          .footer-newsletter input {
+              width: 100%;
+              margin-bottom: 10px;
+          }
+  
+          .footer-newsletter button {
+              width: 100%;
+          }
+  
+          .footer-bottom {
+              text-align: center;
+          }
+      }
+  </style>
+  </body>
 </html>

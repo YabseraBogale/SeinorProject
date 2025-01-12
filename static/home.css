@@ -9,20 +9,155 @@ body {
   background-color: #f9f9f9;
   line-height: 1.6;
 }
-
+/* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0; /* Remove default margin for full-width content */
+    }
+    
+    /* Navbar */
+    .ADDIS-navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      color: #000000;
+      padding: 15px 30px;
+      border-radius: 0; /* Flush edges for pinned design */
+      position: fixed; /* Pin the navbar at the top */
+      top: 0; /* Position it at the very top */
+      width: 100%; /* Make it span the full width of the screen */
+      z-index: 1000; /* Keep it above all other elements */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for separation */
+    }
+    
+    /* Logo Section */
+    .ADDIS-logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    
+    .ADDIS-logo .ADDIS-property {
+      color: #000000;
+    }
+    
+    .ADDIS-logo .ADDIS-auctions {
+      color: #ffcc00;
+    }
+    
+    /* Menu Links */
+    .ADDIS-menu {
+      display: flex;
+      align-items: center;
+    }
+    
+    .ADDIS-menu-link {
+      color: #000000;
+      margin: 0 10px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .ADDIS-menu-link:hover {
+      color: #ffcc00; /* Highlight on hover */
+    }
+    
+    .ADDIS-divider {
+      color: #000000;
+      margin: 0 5px;
+    }
+    
+    /* Actions Section */
+    .ADDIS-actions {
+      display: flex;
+      align-items: center;
+    }
+    
+    .ADDIS-add-auction-btn {
+      background: #ffcc00;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    
+    .ADDIS-add-auction-btn:hover {
+      background: #e6b800; /* Darker yellow on hover */
+    }
+    
+    /* Hamburger Menu for Mobile */
+    .ADDIS-hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    
+    .ADDIS-hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #333;
+      margin: 3px 0;
+      border-radius: 2px;
+    }
+    
+    /* Responsive Design */
+    @media screen and (max-width: 768px) {
+      .ADDIS-navbar {
+        flex-wrap: wrap;
+        padding: 10px 20px;
+      }
+    
+      .ADDIS-menu {
+        display: none; /* Hide menu by default on small screens */
+        flex-direction: column;
+        background-color: #ffffff;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjusted for fixed navbar */
+        left: 0;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+    
+      .ADDIS-menu.active {
+        display: flex; /* Show menu when active */
+      }
+    
+      .ADDIS-menu-link {
+        padding: 10px;
+        text-align: center;
+        margin: 0;
+        border-top: 1px solid #ddd;
+      }
+    
+      .ADDIS-divider {
+        display: none; /* Remove dividers for mobile */
+      }
+    
+      .ADDIS-hamburger {
+        display: flex; /* Show hamburger menu on small screens */
+      }
+    
+      .ADDIS-actions {
+        display: none; /* Hide "Add Auction" button on small screens */
+      }
+    }
 .container {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
-}
-/* Overall Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 30px;
-  background-color: #fff; /* White background */
-  border-bottom: 1px solid #ddd; /* Optional light border for clarity */
 }
 
 /* Logo Styling */
@@ -90,10 +225,7 @@ body {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
+  
 
   .container {
     flex-direction: column;
@@ -117,6 +249,7 @@ body {
   justify-content: space-between;
   background-image: image-set("OIP.jpg");
   padding: 4rem 0;
+  margin-top: 72px;
   background-size: cover;
   background-position: center;
 }
@@ -454,174 +587,160 @@ body {
     width: 100%; /* Make button full-width on small screens */
   }
 }
-/* Footer General Styling */
-/* Footer General Styling */
-.footer-txt-light {
-  background-color: #000; /* Black background */
-  color: #fff; /* White text color */
-  padding: 40px 0; /* Top and bottom padding */
-  line-height: 1.8;
-  font-size: 1rem;
-  border-top: 4px solid #f1c40f; /* Yellow border at the top */
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 0;
+  border-top: 7px solid #f1c40f;
 }
 
-/* Footer Container */
-.footer-txt-light .container {
+.footer-container {
   max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Footer Columns */
-.footer-txt-light .row {
+  margin: 0px auto;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
-.footer-txt-light .row > div {
+.textlogo {
+  font-size: 28px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.text-primary {
+  color: #ffc107;
+}
+
+.description {
+  color: #ccc;
+  line-height: 1.8;
+}
+
+.footer-left, .footer-links, .footer-search, .footer-newsletter {
+  width: 23%;
   margin-bottom: 20px;
 }
 
-/* Logo and Description */
-.footer-txt-light .logo-lg .textlogo {
-  font-size: 1.8rem;
-  font-weight: bold;
+.footer-links h5, .footer-search h5, .footer-newsletter h5 {
+  font-size: 18px;
+  margin-bottom: 10px;
   color: #fff;
 }
 
-.footer-txt-light .logo-lg .textlogo .text-primary {
-  color: #f1c40f; /* Yellow accent */
-}
-
-.footer-txt-light .logo-lg .lh-30 {
-  color: #aaa;
-  font-size: 0.95rem;
-}
-
-/* Useful Links and Quick Search */
-.footer-txt-light ul {
+.footer-links ul, .footer-search ul {
   list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.footer-txt-light ul li {
+.footer-links ul li, .footer-search ul li {
   margin-bottom: 8px;
 }
 
-.footer-txt-light ul li a {
-  color: #fff;
+.footer-links a, .footer-search a {
+  color: #ccc;
   text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+  font-size: 14px;
 }
 
-.footer-txt-light ul li a:hover {
-  color: #f1c40f; /* Hover effect */
+.footer-links a:hover, .footer-search a:hover {
+  color: #ffc107;
 }
 
-/* Newsletter Section */
-.footer-txt-light .footer-newsletter {
-  margin-top: 10px;
-}
-
-.footer-txt-light .footer-newsletter .input-group {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.footer-txt-light .footer-newsletter input {
-  border: none;
+.footer-newsletter input {
   padding: 10px;
-  flex-grow: 1;
-  font-size: 1rem;
-  color: #333;
-}
-
-.footer-txt-light .footer-newsletter button {
-  background-color: #f1c40f; /* Yellow background */
+  width: 80%;
+  margin-right: 10px;
+  background-color: #222;
   border: none;
-  color: #000; /* Black text */
-  font-weight: bold;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  color: #fff;
+  border-radius: 5px;
 }
 
-.footer-txt-light .footer-newsletter button:hover {
-  background-color: #d4a00d;
+.footer-newsletter button {
+  padding: 10px 20px;
+  background-color: #ffc107;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.footer-newsletter button:hover {
+  background-color: #e6b800;
+}
+
+.footer-newsletter small {
+  display: block;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #ccc;
+}
+
+.footer-newsletter small a {
+  color: #ffc107;
+}
+
+.footer-newsletter small a:hover {
+  color: #fff;
 }
 
 /* Footer Bottom Section */
-.footer-txt-light .small {
-  text-align: center;
-  font-size: 0.85rem;
+.footer-bottom {
+  background-color: #222;
   color: #ccc;
-  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
 }
 
-.footer-txt-light .small a {
-  color: #f1c40f;
+a:hover {
+  background-color: gold;
+  color: white;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.footer-bottom .social-icons a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 18px;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-.footer-txt-light .small a:hover {
-  text-decoration: underline;
-  color: #fff;
+.footer-bottom .social-icons a:hover {
+  color: #ffc107;
 }
 
-/* Social Icons */
-.footer-txt-light .social-icons {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
-  gap: 15px;
-}
-
-.footer-txt-light .social-icons a {
-  color: #fff;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
-}
-
-.footer-txt-light .social-icons a:hover {
-  color: #f1c40f;
-}
-
-/* Responsive Adjustments */
+/* Responsive Design */
 @media (max-width: 768px) {
-  .footer-txt-light .row {
-    flex-direction: column;
-    text-align: center;
+  .footer-container {
+      flex-direction: column;
+      align-items: center;
   }
 
-  .footer-txt-light .logo-lg,
-  .footer-txt-light ul,
-  .footer-txt-light .footer-newsletter {
-    text-align: center;
+  .footer-left, .footer-links, .footer-search, .footer-newsletter {
+      width: 100%;
+      text-align: center;
   }
 
-  .footer-txt-light ul li {
-    margin-bottom: 5px;
+  .footer-newsletter input {
+      width: 100%;
+      margin-bottom: 10px;
   }
 
-  .footer-txt-light .footer-newsletter .input-group {
-    flex-direction: column;
+  .footer-newsletter button {
+      width: 100%;
   }
 
-  .footer-txt-light .footer-newsletter input {
-    margin-bottom: 10px;
-  }
-
-  .footer-txt-light .social-icons {
-    justify-content: center;
+  .footer-bottom {
+      text-align: center;
   }
 }
+
 /* Auctions Grid */
 .list-of-auctions-card {
   width: 300px;

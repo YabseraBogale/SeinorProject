@@ -10,43 +10,41 @@
 
 </head>
 <body>
-    <header class="ADDIS-navbar">
-        <div class="ADDIS-logo">
-          <span class="ADDIS-property">ADDIS</span>
-          <span class="ADDIS-auctions">CHERETA</span>
-        </div>
-        <!-- Toggle Button -->
-        <div class="ADDIS-hamburger" id="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <!-- Menu Links -->
-        <nav class="ADDIS-menu" id="menu">
-          <a href="#" class="ADDIS-menu-link">Home</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Search</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Ad Page</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Inner Pages</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Contact</a>
-          <span class="ADDIS-divider">|</span>
-          <a href="#" class="ADDIS-menu-link">Blog</a>
-        </nav>
-        <!-- Add Auction Button -->
-        <div class="ADDIS-actions">
-          <button class="ADDIS-add-auction-btn">Add Auction</button>
-        </div>
-    </header>
+
+   <header class="ADDIS-navbar">
+    <div class="ADDIS-logo">
+      <span class="ADDIS-property">ADDIS</span>
+      <span class="ADDIS-auctions">CHERETA</span>
+    </div>
+    <!-- Toggle Button -->
+    <div class="ADDIS-hamburger" id="hamburger"></div>
+    <!-- Menu Links -->
+    <nav class="ADDIS-menu" id="menu">
+      <a href="#" class="ADDIS-menu-link">Home</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Search</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Ad Page</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Inner Pages</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Contact</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Blog</a>
+    </nav>
+    <!-- Add Auction Button -->
+    <div class="ADDIS-actions">
+      <button class="ADDIS-add-auction-btn">Add Auction</button>
+    </div>
+</header>
 
     <div class="product-details">
         <!-- Content Container -->
         <div class="content-container">
             <div class="img-side">
-                <div class="left-side">
-                    <img src="{{url_for('static',filename=photos)}}" alt="Product Image">
+            
+                <div class="left-side" style="width: 800px; height: 500px; display: flex; align-items: center; justify-content: center; background-color: #f0f0f0; border: 1px solid #ddd; border-radius: 5px; overflow: hidden;">
+                    <img src="{{url_for('static',filename=photos)}}" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 5px;">
                 </div>
 
                 <div class="description-section">
@@ -59,6 +57,7 @@
                         <span>✓ Latest Model</span>
                     </div>
                 </div>
+            
         </div>
 
             <!-- Right Side: Countdown, Refunds, and Buttons -->
@@ -87,7 +86,7 @@
                 <form id ="formbid" action="http://127.0.0.1:5000/bid/{{IIDS}}" method="POST">
                     <div class="action-buttons">
                         <button class="btn bid-now">Bid Now <span>$</span></button>
-                        <input  type="number" name="bid" id="" min="{{startingprice}}">
+                        <input type="number" name="bid" min="{{startingprice}}"placeholder="Enter your bid" >
                         <input class="btn bid-now" type="submit" value="Bid">
                     </div>
                 </form>
@@ -285,50 +284,45 @@
     </div>
 
     <footer class="footer">
-        <div class="container">
-          <!-- Logo and Description -->
-          <div class="footer-left">
-            <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
-            <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
-          </div>
-      
-          <!-- Useful Links -->
-          <div class="footer-links">
-            <h5>Useful Links</h5>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">How it works</a></li>
-              <li><a href="#">Blog</a></li>
-            </ul>
-          </div>
-      
-          <!-- Quick Search -->
-          <div class="footer-search">
-            <h5>Quick Search</h5>
-            <ul>
-              <li><a href="#">Search</a></li>
-              <li><a href="#">Popular</a></li>
-              <li><a href="#">Newly Added</a></li>
-              <li><a href="#">Most Relevant</a></li>
-            </ul>
-          </div>
-      
-          <!-- Newsletter -->
-          <div class="footer-newsletter">
-            <h5>Join our newsletter</h5>
-            <p>We write rarely, but only the best content.</p>
-            <form>
-              <input type="email" placeholder="Email Address Here.." />
-              <button type="submit">Join</button>
-            </form>
-            <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
-          </div>
-        </div>
-      
-        <!-- Bottom Section -->
-        <div class="footer-bottom">
-          <p>© 2024 All rights reserved.</p>
+        <div class="footer-container">
+            <!-- Logo and Description -->
+            <div class="footer-left">
+                <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
+                <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
+            </div>
+    
+            <!-- Useful Links -->
+            <div class="footer-links">
+                <h5>Useful Links</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">How it works</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+    
+            <!-- Quick Search -->
+            <div class="footer-search">
+                <h5>Quick Search</h5>
+                <ul>
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Popular</a></li>
+                    <li><a href="#">Newly Added</a></li>
+                    <li><a href="#">Most Relevant</a></li>
+                </ul>
+            </div>
+    
+            <!-- Newsletter -->
+            <div class="footer-newsletter">
+                <h5>Join our newsletter</h5>
+                <p>We write rarely, but only the best content.</p>
+                <form>
+                    <input type="email" placeholder="Email Address Here.." />
+                    <button type="submit">Join</button>
+                </form>
+                <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+            </div>
         </div>
     </footer>
     <SCript>

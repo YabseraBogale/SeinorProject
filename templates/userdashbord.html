@@ -5,7 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{url_for('static',filename='rating.css')}}">
-  
   <title>Addis Chereta Dashboard</title>
   <style>
     * {
@@ -37,6 +36,7 @@
     align-items: center;
     min-height: 100vh;
     padding: 10px;
+    margin-top: 80px;
   }
   
   .CHERETA-container {
@@ -52,48 +52,89 @@
   
   /* Sidebar Styles */
   .CHERETA-sidebar {
-    width: 353px; /* Set sidebar width to 353px */
-    height: 779.6px; /* Set sidebar height to 779.6px */
-    background: #ffffff;
-    color: #000000;
-    padding: 20px;
-    text-transform: uppercase;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .CHERETA-sidebar ul {
-    padding: 0;
-  }
-  
-  .CHERETA-sidebar li {
-    width: 351.8px; /* Set width of li to 351.8px */
-    height: 106.4px; /* Set height of li to 106.4px */
-    padding: 15px 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Stack text and paragraph */
-    align-items: center;
-    justify-content: center; /* Center text and paragraph */
-  }
-  
-  .CHERETA-sidebar li.active,
-  .CHERETA-sidebar li:hover {
-    background: #0056b3;
-  }
-  
-  .CHERETA-sidebar li p {
-    font-size: 12px;
-    margin-top: 10px;
-    opacity: 0.8;
-    line-height: 1.4;
-    text-align: start;
-  }
+  width: 100%; /* Fully responsive */
+  max-width: 360px; /* Set a maximum width */
+  background: linear-gradient(135deg, #ffffff, #f3f4f6); /* Subtle gradient background */
+  color: #000000;
+  padding: 20px;
+  border-radius: 12px; /* Smooth corners */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Elegant shadow */
+  overflow: hidden; /* Prevent content overflow */
+  font-family: 'Arial', sans-serif;
+}
+
+.CHERETA-sidebar ul {
+  padding: 0;
+  margin: 0;
+  list-style: none; /* Remove default bullet points */
+}
+
+.CHERETA-sidebar li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Space for text and icons */
+  padding: 15px 20px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  background: #f9f9f9; /* Soft background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.CHERETA-sidebar li.active,
+.CHERETA-sidebar li:hover {
+  background: linear-gradient(135deg, #ffcc00, #007bff); /* Gradient for hover/active */
+  color: #ffffff; /* Inverted text color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Enhanced hover shadow */
+}
+
+.CHERETA-sidebar li:hover::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: #ff4500; /* Accent color for hover */
+  border-radius: 8px 0 0 8px;
+}
+
+.CHERETA-sidebar li p {
+  font-size: 13px; /* Slightly larger for readability */
+  color: #666; /* Subtle text color */
+  margin-top: 5px;
+  opacity: 0.85;
+  line-height: 1.6;
+  text-align: left; /* Align to the left */
+  max-width: 80%; /* Prevent overflow */
+}
+
+.CHERETA-sidebar li.active p,
+.CHERETA-sidebar li:hover p {
+  color: #e0e0e0; /* Lighter text in hover/active */
+}
+
+.CHERETA-sidebar li span {
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.CHERETA-sidebar li svg {
+  width: 24px;
+  height: 24px;
+  fill: #666; /* Default icon color */
+  transition: fill 0.3s ease;
+}
+
+.CHERETA-sidebar li.active svg,
+.CHERETA-sidebar li:hover svg {
+  fill: #ffffff; /* Icon color on hover/active */
+}
   
   /* Divider Styles */
   .CHERETA-divider {
@@ -183,67 +224,68 @@
     }
 
     /* Footer */
-    .footer {
+      .footer {
           background-color: #000;
           color: #fff;
           padding: 40px 0;
-        }
-        
-        .container {
+          border-top: 7px solid #f1c40f;
+      }
+  
+      .footer-container {
           max-width: 1200px;
-          margin: 0 auto;
+          margin: 0px auto;
           display: flex;
           justify-content: space-between;
           align-items: flex-start;
           flex-wrap: wrap;
-        }
-        
-        .textlogo {
+      }
+  
+      .textlogo {
           font-size: 28px;
           font-weight: bold;
           letter-spacing: 1px;
-        }
-        
-        .text-primary {
+      }
+  
+      .text-primary {
           color: #ffc107;
-        }
-        
-        .description {
+      }
+  
+      .description {
           color: #ccc;
           line-height: 1.8;
-        }
-        
-        .footer-left, .footer-links, .footer-search, .footer-newsletter {
+      }
+  
+      .footer-left, .footer-links, .footer-search, .footer-newsletter {
           width: 23%;
           margin-bottom: 20px;
-        }
-        
-        .footer-links h5, .footer-search h5, .footer-newsletter h5 {
+      }
+  
+      .footer-links h5, .footer-search h5, .footer-newsletter h5 {
           font-size: 18px;
           margin-bottom: 10px;
           color: #fff;
-        }
-        
-        .footer-links ul, .footer-search ul {
+      }
+  
+      .footer-links ul, .footer-search ul {
           list-style: none;
           padding: 0;
-        }
-        
-        .footer-links ul li, .footer-search ul li {
+      }
+  
+      .footer-links ul li, .footer-search ul li {
           margin-bottom: 8px;
-        }
-        
-        .footer-links a, .footer-search a {
+      }
+  
+      .footer-links a, .footer-search a {
           color: #ccc;
           text-decoration: none;
           font-size: 14px;
-        }
-        
-        .footer-links a:hover, .footer-search a:hover {
+      }
+  
+      .footer-links a:hover, .footer-search a:hover {
           color: #ffc107;
-        }
-        
-        .footer-newsletter input {
+      }
+  
+      .footer-newsletter input {
           padding: 10px;
           width: 80%;
           margin-right: 10px;
@@ -251,9 +293,9 @@
           border: none;
           color: #fff;
           border-radius: 5px;
-        }
-        
-        .footer-newsletter button {
+      }
+  
+      .footer-newsletter button {
           padding: 10px 20px;
           background-color: #ffc107;
           border: none;
@@ -261,234 +303,293 @@
           font-weight: bold;
           cursor: pointer;
           border-radius: 5px;
-        }
-        
-        .footer-newsletter button:hover {
+      }
+  
+      .footer-newsletter button:hover {
           background-color: #e6b800;
-        }
-        
-        .footer-newsletter small {
+      }
+  
+      .footer-newsletter small {
           display: block;
           margin-top: 10px;
           font-size: 12px;
           color: #ccc;
-        }
-        
-        .footer-newsletter small a {
+      }
+  
+      .footer-newsletter small a {
           color: #ffc107;
-        }
-        
-        .footer-newsletter small a:hover {
+      }
+  
+      .footer-newsletter small a:hover {
           color: #fff;
-        }
-        
-        /* Footer Bottom Section */
-        .footer-bottom {
+      }
+  
+      /* Footer Bottom Section */
+      .footer-bottom {
           background-color: #222;
           color: #ccc;
           padding: 20px;
           text-align: center;
-        }
-        
-        .footer-bottom .social-icons a {
+      }
+  
+      a:hover {
+          background-color: gold;
+          color: white;
+          padding: 5px;
+          border: 2px solid black;
+          border-radius: 5px;
+      }
+  
+      .footer-bottom .social-icons a {
           margin: 0 10px;
           color: #fff;
           font-size: 18px;
           text-decoration: none;
           transition: color 0.3s;
-        }
-        
-        .footer-bottom .social-icons a:hover {
+      }
+  
+      .footer-bottom .social-icons a:hover {
           color: #ffc107;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-          .container {
-            flex-direction: column;
-            align-items: center;
+      }
+  
+      /* Responsive Design */
+      @media (max-width: 768px) {
+          .footer-container {
+              flex-direction: column;
+              align-items: center;
           }
-        
+  
           .footer-left, .footer-links, .footer-search, .footer-newsletter {
-            width: 100%;
-            text-align: center;
+              width: 100%;
+              text-align: center;
           }
-        
+  
           .footer-newsletter input {
-            width: 100%;
-            margin-bottom: 10px;
+              width: 100%;
+              margin-bottom: 10px;
           }
-        
+  
           .footer-newsletter button {
-            width: 100%;
+              width: 100%;
           }
-        
+  
           .footer-bottom {
-            text-align: center;
+              text-align: center;
           }
-          .CHERETA-container {
-            flex-direction: column;
-          }
-
-          .CHERETA-sidebar {
-            width: 100%;
-            text-align: center;
-          }
-
-          .CHERETA-divider {
-            display: none;
-          }
-
-        }
+      }
 
   </style>
 </head>
 <body>
   <!-- Header -->
-  <header class="ADDIS-navbar">
+
+<style>/* General Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0; /* Remove default margin for full-width content */
+  }
+  
+  /* Navbar */
+  .ADDIS-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    color: #000000;
+    padding: 15px 30px;
+    border-radius: 0; /* Flush edges for pinned design */
+    position: fixed; /* Pin the navbar at the top */
+    top: 0; /* Position it at the very top */
+    width: 100%; /* Make it span the full width of the screen */
+    z-index: 1000; /* Keep it above all other elements */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow for separation */
+  }
+  
+  /* Logo Section */
+  .ADDIS-logo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .ADDIS-logo .ADDIS-property {
+    color: #000000;
+  }
+  
+  .ADDIS-logo .ADDIS-auctions {
+    color: #ffcc00;
+  }
+  
+  /* Menu Links */
+  .ADDIS-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ADDIS-menu-link {
+    color: #000000;
+    margin: 0 10px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .ADDIS-menu-link:hover {
+    color: #ffcc00; /* Highlight on hover */
+  }
+  
+  .ADDIS-divider {
+    color: #000000;
+    margin: 0 5px;
+  }
+  
+  /* Actions Section */
+  .ADDIS-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ADDIS-add-auction-btn {
+    background: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+  }
+  
+  .ADDIS-add-auction-btn:hover {
+    background: #e6b800; /* Darker yellow on hover */
+  }
+  
+  /* Hamburger Menu for Mobile */
+  .ADDIS-hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .ADDIS-hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 3px 0;
+    border-radius: 2px;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .ADDIS-navbar {
+      flex-wrap: wrap;
+      padding: 10px 20px;
+    }
+  
+    .ADDIS-menu {
+      display: none; /* Hide menu by default on small screens */
+      flex-direction: column;
+      background-color: #ffffff;
+      width: 100%;
+      position: absolute;
+      top: 60px; /* Adjusted for fixed navbar */
+      left: 0;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .ADDIS-menu.active {
+      display: flex; /* Show menu when active */
+    }
+  
+    .ADDIS-menu-link {
+      padding: 10px;
+      text-align: center;
+      margin: 0;
+      border-top: 1px solid #ddd;
+    }
+  
+    .ADDIS-divider {
+      display: none; /* Remove dividers for mobile */
+    }
+  
+    .ADDIS-hamburger {
+      display: flex; /* Show hamburger menu on small screens */
+    }
+  
+    .ADDIS-actions {
+      display: none; /* Hide "Add Auction" button on small screens */
+    }
+  }
+  
+</style>  
+<!-- Header -->
+
+<header class="ADDIS-navbar">
     <div class="ADDIS-logo">
       <span class="ADDIS-property">ADDIS</span>
       <span class="ADDIS-auctions">CHERETA</span>
     </div>
-    <nav class="ADDIS-menu">
+    <!-- Toggle Button -->
+    <div class="ADDIS-hamburger" id="hamburger"></div>
+    <!-- Menu Links -->
+    <nav class="ADDIS-menu" id="menu">
       <a href="#" class="ADDIS-menu-link">Home</a>
       <span class="ADDIS-divider">|</span>
       <a href="#" class="ADDIS-menu-link">Search</a>
-     
-      
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Ad Page</a>
+      <span class="ADDIS-divider">|</span>
+      <a href="#" class="ADDIS-menu-link">Inner Pages</a>
       <span class="ADDIS-divider">|</span>
       <a href="#" class="ADDIS-menu-link">Contact</a>
       <span class="ADDIS-divider">|</span>
       <a href="#" class="ADDIS-menu-link">Blog</a>
     </nav>
+    <!-- Add Auction Button -->
     <div class="ADDIS-actions">
-      <button class="ADDIS-add-auction-btn"><a href="{{url_for('addauction')}}" style="text-decoration: none;">Add Auction</a></button>
+      <button class="ADDIS-add-auction-btn">Add Auction</button>
     </div>
-  </header>
-  <style>/* Fullscreen container */
-    .ADDIS-center-container {
-        display: flex;
-        justify-content:none;
-        align-items: center;
-        background-color: #f0f0f0; /* Optional background color */
-        margin: 10px 90px 10px;
-        box-sizing: border-box;
-    }
-    
-    /* Admin Header Section */
-    .ADDIS-admin-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #f4f4f4; /* Light background */
-        padding: 20px;
-        border-bottom: 2px solid #ddd; /* Subtle border */
-        font-family: Arial, sans-serif;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        width: 642.24px; /* Fixed width */
-    }
-    
-    /* User Info Section */
-    .ADDIS-user-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 5px;
-    }
-    
-    .ADDIS-username {
-        font-size: 20px;
-        font-weight: bold;
-        color: #333;
-        margin: 0;
-    }
-    
-    .ADDIS-user-details {
-        font-size: 14px;
-        color: #555;
-        margin: 0;
-    }
-    
-    /* Header Buttons Section */
-    .ADDIS-header-buttons {
-        display: flex;
-        gap: 10px;
-    }
-    
-    .ADDIS-add-auction-btn,
-    .ADDIS-logout-btn {
-        padding: 10px 15px;
-        font-size: 14px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, color 0.3s ease;
-    }
-    
-    /* Add Auction Button */
-    .ADDIS-add-auction-btn {
-        background-color: #007bff;
-        color: #fff;
-    }
-    
-    .ADDIS-add-auction-btn:hover {
-        background-color: #0056b3;
-    }
-    
-    /* Logout Button */
-    .ADDIS-logout-btn {
-        background-color: #dc3545;
-        color: #fff;
-    }
-    
-    .ADDIS-logout-btn:hover {
-        background-color: #a71d2a;
-    }
-    
-  
-  </style>
-  <div class="ADDIS-center-container">
-  <div class="ADDIS-admin-header">
-      <div class="ADDIS-user-info">
-          <h2 class="ADDIS-username">admindemo</h2>
-          <p class="ADDIS-user-details">Agency • admindemo@premiumpress.com</p>
-      </div>
-      <div class="ADDIS-header-buttons">
-          <button class="ADDIS-add-auction-btn"> <a href="{{url_for('addauction')}}" style="text-decoration: none;">Add Auction</a></button>
-          <button class="ADDIS-logout-btn"><a href="{{url_for('logout')}}" style="text-decoration: none;">Logout</a></button>
-      </div>
-  </div>
-  </div>
+</header>
 
-
-  <!-- Main Content -->
+<!-- Main Content -->
   <div class="CHERETA-container-wrapper">
     <div class="CHERETA-container">
       <div class="CHERETA-sidebar">
         <ul>
           <li data-section="dashboard" class="active">
-            Dashboard
-            <p>Here you'll find your account overview, recent account notices and alerts.</p>
+            <div>
+              <span>Dashboard</span>
+              <p>Here you'll find your account overview, recent notices, and alerts.</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M3 12l18-12v24z" />
+            </svg>
           </li>
           <li data-section="bids">
-            My Bids
-            <p>Here you'll find your active bids and bidding history.</p>
+            <div>
+              <span>My Bids</span>
+              <p>Here you'll find your active bids and bidding history.</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M3 12l18-12v24z" />
+            </svg>
           </li>
-          <li data-section="messages">
-            Messages
-            <p>Here you can view your private messages and communication with other users.</p>
-          </li>
-          
           <li data-section="balance">
-            My Item
-            <p>View your Item and the Items</p>
-          </li>
-          
-          <li data-section="settings">
-            Settings
-            <p>Update your account settings, contact information, and password.</p>
-            
+            <div>
+              <span>My Items</span>
+              <p>View your items and the ones you’ve listed for sale.</p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M3 12l18-12v24z" />
+            </svg>
           </li>
         </ul>
       </div>
@@ -730,7 +831,7 @@
             </div>
                 <!-- Repeat other notices here -->
             </div>
-            <!-- <script>document.getElementById("scroll-down-btn").addEventListener("click", function () {
+            <script>document.getElementById("scroll-down-btn").addEventListener("click", function () {
               const noticesContainer = document.getElementById("notices-container");
               noticesContainer.scrollBy({
                   top: 100, // Adjust the scroll amount
@@ -738,7 +839,7 @@
               });
           });
           </script>          
-             -->
+            
         </section>
         
         </div>
@@ -800,10 +901,6 @@
                 {% endif %}
             </tbody>
           </table>
-        </div>
-        <div id="messages" class="CHERETA-section">
-          <h1>Messages</h1>
-          <p>Here you can chat with other users using our private message system.</p>
         </div>
         <div id="friends" class="CHERETA-section">
           <h1>My Friends</h1>
@@ -877,59 +974,53 @@
           <h1>Advertising</h1>
           <p>Manage your website banners and advertising here.</p>
         </div>
-        <div id="settings" class="CHERETA-section">
-          <h1>Settings</h1>
-          <p>Update your contact details, email, password, and other settings here.</p>
-        </div>
       </div>
     </div>
   </div>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container">
-      <!-- Logo and Description -->
-      <div class="footer-left">
-        <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
-        <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
-      </div>
-  
-      <!-- Useful Links -->
+    <div class="footer-container">
+        <!-- Logo and Description -->
+        <div class="footer-left">
+            <div class="textlogo">Addis <span class="text-primary">Chereta</span></div>
+            <p class="description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
+        </div>
 
-      <!-- Quick Search -->
-      <div class="footer-search">
-        <h5>Quick Search</h5>
-        <ul>
-          <li><a href="#">Search</a></li>
-          <li><a href="#">Popular</a></li>
-          <li><a href="#">Newly Added</a></li>
-          <li><a href="#">Most Relevant</a></li>
-        </ul>
-      </div>
-  
-      <!-- Newsletter -->
-      <div class="footer-newsletter">
-        <h5>Join our newsletter</h5>
-        <p>We write rarely, but only the best content.</p>
-        <form>
-          <input type="email" placeholder="Email Address Here.." />
-          <button type="submit">Join</button>
-        </form>
-        <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
-      </div>
+        <!-- Useful Links -->
+        <div class="footer-links">
+            <h5>Useful Links</h5>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </div>
+
+        <!-- Quick Search -->
+        <div class="footer-search">
+            <h5>Quick Search</h5>
+            <ul>
+                <li><a href="#">Search</a></li>
+                <li><a href="#">Popular</a></li>
+                <li><a href="#">Newly Added</a></li>
+                <li><a href="#">Most Relevant</a></li>
+            </ul>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="footer-newsletter">
+            <h5>Join our newsletter</h5>
+            <p>We write rarely, but only the best content.</p>
+            <form>
+                <input type="email" placeholder="Email Address Here.." />
+                <button type="submit">Join</button>
+            </form>
+            <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+        </div>
     </div>
-  
-    <!-- Bottom Section -->
-    <div class="footer-bottom">
-      <p>© 2024 All rights reserved.</p>
-      <div class="social-icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
-        <a href="#"><i class="fa fa-youtube"></i></a>
-      </div>
-    </div>
-  </footer>
+</footer>
   
   <script>
     document.addEventListener("DOMContentLoaded", () => {
