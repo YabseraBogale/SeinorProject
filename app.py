@@ -90,6 +90,8 @@ def reset():
 
 @app.route('/login',methods=['GET','Post'])
 def login():
+    if "logged" in session and session["logged"]==True:
+        return redirect(url_for('userdashboard'))
     if request.method == "POST":
         email=request.form['email']
         password=request.form['password']
@@ -131,6 +133,8 @@ def verfication():
 @app.route('/regsister',methods=['GET','POST'])
 def regsister():
     if 'forgot' in session:
+        return redirect(url_for('login'))
+    if "logged" in session and session["logged"]==True:
         return redirect(url_for('login'))
     if request.method == "POST":
         firstname=request.form["Firstname"]
@@ -465,7 +469,10 @@ def IIDtime(IID):
 
 @app.route("/")
 def home():
-    return render_template("home.html")
+    if "logged" in session and session["logged"]==True:
+        return render_template("home.html",State=session["logged"])
+    else:
+        return render_template("home.html",State=False)
 
 
 @app.route("/logout")
@@ -475,7 +482,7 @@ def logout():
     session.pop('forgot',None)
     session.pop('UID',None)
     session.pop('logged',None)
-    return render_template('home.html')
+    return redirect("http://127.0.0.1:5000")
 
 if __name__=="__main__":
     # # to be turned on deployemnt for logging

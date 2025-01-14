@@ -20,13 +20,21 @@
       <nav class="ADDIS-menu" id="menu">
         <a href="#" class="ADDIS-menu-link">Home</a>
         <span class="ADDIS-divider">|</span>
+        {% if State==True %}
         <a href="http://127.0.0.1:5000/search" class="ADDIS-menu-link">Search</a>
-        <span class="ADDIS-divider">|</span>
-        <a href="http://127.0.0.1:5000/addauction" class="ADDIS-menu-link">Add Auction</a>
         <span class="ADDIS-divider">|</span>
         <a href="http://127.0.0.1:5000/userdashboard" class="ADDIS-menu-link">Dashboard</a>
         <span class="ADDIS-divider">|</span>
         <a href="http://127.0.0.1:5000/logout" class="ADDIS-menu-link">Logout</a>
+        {% else %}
+        <a href="http://127.0.0.1:5000/search" class="ADDIS-menu-link">Search</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="http://127.0.0.1:5000/regsister" class="ADDIS-menu-link">Regsister</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="http://127.0.0.1:5000/userdashboard" class="ADDIS-menu-link">Dashboard</a>
+        <span class="ADDIS-divider">|</span>
+        <a href="http://127.0.0.1:5000/login" class="ADDIS-menu-link">Login</a>
+        {% endif %}
         <span class="ADDIS-divider">|</span>
         <a href="#" class="ADDIS-menu-link">About Us</a>
       </nav>
