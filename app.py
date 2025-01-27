@@ -24,14 +24,14 @@ from Database.rating import Rating
 from datetime import datetime,timedelta
 
 app=Flask(__name__)
-# What is secret key in app ?
+# What is secret key in app ? Random generted string
 app.secret_key = 'your_secret_key'
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = Config().email # Use Our actual Gmail address
 app.config['MAIL_PASSWORD'] = Config().mailpassword      # Use Our generated App Password from gmail Api
-app.config['MAIL_USE_TLS'] = True # What is TLS and Why is set to true
-app.config['MAIL_USE_SSL'] = False # What is SSL and Why is set to false
+app.config['MAIL_USE_TLS'] = True 
+app.config['MAIL_USE_SSL'] = False 
 app.config["SESSION_TYPE"] = "filesystem" # This refering to the flask_session folder where it contains the session files
 app.config['UPLOAD_FOLDER']="./static/upload" # location of the any of the images that are uploaded
 
@@ -302,14 +302,14 @@ def rateUID(UID):
 @app.route("/search",methods=["GET","POST"])
 def search():
     if "logged" in session and session["logged"]==True:
+        
         if request.method=="POST":
             result=[]
             price=request.form["price"]
-            if price.isdigit()!=True:
-                return render_template("search.html",table=[])
             categories=request.form["categories"]
             name=request.form["name"]
             result=item.Search(name,price,categories)
+            
             if result is []:
                 return render_template("search.html",table=result)
             return render_template("search.html",table=result)
