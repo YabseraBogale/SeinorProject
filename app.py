@@ -309,7 +309,6 @@ def search():
             categories=request.form["categories"]
             name=request.form["name"]
             result=item.Search(name,price,categories)
-            
             if result is []:
                 return render_template("search.html",table=result)
             return render_template("search.html",table=result)
@@ -444,7 +443,6 @@ def adminDashboradEmail():
                 return redirect(url_for("adminDashborad"))
         except Exception as e:
             return redirect(url_for("adminDashborad"))
-
     return render_template("adminDashborad.html")
 
 @app.route("/all-users-users-table")
@@ -474,7 +472,6 @@ def home():
     else:
         return render_template("home.html",State=False)
 
-
 @app.route("/logout")
 def logout():
     session.pop('status',None)
@@ -485,15 +482,15 @@ def logout():
     return redirect("http://127.0.0.1:5000")
 
 if __name__=="__main__":
-    # # to be turned on deployemnt for logging
-    # logging.basicConfig(
-    #     filename='error.log',  # Log to 'error.log'
-    #     level=logging.ERROR,   # Only log errors and critical issues
-    #     format='%(asctime)s - %(levelname)s - %(message)s'  # Log format
-    # )
+    # to be turned on deployemnt for logging
+    logging.basicConfig(
+        filename='error.log',  # Log to 'error.log'
+        level=logging.ERROR,   # Only log errors and critical issues
+        format='%(asctime)s - %(levelname)s - %(message)s'  # Log format
+    )
 
-    # # Redirect Flask's logger to the root logger
-    # handler = logging.FileHandler('error.log')
-    # handler.setLevel(logging.DEBUG)
-    # app.logger.addHandler(handler)
+    # Redirect Flask's logger to the root logger
+    handler = logging.FileHandler('error.log')
+    handler.setLevel(logging.DEBUG)
+    app.logger.addHandler(handler)
     app.run(debug=True)
