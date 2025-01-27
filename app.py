@@ -482,15 +482,16 @@ def logout():
     return redirect("http://127.0.0.1:5000")
 
 if __name__=="__main__":
-    # to be turned on deployemnt for logging
-    logging.basicConfig(
-        filename='error.log',  # Log to 'error.log'
-        level=logging.ERROR,   # Only log errors and critical issues
-        format='%(asctime)s - %(levelname)s - %(message)s'  # Log format
-    )
+    # # to be turned on deployemnt for logging
+    # logging.basicConfig(
+    #     filename='error.log',  # Log to 'error.log'
+    #     level=logging.ERROR,   # Only log errors and critical issues
+    #     format='%(asctime)s - %(levelname)s - %(message)s'  # Log format
+    # )
 
-    # Redirect Flask's logger to the root logger
-    handler = logging.FileHandler('error.log')
-    handler.setLevel(logging.DEBUG)
-    app.logger.addHandler(handler)
+    # # Redirect Flask's logger to the root logger
+    # handler = logging.FileHandler('error.log')
+    # handler.setLevel(logging.DEBUG)
+    # app.logger.addHandler(handler)
+    # # set debug to False for deployemnt in production
     app.run(debug=True)
