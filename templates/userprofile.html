@@ -3,55 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url_for('static',filename='rating.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <link rel="stylesheet" href="{{url_for('static',filename='rating.css')}}"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> 
     <title>User Profile</title>
+    <link rel="stylesheet" href="./tar.css">
 </head>
 <body>
-<div class="main">
-    <div class="img">
-        {% if Photo=="None" %}
-            <img src="" alt="None Provided">
-        {% else %}
-            <img src="{{url_for('static',filename=Photo)}}" alt="Wating For Network">
-        {% endif %}
+<header class="navbar-navbar">
+    <div class="navbar-logo">
+      <span class="navbar-property">ADDIS</span>
+      <span class="navbar-auctions">CHERETA</span>
     </div>
-    <div class="info">
-        <h3>
-            Highest Bid Profile
-        </h3>
-        <ul>
-            <li>
-                Email: {{Email}}
-            </li>
-            <li>
-                Phonenumber: {{Phonenumber}}
-            </li>
-            <li>
-                Rating: {{Rating}}
-            </li>
-        </ul>
+    <!-- Toggle Button -->
+    <div class="navbar-hamburger" id="hamburger"></div>
+    <!-- Menu Links -->
+    <nav class="navbar-menu" id="menu">
+      <a href="http://127.0.0.1:5000" class="navbar-menu-link">Home</a>
+      <span class="navbar-divider">|</span>
+      <a href="http://127.0.0.1:5000/search" class="navbar-menu-link">Search</a>
+      <span class="navbar-divider">|</span>
+    
+      <a href="http://127.0.0.1:5000/userdashboard" class="navbar-menu-link">Dashboard</a>
+      <span class="navbar-divider">|</span>
+      <a href="http://127.0.0.1:5000/logout" class="navbar-menu-link">Logout</a>
+      <span class="navbar-divider">|</span>
+      <a href="#" class="navbar-menu-link">About Us</a>
+    </nav>
+    <!-- Add Auction Button -->
+    <div class="navbar-actions">
+      <a href="http://127.0.0.1:5000/addauction" class="navbar-add-auction-btn">Add Auction</a>
     </div>
+</header>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+
+  hamburger.addEventListener('click', () => {
+    menu.classList.toggle('active');
+  });
+</script>
+
+<div class="main-main">
+  <div class="main-img">
+      {% if Photo == "None" %}
+          <img src="./photo_2025-01-04_19-48-05.jpg" alt="None Provided">
+      {% else %}
+          <img src="./photo_2025-01-04_19-48-05.jpg" alt="Waiting For Network">
+      {% endif %}
+  </div>
+  <div class="main-info">
+      <h3>Highest Bid Profile</h3>
+      <ul>
+          <li>Email: {{Email}}</li>
+          <li>Phone Number: {{Phonenumber}}</li>
+          <li>Rating: {{Rating}}</li>
+      </ul>
+  </div>
+  <div class="main-txt-center" id="sellerRATE">
+      <h3>Rate Highest Bid Profile</h3>
+      <form action="http://127.0.0.1:5000/rateUID/{{UID}}" method="POST">
+          <div class="main-rating">
+              <input id="star5" name="star" type="radio" value="5" class="main-radio-btn" />
+              <label for="star5">☆</label>
+              <input id="star4" name="star" type="radio" value="4" class="main-radio-btn" />
+              <label for="star4">☆</label>
+              <input id="star3" name="star" type="radio" value="3" class="main-radio-btn" />
+              <label for="star3">☆</label>
+              <input id="star2" name="star" type="radio" value="2" class="main-radio-btn" />
+              <label for="star2">☆</label>
+              <input id="star1" name="star" type="radio" value="1" class="main-radio-btn" />
+              <label for="star1">☆</label>
+              <div class="main-clear"></div>
+              <input type="submit" value="Rate" />
+          </div>
+      </form>
+  </div>
 </div>
-<div class="txt-center" id="sellerRATE">
-    <h3>Rate Highest Bid Profile</h3>            
-    <form action="http://127.0.0.1:5000/rateUID/{{UID}}" method="POST">
-        <div class="rating">
-            <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
-            <label for="star5">☆</label>
-            <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
-            <label for="star4">☆</label>
-            <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
-            <label for="star3">☆</label>
-            <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
-            <label for="star2">☆</label>
-            <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
-            <label for="star1">☆</label>
-            <div class="clear"></div>
-            <input type="submit" value="rate" style="background-color: orange; font-size: medium; border: 2px solid orange;border-radius: 5px;">
-        </div>
-    </form>
-</div>
+
+<footer class="footer-footer">
+  <div class="footer-container">
+      <!-- Logo and Description -->
+      <div class="footer-left">
+          <div class="footer-textlogo">Addis <span class="footer-text-primary">Chereta</span></div>
+          <p class="footer-description">We are available to help answer your questions. Contact us today and we'll be happy to help.</p>
+      </div>
+
+      <!-- Useful Links -->
+      <div class="footer-links">
+          <h5>Useful Links</h5>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">How it works</a></li>
+              <li><a href="#">Blog</a></li>
+          </ul>
+      </div>
+
+      <!-- Quick Search -->
+      <div class="footer-search">
+          <h5>Quick Search</h5>
+          <ul>
+              <li><a href="#">Search</a></li>
+              <li><a href="#">Popular</a></li>
+              <li><a href="#">Newly Added</a></li>
+              <li><a href="#">Most Relevant</a></li>
+          </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="footer-newsletter">
+          <h5>Join our newsletter</h5>
+          <p>We write rarely, but only the best content.</p>
+          <form>
+              <input type="email" placeholder="Email Address Here.." />
+              <button type="submit">Join</button>
+          </form>
+          <small>We'll never share your details. See our <a href="#">Privacy Policy</a>.</small>
+      </div>
+  </div>
+</footer>
 
 </body>
 </html>
