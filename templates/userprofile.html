@@ -46,9 +46,9 @@
 <div class="main-main">
   <div class="main-img">
       {% if Photo == "None" %}
-          <img src="./photo_2025-01-04_19-48-05.jpg" alt="None Provided">
+          <img alt="None Provided">
       {% else %}
-          <img src="./photo_2025-01-04_19-48-05.jpg" alt="Waiting For Network">
+          <img src="{{url_for('static',filename=Photo)}}" alt="Waiting For Network">
       {% endif %}
   </div>
   <div class="main-info">
